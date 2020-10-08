@@ -15,6 +15,8 @@ public class Ability_Test : MonoBehaviour
     public GameObject spawnProjectile;
     public Vector3 offset, targetPos;
     public LayerMask clickable;
+    private float offsetBetweenProj = -2.0f;
+    private int countProjSpawn = 0;
     private void Update()
     {
         Ray rayToCursor = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -28,23 +30,29 @@ public class Ability_Test : MonoBehaviour
         //Once Alpha2 on keyboard is pressed down.
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            float offsetBetweenProj = -2.0f;
-            for (int i = 0; i < spawnCount; i++)
+            StartCoroutine(spawnProj());
+        }
+    }
+
+    IEnumerator spawnProj()
+    {
+        for (int i = 0; i < spawnCount; i++)
+        {
+            offset = transform.position - (transform.forward * 3.0f) + (transform.right * offsetBetweenProj);
+            GameObject spawnClone = Instantiate(spawnProjectile, offset, Quaternion.identity);
+
+            spawnClone.transform.LookAt(targetPos);
+            offsetBetweenProj += 1.0f;
+            yield return new WaitForSeconds(0.2f);
+            Rigidbody cloneRB = spawnClone.GetComponent<Rigidbody>();
+            countProjSpawn++;
+            if (countProjSpawn >= spawnCount)
             {
-                offset = transform.position - (transform.forward * 3.0f) + (transform.right * offsetBetweenProj);
-                GameObject spawnClone = Instantiate(spawnProjectile, offset, Quaternion.identity);
-
-                spawnClone.transform.LookAt(targetPos);
-                offsetBetweenProj += 1.0f;
-                Rigidbody cloneRB = spawnClone.GetComponent<Rigidbody>();
-                cloneRB.AddForce(spawnClone.transform.forward * 500.0f, ForceMode.Acceleration);
-
                 Destroy(spawnClone, 2.0f);
-                if (i >= spawnCount - 1)
-                {
-                    offsetBetweenProj = -2.0f;
-                }
+                offsetBetweenProj = -2.0f;
+                countProjSpawn = 0;
             }
+            cloneRB.AddForce(spawnClone.transform.forward * 500.0f, ForceMode.Acceleration);
         }
     }
 }
