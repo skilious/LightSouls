@@ -48,11 +48,11 @@ public class Ability_Test : MonoBehaviour
             countProjSpawn++;
             if (countProjSpawn >= spawnCount)
             {
-                Destroy(spawnClone, 2.0f);
                 offsetBetweenProj = -2.0f;
                 countProjSpawn = 0;
             }
             cloneRB.AddForce(spawnClone.transform.forward * 500.0f, ForceMode.Acceleration);
+            Destroy(spawnClone, 2.0f);
         }
     }
 }

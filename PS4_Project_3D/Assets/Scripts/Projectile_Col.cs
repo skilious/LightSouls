@@ -8,6 +8,9 @@ public class Projectile_Col : MonoBehaviour
     public float damage;
     public string tagName;
     private bool reflected = false;
+    public bool grenadeSelected = false;
+    float timer = 0;
+    public GameObject projectiles;
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -28,6 +31,27 @@ public class Projectile_Col : MonoBehaviour
             rb.velocity = Vector3.Reflect(rb.velocity, transform.forward);
             rb.rotation = Quaternion.LookRotation(rb.velocity);
             reflected = true;
+        }
+    }
+
+    private void Update()
+    {
+        if(grenadeSelected)
+        {
+            timer += Time.deltaTime;
+            if(timer >= 1.95f)
+            {
+                for (int i = 0; i < 10; i++)
+                {
+                    float rand = Random.Range(0.0f, 360.0f);
+                    Quaternion rot = Quaternion.AngleAxis(rand, Vector3.up);
+                    GameObject explosionClone = Instantiate(projectiles, transform.position, rot);
+                    Rigidbody cloneRB = explosionClone.GetComponent<Rigidbody>();
+                    cloneRB.AddForce(explosionClone.transform.forward * 500.0f, ForceMode.Acceleration);
+                    Destroy(explosionClone, 2.0f);
+                }
+                timer = 0;
+            }
         }
     }
 
