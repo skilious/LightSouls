@@ -8,9 +8,14 @@ public class Projectile_Col : MonoBehaviour
     public float damage;
     public string tagName;
     private bool reflected = false;
-    public bool grenadeSelected = false;
-    float timer = 0;
+    public bool grenadeSelected = false, canReflect = false;
+    private float timer = 0;
     public GameObject projectiles;
+
+    private bool enableTimer = false;
+
+    protected private Vector3 curPos = Vector3.zero;
+    public float timerToDisable = 0;
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -20,13 +25,13 @@ public class Projectile_Col : MonoBehaviour
         if(collision.gameObject.tag == tagName)
         {
             Player_Health.curHealth -= damage;
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
         else if (collision.gameObject.tag == "Wall")
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
-        else if(collision.gameObject.tag == "Barrier" && !reflected)
+        else if(collision.gameObject.tag == "Barrier" && !reflected && canReflect)
         {
             rb.velocity = Vector3.Reflect(rb.velocity, transform.forward);
             rb.rotation = Quaternion.LookRotation(rb.velocity);
@@ -36,7 +41,12 @@ public class Projectile_Col : MonoBehaviour
 
     private void Update()
     {
-        if(grenadeSelected)
+        timerToDisable += Time.deltaTime;
+        if (timerToDisable >= 3.0f)
+        {
+            gameObject.SetActive(false);
+        }
+        if (grenadeSelected)
         {
             timer += Time.deltaTime;
             if(timer >= 1.95f)
@@ -45,11 +55,18 @@ public class Projectile_Col : MonoBehaviour
                 {
                     float rand = Random.Range(0.0f, 360.0f);
                     Quaternion rot = Quaternion.AngleAxis(rand, Vector3.up);
-                    GameObject explosionClone = Instantiate(projectiles, transform.position, rot);
+                    GameObject explosionClone = Object_Pooling.SharedInstance.GetPooledObject("Projectile");
+                    explosionClone.SetActive(true);
+                    explosionClone.transform.position = curPos;
+                    explosionClone.transform.rotation = rot;
                     Rigidbody cloneRB = explosionClone.GetComponent<Rigidbody>();
                     cloneRB.AddForce(explosionClone.transform.forward * 500.0f, ForceMode.Acceleration);
-                    Destroy(explosionClone, 2.0f);
+                    if(timerToDisable >= 4.0f)
+                    {
+                        cloneRB.gameObject.SetActive(false);
+                    }
                 }
+                gameObject.SetActive(false);
                 timer = 0;
             }
         }
@@ -57,6 +74,21 @@ public class Projectile_Col : MonoBehaviour
 
     private void LateUpdate()
     {
+        curPos = transform.position;
         reflected = false;
+    }
+
+    private void OnEnable()
+    {
+        print("Enabled object!");
+        enableTimer = true;
+    }
+
+    private void OnDisable()
+    {
+        print("Disabled object!");
+        timerToDisable = 0;
+        rb.velocity = Vector3.zero;
+        enableTimer = false;
     }
 }

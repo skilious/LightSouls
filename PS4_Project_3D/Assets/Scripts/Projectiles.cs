@@ -26,15 +26,17 @@ public class Projectiles : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
+            Vector3 getPos = transform.position + transform.forward * 2.0f;
             switch (shootTypes)
             {
                 case ShootTypes.Basic_Shots:
                     {
-                        GameObject cloning = Instantiate(obj, transform.position + transform.forward * 2.0f, transform.rotation);
-
+                        GameObject cloning = Object_Pooling.SharedInstance.GetPooledObject("Projectile");
+                        cloning.SetActive(true);
+                        cloning.transform.position = getPos;
+                        cloning.transform.rotation = transform.rotation;
                         Rigidbody rb = cloning.gameObject.GetComponent<Rigidbody>();
                         rb.AddForce(transform.forward * BasicSpeed, ForceMode.Acceleration);
-                        Destroy(cloning, 3.0f);
                         break;
                     }
                 case ShootTypes.Shotgun_Shots:
@@ -43,12 +45,13 @@ public class Projectiles : MonoBehaviour
                         for (int i = 0; i < 3; i++)
                         {
                             float spread = Random.Range(-30, 30);
-                            GameObject cloning = Instantiate(obj, transform.position + transform.forward * 3.0f, transform.rotation);
+                            GameObject cloning = Object_Pooling.SharedInstance.GetPooledObject("Projectile");
+                            cloning.SetActive(true);
+                            cloning.transform.position = getPos;
+                            cloning.transform.rotation = transform.rotation;
                             cloning.transform.Rotate(0, spread, 0);
                             Rigidbody rb = cloning.gameObject.GetComponent<Rigidbody>();
                             rb.AddForce(cloning.transform.forward * ShotgunSpeed, ForceMode.Acceleration);
-
-                            Destroy(cloning, 3.0f);
                         }
                         break;
                     }

@@ -17,6 +17,8 @@ public class Ability_Test : MonoBehaviour
     public LayerMask clickable;
     private float offsetBetweenProj = -2.0f;
     private int countProjSpawn = 0;
+
+    protected private float timer = 0f;
     private void Update()
     {
         Ray rayToCursor = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -39,8 +41,10 @@ public class Ability_Test : MonoBehaviour
         for (int i = 0; i < spawnCount; i++)
         {
             offset = transform.position - (transform.forward * 3.0f) + (transform.right * offsetBetweenProj);
-            GameObject spawnClone = Instantiate(spawnProjectile, offset, Quaternion.identity);
-
+            GameObject spawnClone = Object_Pooling.SharedInstance.GetPooledObject("Projectile");
+            spawnClone.transform.position = offset;
+            spawnClone.transform.rotation = Quaternion.identity;
+            spawnClone.SetActive(true);
             spawnClone.transform.LookAt(targetPos);
             offsetBetweenProj += 1.0f;
             yield return new WaitForSeconds(0.2f);
@@ -52,7 +56,6 @@ public class Ability_Test : MonoBehaviour
                 countProjSpawn = 0;
             }
             cloneRB.AddForce(spawnClone.transform.forward * 500.0f, ForceMode.Acceleration);
-            Destroy(spawnClone, 2.0f);
         }
     }
 }

@@ -12,7 +12,6 @@ public class CharacterMovement : MonoBehaviour
     };
 
     private DashState dashState;
-    private Vector3 dashVector;
 
     public float speed;
     public float maxTimer;

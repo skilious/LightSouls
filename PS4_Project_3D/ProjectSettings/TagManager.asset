@@ -7,6 +7,8 @@ TagManager:
   - Hoverable
   - Temp
   - Barrier
+  - Projectile
+  - Grenade
   layers:
   - Default
   - TransparentFX
