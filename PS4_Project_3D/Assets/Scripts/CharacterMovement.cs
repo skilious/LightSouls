@@ -52,7 +52,6 @@ public class CharacterMovement : MonoBehaviour
             case DashState.Ready:
                 {
                     bool isKeyDown = Input.GetKeyDown(KeyCode.Space);
-                    print(transform.forward);
                     if (isKeyDown)
                     {
                         gameObject.tag = "Temp";
