@@ -2,30 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ability_Boomerang : MonoBehaviour
+public class AI_Projectile : MonoBehaviour
 {
-    public enum Ability_State
+    public enum Boomerang_State
     {
         activate,
         returning
     };
     public float maxDistance;
-    public GameObject obj;
     GameObject instantiateObj;
     private float curDistance;
-    public static Ability_State ability_state;
+    public static Boomerang_State ability_state;
 
     public static bool instantiated = false;
 
+    public float timer = 0.0f;
+    public float maxTimer;
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha4) && ability_state != Ability_State.activate)
+        timer += Time.deltaTime;
+        if (timer > maxTimer && timer <= maxTimer + 0.1f && ability_state != Boomerang_State.activate)
         {
-            ability_state = Ability_State.activate;
+            ability_state = Boomerang_State.activate;
+            print("Switch states to activate");
         }
-        switch(ability_state)
+        switch (ability_state)
         {
-            case Ability_State.activate:
+            case Boomerang_State.activate:
                 {
                     if (!instantiated)
                     {
@@ -38,13 +41,16 @@ public class Ability_Boomerang : MonoBehaviour
                     Rigidbody cloneRb = instantiateObj.GetComponent<Rigidbody>();
                     cloneRb.AddForce(instantiateObj.transform.forward * 2.5f, ForceMode.Acceleration);
                     curDistance = Vector3.Distance(transform.position, instantiateObj.transform.position);
-                    if (curDistance > maxDistance)
+                    if (timer >= maxTimer + 1.5f)
                     {
-                        ability_state = Ability_State.returning;
+                        timer = 0;
+                        instantiated = false;
+                        print("Switch states to Returning");
+                        ability_state = Boomerang_State.returning;
                     }
                     break;
                 }
-            case Ability_State.returning:
+            case Boomerang_State.returning:
                 {
                     Vector3 dirRot = instantiateObj.transform.position - transform.position;
                     Rigidbody cloneRb = instantiateObj.GetComponent<Rigidbody>();

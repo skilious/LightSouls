@@ -18,15 +18,17 @@ public class CharacterMovement : MonoBehaviour
     public float timer = 0;
 
     [SerializeField]
-    private float moveSpd;
+    private float moveSpd = 0;
 
     public static Rigidbody rb;
     private bool dashing = false;
-
+    
     public static Vector3 forward, right;
 
+    private ParticleSystem dashParticle;
     private void Awake()
     {
+        dashParticle = GameObject.Find("Particle_Effect").GetComponent<ParticleSystem>();
         timer = maxTimer;
         rb = GetComponent<Rigidbody>();
         forward = Camera.main.transform.forward;
@@ -57,6 +59,7 @@ public class CharacterMovement : MonoBehaviour
                         gameObject.tag = "Temp";
                         dashing = true;
                         dashState = DashState.Dashing;
+                        dashParticle.Play();
                     }
                     break;
                 }
@@ -67,6 +70,7 @@ public class CharacterMovement : MonoBehaviour
                     rb.AddForce(transform.forward * smoothness, ForceMode.VelocityChange);
                     if (timer >= maxTimer)
                     {
+                        dashParticle.Stop();
                         dashing = false;
                         timer = maxTimer;
                         dashState = DashState.Cooldown;
@@ -78,7 +82,6 @@ public class CharacterMovement : MonoBehaviour
                 {
                     timer -= Time.deltaTime;
                     gameObject.tag = "Player";
-                    print("No longer dashing!");
                     if (timer <= 0)
                     {
                         timer = 0;

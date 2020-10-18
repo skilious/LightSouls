@@ -101,6 +101,7 @@ MonoBehaviour:
   tagName: Enemy
   grenadeSelected: 0
   canReflect: 0
+  reflect: 1
   projectiles: {fileID: 0}
   timerToDisable: 0
 --- !u!54 &1892566664186639815

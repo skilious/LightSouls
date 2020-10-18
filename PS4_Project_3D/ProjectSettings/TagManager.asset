@@ -9,6 +9,7 @@ TagManager:
   - Barrier
   - Projectile
   - Grenade
+  - healthSlider
   layers:
   - Default
   - TransparentFX

@@ -23,6 +23,7 @@ public class cameraFollow : MonoBehaviour
     {
         if(!rotating)
         {
+            smoothSpeed = 0.0f;
             if (Input.GetKeyDown(KeyCode.E))
             {
                 directions++;
@@ -46,7 +47,8 @@ public class cameraFollow : MonoBehaviour
 
     IEnumerator rotationChange()
     {
-        if(rotating)
+        smoothSpeed = 0.1f;
+        if (rotating)
         {
             yield return null;
         }

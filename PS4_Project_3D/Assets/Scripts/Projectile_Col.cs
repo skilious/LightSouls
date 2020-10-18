@@ -16,10 +16,11 @@ public class Projectile_Col : MonoBehaviour
 
     protected private Vector3 curPos = Vector3.zero;
     public float timerToDisable = 0;
-    private void Start()
+    private void Awake()
     {
-        rb = GetComponent<Rigidbody>();
+        rb = gameObject.GetComponent<Rigidbody>();
     }
+
     private void OnTriggerEnter(Collider collision)
     {
         if(collision.gameObject.tag == tagName)
@@ -80,13 +81,11 @@ public class Projectile_Col : MonoBehaviour
 
     private void OnEnable()
     {
-        print("Enabled object!");
         enableTimer = true;
     }
 
     private void OnDisable()
     {
-        print("Disabled object!");
         timerToDisable = 0;
         rb.velocity = Vector3.zero;
         enableTimer = false;
