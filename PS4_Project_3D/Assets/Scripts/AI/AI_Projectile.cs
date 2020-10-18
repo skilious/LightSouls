@@ -9,11 +9,17 @@ public class AI_Projectile : MonoBehaviour
         activate,
         returning
     };
+
+    public enum Abilities
+    {
+        boomerang,
+        grenade
+    };
     public float maxDistance;
     GameObject instantiateObj;
     private float curDistance;
-    public static Boomerang_State ability_state;
-
+    public Boomerang_State ability_state;
+    public Abilities ability;
     public static bool instantiated = false;
 
     public float timer = 0.0f;
@@ -26,6 +32,28 @@ public class AI_Projectile : MonoBehaviour
             ability_state = Boomerang_State.activate;
             print("Switch states to activate");
         }
+        if(ability == Abilities.boomerang)
+        {
+            Boomerang();
+        }
+        
+        if(ability == Abilities.grenade)
+        {
+            if (timer > maxTimer)
+            {
+                timer = 0;
+                GameObject cloneGrenade = Object_Pooling.SharedInstance.GetPooledObject("Grenade");
+                cloneGrenade.SetActive(true);
+                cloneGrenade.transform.position = transform.position + transform.forward * 2.0f;
+                cloneGrenade.transform.rotation = Quaternion.identity;
+                Rigidbody cloneRB = cloneGrenade.GetComponent<Rigidbody>();
+                cloneRB.AddForce(transform.forward * 500.0f + transform.up * 100.0f, ForceMode.Acceleration);
+            }
+        }
+    }
+
+    void Boomerang()
+    {
         switch (ability_state)
         {
             case Boomerang_State.activate:
@@ -60,6 +88,5 @@ public class AI_Projectile : MonoBehaviour
                     break;
                 }
         }
-
     }
 }

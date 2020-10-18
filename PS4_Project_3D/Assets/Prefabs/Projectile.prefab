@@ -101,7 +101,6 @@ MonoBehaviour:
   tagName: Enemy
   grenadeSelected: 0
   canReflect: 0
-  reflect: 1
   projectiles: {fileID: 0}
   timerToDisable: 0
 --- !u!54 &1892566664186639815
@@ -143,6 +142,10 @@ PrefabInstance:
     - target: {fileID: 1052461049503941798, guid: a5231424a20a0b34d82053069d13bc9b, type: 3}
       propertyPath: m_Name
       value: Fire
+      objectReference: {fileID: 0}
+    - target: {fileID: 1052461049503941798, guid: a5231424a20a0b34d82053069d13bc9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1052461049503941816, guid: a5231424a20a0b34d82053069d13bc9b, type: 3}
       propertyPath: InitialModule.startLifetime.scalar

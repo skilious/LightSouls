@@ -15,7 +15,7 @@ public class Object_Pooling : MonoBehaviour
 
     public GameObject[] objects;
 
-    [Range(0, 100)]
+    [Range(0, 1000)]
     public int[] amountToInstantiate;
 
     public List<GameObject> objectPooled;
