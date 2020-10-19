@@ -9,7 +9,7 @@ public class Basic_CursorRotation : MonoBehaviour
     RaycastHit cameraRayHit;
 
     public float adjustments;
-    public Camera cam;
+    private Camera cam;
 
     private void Start()
     {

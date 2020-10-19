@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class UI_Manager : MonoBehaviour
 {
-    public Slider healthSlider;
+    private Slider healthSlider;
 
     private void Awake()
     {

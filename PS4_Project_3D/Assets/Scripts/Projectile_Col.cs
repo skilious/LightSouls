@@ -5,13 +5,13 @@ using UnityEngine;
 public class Projectile_Col : MonoBehaviour
 {
     private Rigidbody rb;
-    public float damage;
     public string tagName;
     private bool reflected = false;
     public bool grenadeSelected = false, canReflect = false;
     private float timer = 0;
     public GameObject projectiles;
 
+    public float damage = 0.0f;
     private bool enableTimer = false;
 
     protected private Vector3 curPos = Vector3.zero;
@@ -25,7 +25,7 @@ public class Projectile_Col : MonoBehaviour
     {
         if(collision.gameObject.tag == tagName)
         {
-            Player_Health.curHealth -= damage;
+            Character_Status.ReceiveDamage(damage);
             gameObject.SetActive(false);
         }
         else if (collision.gameObject.tag == "Wall")
@@ -57,6 +57,8 @@ public class Projectile_Col : MonoBehaviour
                     float rand = Random.Range(0.0f, 360.0f);
                     Quaternion rot = Quaternion.AngleAxis(rand, Vector3.up);
                     GameObject explosionClone = Object_Pooling.SharedInstance.GetPooledObject("Projectile");
+                    Projectile_Col projScript = explosionClone.GetComponent<Projectile_Col>();
+                    projScript.damage = 5.0f;
                     explosionClone.SetActive(true);
                     explosionClone.transform.position = curPos;
                     explosionClone.transform.rotation = rot;

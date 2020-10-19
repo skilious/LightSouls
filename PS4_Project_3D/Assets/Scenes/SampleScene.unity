@@ -361,11 +361,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f472bc776ce82dc41b7b8a2dd3537d39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxDistance: 10
-  ability_state: 0
   ability: 1
   timer: 0
-  maxTimer: 1
+  maxTimer: 5
 --- !u!54 &223974229
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -480,7 +478,7 @@ Transform:
   m_Children:
   - {fileID: 40919615}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &230242537
 GameObject:
@@ -574,8 +572,6 @@ GameObject:
   - component: {fileID: 526954331}
   - component: {fileID: 526954338}
   - component: {fileID: 526954339}
-  - component: {fileID: 526954340}
-  - component: {fileID: 526954341}
   - component: {fileID: 526954342}
   m_Layer: 0
   m_Name: Capsule
@@ -600,7 +596,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   adjustments: 0.05
-  cam: {fileID: 0}
 --- !u!114 &526954332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -748,33 +743,6 @@ MonoBehaviour:
   clickable:
     serializedVersion: 2
     m_Bits: 256
---- !u!114 &526954340
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 526954330}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51f2dd67a4c9e2b40b7c7dc79a216f5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  grenade: {fileID: 3923790772110429413, guid: 847c421dd01052247a3c7f983853d3a4, type: 3}
---- !u!114 &526954341
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 526954330}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1f692f7b2cd9c74480cf00c16143582, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxDistance: 10
-  obj: {fileID: 8924443175435004896, guid: 76bd95699044e1f459aa7e0bbd358ab1, type: 3}
 --- !u!114 &526954342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -787,7 +755,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7426d3f963e68db42826ecc6892cc81e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 50
+  level: 0
 --- !u!1 &543404995
 GameObject:
   m_ObjectHideFlags: 0
@@ -6359,9 +6327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f472bc776ce82dc41b7b8a2dd3537d39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxDistance: 10
-  ability_state: 0
-  ability: 1
+  ability: 0
   timer: 0
   maxTimer: 1
 --- !u!54 &1114040583
@@ -6478,7 +6444,7 @@ Transform:
   m_Children:
   - {fileID: 1577749884}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1431136735
 GameObject:
@@ -6873,7 +6839,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5c0cbb35764fca4bbfdaf0e6c78da4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthSlider: {fileID: 0}
 --- !u!114 &1838851147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7276,11 +7241,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f472bc776ce82dc41b7b8a2dd3537d39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxDistance: 10
-  ability_state: 0
   ability: 1
   timer: 0
-  maxTimer: 1
+  maxTimer: 5
 --- !u!1 &2146375371
 GameObject:
   m_ObjectHideFlags: 0

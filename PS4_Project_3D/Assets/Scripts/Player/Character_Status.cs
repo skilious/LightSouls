@@ -5,10 +5,10 @@ using UnityEngine;
 public class Character_Status : MonoBehaviour
 {
     public static float curHealth = 0f;
-    private float healthHit;
+    private static float healthHit;
     public static float maxHealth = 100.0f;
 
-    public float damage;
+    public int level;
     void Start()
     {
         curHealth = 100.0f;
@@ -19,16 +19,20 @@ public class Character_Status : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.G))
         {
-            healthHit -= damage;
-            if(curHealth < 0.1f)
-            {
-                healthHit = 0;
-                curHealth = 0;
-            }
+            ReceiveDamage(10.0f);
         }
         if (healthHit < curHealth)
         {
             curHealth = Mathf.Lerp(curHealth, healthHit, 5.0f * Time.deltaTime);
         }
+        else if(healthHit >= curHealth)
+        {
+            curHealth = Mathf.RoundToInt(healthHit);
+        }
+    }
+
+    public static void ReceiveDamage(float dmg)
+    {
+        healthHit -= dmg;
     }
 }
