@@ -17,10 +17,6 @@ public class Character_Status : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.G))
-        {
-            ReceiveDamage(10.0f);
-        }
         if (healthHit < curHealth)
         {
             curHealth = Mathf.Lerp(curHealth, healthHit, 5.0f * Time.deltaTime);

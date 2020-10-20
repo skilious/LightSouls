@@ -10,6 +10,8 @@ TagManager:
   - Projectile
   - Grenade
   - healthSlider
+  - EnemyProjectile
+  - Enemy
   layers:
   - Default
   - TransparentFX

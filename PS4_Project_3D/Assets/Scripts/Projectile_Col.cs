@@ -56,7 +56,7 @@ public class Projectile_Col : MonoBehaviour
                 {
                     float rand = Random.Range(0.0f, 360.0f);
                     Quaternion rot = Quaternion.AngleAxis(rand, Vector3.up);
-                    GameObject explosionClone = Object_Pooling.SharedInstance.GetPooledObject("Projectile");
+                    GameObject explosionClone = Object_Pooling.SharedInstance.GetPooledObject("EnemyProjectile");
                     Projectile_Col projScript = explosionClone.GetComponent<Projectile_Col>();
                     projScript.damage = 5.0f;
                     explosionClone.SetActive(true);

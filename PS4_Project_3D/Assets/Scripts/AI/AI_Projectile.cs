@@ -60,7 +60,7 @@ public class AI_Projectile : MonoBehaviour
                 {
                     if (!instantiated)
                     {
-                        instantiateObj = Object_Pooling.SharedInstance.GetPooledObject("Projectile"); 
+                        instantiateObj = Object_Pooling.SharedInstance.GetPooledObject("EnemyProjectile"); 
                         Projectile_Col projScript = instantiateObj.GetComponent<Projectile_Col>();
                         projScript.damage = 20.0f;
                         instantiateObj.SetActive(true);
