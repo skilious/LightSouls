@@ -43,7 +43,7 @@ public class AI_Movement : MonoBehaviour
 
         if(distBetweenPlayer <= 10.0f)
         {
-            transform.LookAt(playerPos.position);
+            transform.LookAt(new Vector3(playerPos.position.x, transform.position.y, playerPos.position.z));
         }
     }
 

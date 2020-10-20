@@ -14,6 +14,7 @@ public class cameraFollow : MonoBehaviour
     private bool rotating = false;
 
     private int directions = 0;
+
     private void LateUpdate()
     {
         FollowTransform();

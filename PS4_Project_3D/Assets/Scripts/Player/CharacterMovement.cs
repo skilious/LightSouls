@@ -20,11 +20,11 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField]
     private float moveSpd = 0;
 
+    public float hoverForce, hoverHeight;
     public static Rigidbody rb;
     private bool dashing = false;
     
     public static Vector3 forward, right;
-
     private ParticleSystem dashParticle;
     private void Awake()
     {
@@ -39,16 +39,27 @@ public class CharacterMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-
         //If its not dashing, you can use WASD/Arrow keys to move your character instead.
-
         if (Input.anyKey)
             Movement();
-
     }
 
     private void Update()
     {
+        //This creates a hover effect.
+        RaycastHit hit;
+        //Ray uses transform.position and direction negative transform.up to detect floor.
+        Ray ray = new Ray(transform.position, -transform.up);
+        //2.0f is the height between the ray(floor) and the player's Y axis.
+        if (Physics.Raycast(ray, out hit, hoverHeight))
+        {
+            float height = (hoverHeight - hit.distance) / hoverHeight;
+            //This uses Vector3.up (1.0f) * height * hoverForce.
+            Vector3 appliedHoverForce = Vector3.up * height * hoverForce;
+            //AddForce rigidbody with "Acceleration" to continuously acceleration while ignoring its mass.
+            rb.AddForce(appliedHoverForce, ForceMode.Acceleration);
+        }
+
         switch (dashState)
         {
             case DashState.Ready:
@@ -75,6 +86,7 @@ public class CharacterMovement : MonoBehaviour
                         timer = maxTimer;
                         dashState = DashState.Cooldown;
                         rb.velocity = Vector3.zero;
+                        rb.angularVelocity = Vector3.zero;
                     }
                     break;
                 }
