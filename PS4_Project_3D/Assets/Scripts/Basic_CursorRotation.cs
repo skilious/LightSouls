@@ -6,15 +6,8 @@ public class Basic_CursorRotation : MonoBehaviour
 {
     public LayerMask clickMask;
     Ray cameraRay;
-    RaycastHit cameraRayHit;
 
     public float adjustments;
-    private Camera cam;
-
-    private void Start()
-    {
-        cam = Camera.main;
-    }
     void Update()
     {
         Plane playerPlane = new Plane(Vector3.up, transform.position);

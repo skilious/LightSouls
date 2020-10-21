@@ -99,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagName: Player
   grenadeSelected: 0
-  canReflect: 0
+  canReflect: 1
   projectiles: {fileID: 0}
   damage: 0
   timerToDisable: 0

@@ -83,7 +83,7 @@ public class AI_Projectile : MonoBehaviour
                 {
                     Vector3 dirRot = instantiateObj.transform.position - transform.position;
                     Rigidbody cloneRb = instantiateObj.GetComponent<Rigidbody>();
-                    cloneRb.AddForce(-instantiateObj.transform.forward * 1.0f, ForceMode.Acceleration);
+                    cloneRb.AddForce(-instantiateObj.transform.forward * 2.5f, ForceMode.Acceleration);
                     instantiateObj.transform.rotation = Quaternion.LookRotation(dirRot);
                     curDistance = Vector3.Distance(transform.position, instantiateObj.transform.position);
                     break;
