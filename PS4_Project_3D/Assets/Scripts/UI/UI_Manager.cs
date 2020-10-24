@@ -23,14 +23,14 @@ public class UI_Manager : MonoBehaviour
         //0 is red.
         healthSlider.value = Character_Status.curHealth;
         healthSlider.maxValue = Character_Status.maxHealth;
-        if (Character_Status.curHealth <= 75.0f && Character_Status.curHealth > 25.0f)
+        if (Character_Status.curHealth <= 50.0f && Character_Status.curHealth > 20.0f)
         {
             timer += 0.1f * Time.deltaTime;
             colourChanging = Mathf.Lerp(colourChanging, 16.0f, timer);
             float colourChanged = colourChanging / 100.0f;
             healthColour.GetComponent<Image>().material.color = Color.HSVToRGB(colourChanged, 1, 1);
         }
-        else if(Character_Status.curHealth <= 25.0f)
+        else if(Character_Status.curHealth <= 20.0f)
         {
             if(!resetTimer)
             {
