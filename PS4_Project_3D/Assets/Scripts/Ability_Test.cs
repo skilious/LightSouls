@@ -27,7 +27,7 @@ public class Ability_Test : MonoBehaviour
         {
             targetPos = new Vector3(rayHit.point.x, transform.position.y, rayHit.point.z);
         }
-        Debug.DrawRay(transform.position, rayHit.point, Color.green);
+        //Debug.DrawRay(transform.position, rayHit.point, Color.green);
 
         //Once Alpha2 on keyboard is pressed down.
         if (Input.GetKeyDown(KeyCode.Alpha2))

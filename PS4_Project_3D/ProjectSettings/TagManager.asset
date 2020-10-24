@@ -12,6 +12,7 @@ TagManager:
   - healthSlider
   - EnemyProjectile
   - Enemy
+  - Boomerang
   layers:
   - Default
   - TransparentFX

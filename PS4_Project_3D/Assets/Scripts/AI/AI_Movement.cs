@@ -11,6 +11,7 @@ public class AI_Movement : MonoBehaviour
     public List<Transform> waypoints;
     public int waypoint_count, randDestination;
     NavMeshAgent aiAgent;
+
     private void Awake()
     {
         aiAgent = gameObject.GetComponent<NavMeshAgent>();
@@ -27,21 +28,9 @@ public class AI_Movement : MonoBehaviour
     }
     private void Update()
     {
-        //Timer uses deltaTime to count down.
-        timer -= Time.deltaTime;
-        float distanceBetweenWayPoints = Vector3.Distance(waypoints[randDestination].position, transform.position);
         float distBetweenPlayer = Vector3.Distance(playerPos.position, transform.position);
-        //IF statement condition - Timer hits below zero.
-        if (timer < 0 && distanceBetweenWayPoints < 1.0f)
-        {
-            randDestination = Random.Range(0, 4);
-            print("Next destination: " + waypoints[randDestination].position);
-            SetDestination(waypoints[randDestination].position);
-            //Randomises the timer between 1.0f and 5.0f.
-            timer = Random.Range(10.0f, 15.0f);
-        }
-
-        if(distBetweenPlayer <= 10.0f)
+        RandomPatrol();
+        if (distBetweenPlayer <= 10.0f)
         {
             transform.LookAt(new Vector3(playerPos.position.x, transform.position.y, playerPos.position.z));
         }
@@ -52,6 +41,22 @@ public class AI_Movement : MonoBehaviour
         if(playerPos != null)
         {
             aiAgent.SetDestination(targetPos);
+        }
+    }
+
+    protected void RandomPatrol()
+    {
+        //Timer uses deltaTime to count down.
+        timer -= Time.deltaTime;
+        float distanceBetweenWayPoints = Vector3.Distance(waypoints[randDestination].position, transform.position);
+        //IF statement condition - Timer hits below zero.
+        if (timer < 0 && distanceBetweenWayPoints < 1.0f)
+        {
+            randDestination = Random.Range(0, 4);
+            print("Next destination: " + waypoints[randDestination].position);
+            SetDestination(waypoints[randDestination].position);
+            //Randomises the timer between 1.0f and 5.0f.
+            timer = Random.Range(10.0f, 15.0f);
         }
     }
 }

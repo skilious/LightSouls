@@ -15,7 +15,11 @@ public class AI_Projectile : MonoBehaviour
         boomerang,
         grenade
     };
-    GameObject instantiateObj;
+
+    [SerializeField]
+    private Transform boomblade;
+
+    private GameObject instantiateObj;
     private float curDistance;
     private Boomerang_State ability_state;
     public Abilities ability;
@@ -23,19 +27,24 @@ public class AI_Projectile : MonoBehaviour
 
     public float timer = 0.0f;
     public float maxTimer;
+
     void Update()
     {
         timer += Time.deltaTime;
+    }
+
+    private void FixedUpdate()
+    {
         if (timer > maxTimer && timer <= maxTimer + 0.1f && ability_state != Boomerang_State.activate)
         {
             ability_state = Boomerang_State.activate;
         }
-        if(ability == Abilities.boomerang)
+        if (ability == Abilities.boomerang)
         {
             Boomerang();
         }
-        
-        if(ability == Abilities.grenade)
+
+        if (ability == Abilities.grenade)
         {
             if (timer > maxTimer)
             {
@@ -51,7 +60,6 @@ public class AI_Projectile : MonoBehaviour
             }
         }
     }
-
     void Boomerang()
     {
         switch (ability_state)
@@ -60,7 +68,8 @@ public class AI_Projectile : MonoBehaviour
                 {
                     if (!instantiated)
                     {
-                        instantiateObj = Object_Pooling.SharedInstance.GetPooledObject("EnemyProjectile"); 
+                        instantiateObj = Object_Pooling.SharedInstance.GetPooledObject("EnemyProjectile");
+                        boomblade.SetParent(instantiateObj.transform);
                         Projectile_Col projScript = instantiateObj.GetComponent<Projectile_Col>();
                         projScript.damage = 20.0f;
                         instantiateObj.SetActive(true);
@@ -69,7 +78,7 @@ public class AI_Projectile : MonoBehaviour
                         instantiated = true;
                     }
                     Rigidbody cloneRb = instantiateObj.GetComponent<Rigidbody>();
-                    cloneRb.AddForce(instantiateObj.transform.forward * 0.5f);
+                    cloneRb.AddForce(instantiateObj.transform.forward * 50.0f);
                     curDistance = Vector3.Distance(transform.position, instantiateObj.transform.position);
                     if (timer >= maxTimer + 1.0f)
                     {
@@ -86,6 +95,11 @@ public class AI_Projectile : MonoBehaviour
                     cloneRb.AddForce(-instantiateObj.transform.forward * 2.5f, ForceMode.Acceleration);
                     instantiateObj.transform.rotation = Quaternion.LookRotation(dirRot);
                     curDistance = Vector3.Distance(transform.position, instantiateObj.transform.position);
+                    if(curDistance <= 1.0f)
+                    {
+                        boomblade.transform.position = transform.position;
+                        boomblade.transform.SetParent(gameObject.transform);
+                    }
                     break;
                 }
         }
