@@ -281,10 +281,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d0e8b75daa4298439a40ba7a5b44e7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPos: {fileID: 0}
-  waypoints: []
   waypoint_count: 5
-  randDestination: 0
+  rangeMin: 0
+  rangeMax: 0
 --- !u!114 &3786896545680228670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -297,7 +296,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 403e1226d1f919e4999d1d5ac0e5f380, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPos: {fileID: 0}
-  waypoints: []
   waypoint_count: 0
-  randDestination: 0
+  rangeMin: 2
+  rangeMax: 4

@@ -15,7 +15,8 @@ GameObject:
   - component: {fileID: 4724505895455443060}
   - component: {fileID: 4724505895455443059}
   - component: {fileID: 4724505895455443069}
-  - component: {fileID: 4724505895455443058}
+  - component: {fileID: -884936230118129624}
+  - component: {fileID: -3579793529767726308}
   m_Layer: 0
   m_Name: TestingAI
   m_TagString: Enemy
@@ -151,10 +152,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f472bc776ce82dc41b7b8a2dd3537d39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boomblade: {fileID: 0}
   ability: 1
   timer: 0
   maxTimer: 5
---- !u!114 &4724505895455443058
+--- !u!114 &-884936230118129624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4724505895455443061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa3ca31860399e0499d024ece0dd781b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoint_count: 5
+  rangeMin: 0
+  rangeMax: 0
+--- !u!114 &-3579793529767726308
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -166,10 +183,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d0e8b75daa4298439a40ba7a5b44e7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPos: {fileID: 0}
-  waypoints: []
   waypoint_count: 5
-  randDestination: 0
+  rangeMin: 0
+  rangeMax: 3
 --- !u!1 &4724505896245663798
 GameObject:
   m_ObjectHideFlags: 0
