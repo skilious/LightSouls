@@ -594,9 +594,28 @@ PrefabInstance:
       propertyPath: m_IsKinematic
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6204244070873218467, guid: fe85f971d2cbf7c46acb81e41c8b5e94, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe85f971d2cbf7c46acb81e41c8b5e94, type: 3}
+--- !u!1 &1244886195 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3636430279433994392, guid: fe85f971d2cbf7c46acb81e41c8b5e94, type: 3}
+  m_PrefabInstance: {fileID: 1227967384}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1244886196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244886195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d0e8b75daa4298439a40ba7a5b44e7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoint_count: 0
+  rangeMin: 0
+  rangeMax: 0
 --- !u!1001 &1300574576
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -660,8 +679,7 @@ PrefabInstance:
       propertyPath: m_IsKinematic
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8363997315329782644, guid: 42e45406ca585a648a9e11418f5862cf, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42e45406ca585a648a9e11418f5862cf, type: 3}
 --- !u!1001 &1357898325
 PrefabInstance:
@@ -672,7 +690,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4352199569774377122, guid: 17b9b30e4667c1c428299b3a96abeb33, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 28.3
+      value: 6.63
       objectReference: {fileID: 0}
     - target: {fileID: 4352199569774377122, guid: 17b9b30e4667c1c428299b3a96abeb33, type: 3}
       propertyPath: m_LocalPosition.y
@@ -680,7 +698,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4352199569774377122, guid: 17b9b30e4667c1c428299b3a96abeb33, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10.1
+      value: 9.96
       objectReference: {fileID: 0}
     - target: {fileID: 4352199569774377122, guid: 17b9b30e4667c1c428299b3a96abeb33, type: 3}
       propertyPath: m_LocalRotation.x
@@ -714,6 +732,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4352199569774377128, guid: 17b9b30e4667c1c428299b3a96abeb33, type: 3}
+      propertyPath: maxDistance
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4352199569774377128, guid: 17b9b30e4667c1c428299b3a96abeb33, type: 3}
+      propertyPath: maxTimer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4352199569774377129, guid: 17b9b30e4667c1c428299b3a96abeb33, type: 3}
       propertyPath: m_IsKinematic
       value: 0
@@ -722,18 +748,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BoomTestEnemy
       objectReference: {fileID: 0}
-    - target: {fileID: 4352199569774377131, guid: 17b9b30e4667c1c428299b3a96abeb33, type: 3}
-      propertyPath: playerPos
-      value: 
-      objectReference: {fileID: 1821017026}
     - target: {fileID: 7587815613166398816, guid: 17b9b30e4667c1c428299b3a96abeb33, type: 3}
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 4647633442877612472, guid: 17b9b30e4667c1c428299b3a96abeb33, type: 3}
-    - {fileID: 3786896545680228670, guid: 17b9b30e4667c1c428299b3a96abeb33, type: 3}
-    - {fileID: 4352199569774377131, guid: 17b9b30e4667c1c428299b3a96abeb33, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17b9b30e4667c1c428299b3a96abeb33, type: 3}
 --- !u!1 &1431136735
 GameObject:
@@ -1104,7 +1123,22 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4352199569774377130, guid: 17b9b30e4667c1c428299b3a96abeb33, type: 3}
   m_PrefabInstance: {fileID: 1357898325}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1946809834
+--- !u!114 &1946809825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1946809824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d0e8b75daa4298439a40ba7a5b44e7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoint_count: 0
+  rangeMin: 0
+  rangeMax: 0
+--- !u!114 &1946809832
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 3636430279433994398}
   - component: {fileID: 3636430279433994384}
   - component: {fileID: -8757622225345208167}
-  - component: {fileID: 6204244070873218467}
   m_Layer: 0
   m_Name: TestingAI_Red
   m_TagString: Enemy
@@ -171,21 +170,6 @@ MonoBehaviour:
   waypoint_count: 5
   rangeMin: 0
   rangeMax: 0
---- !u!114 &6204244070873218467
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3636430279433994392}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d0e8b75daa4298439a40ba7a5b44e7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waypoint_count: 5
-  rangeMin: 0
-  rangeMax: 3
 --- !u!1 &3636430280254361819
 GameObject:
   m_ObjectHideFlags: 0

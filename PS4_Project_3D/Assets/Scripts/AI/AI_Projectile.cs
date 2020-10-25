@@ -20,7 +20,6 @@ public class AI_Projectile : MonoBehaviour
     private Transform boomblade;
 
     private GameObject instantiateObj;
-    private float curDistance;
     private Boomerang_State ability_state;
     public Abilities ability;
     public static bool instantiated = false;
@@ -28,21 +27,22 @@ public class AI_Projectile : MonoBehaviour
     public float timer = 0.0f;
     public float maxTimer;
 
+    [SerializeField]
+    private float maxDistance = 0.0f;
     void Update()
-    {
+    { 
+        if(ability != Abilities.boomerang) 
         timer += Time.deltaTime;
-    }
 
-    private void FixedUpdate()
-    {
-        if (timer > maxTimer && timer <= maxTimer + 0.1f && ability_state != Boomerang_State.activate)
-        {
-            ability_state = Boomerang_State.activate;
-        }
         if (ability == Abilities.boomerang)
         {
             Boomerang();
         }
+    }
+
+    private void FixedUpdate()
+    {
+
 
         if (ability == Abilities.grenade)
         {
@@ -66,39 +66,25 @@ public class AI_Projectile : MonoBehaviour
         {
             case Boomerang_State.activate:
                 {
-                    if (!instantiated)
+                    boomblade.SetParent(null);
+                    boomblade.position += transform.forward * Time.deltaTime * 10.0f;
+                    float curDistance = Vector3.Distance(transform.position, boomblade.position);
+                    print("Forward");
+                    if (curDistance > maxDistance)
                     {
-                        instantiateObj = Object_Pooling.SharedInstance.GetPooledObject("EnemyProjectile");
-                        boomblade.SetParent(instantiateObj.transform);
-                        Projectile_Col projScript = instantiateObj.GetComponent<Projectile_Col>();
-                        projScript.damage = 20.0f;
-                        instantiateObj.SetActive(true);
-                        instantiateObj.transform.position = transform.position;
-                        instantiateObj.transform.rotation = transform.rotation;
-                        instantiated = true;
-                    }
-                    Rigidbody cloneRb = instantiateObj.GetComponent<Rigidbody>();
-                    cloneRb.AddForce(instantiateObj.transform.forward * 50.0f);
-                    curDistance = Vector3.Distance(transform.position, instantiateObj.transform.position);
-                    if (timer >= maxTimer + 1.0f)
-                    {
-                        timer = 0;
-                        instantiated = false;
                         ability_state = Boomerang_State.returning;
                     }
                     break;
                 }
             case Boomerang_State.returning:
                 {
-                    Vector3 dirRot = instantiateObj.transform.position - transform.position;
-                    Rigidbody cloneRb = instantiateObj.GetComponent<Rigidbody>();
-                    cloneRb.AddForce(-instantiateObj.transform.forward * 2.5f, ForceMode.Acceleration);
-                    instantiateObj.transform.rotation = Quaternion.LookRotation(dirRot);
-                    curDistance = Vector3.Distance(transform.position, instantiateObj.transform.position);
-                    if(curDistance <= 1.0f)
+                    boomblade.position = Vector3.MoveTowards(boomblade.position, transform.position, Time.deltaTime * 10.0f);
+                    float curDistance = Vector3.Distance(transform.position, boomblade.position);
+                    print("Backward");
+                    if (curDistance <= 0.75f)
                     {
-                        boomblade.transform.position = transform.position;
-                        boomblade.transform.SetParent(gameObject.transform);
+                        boomblade.SetParent(transform);
+                        ability_state = Boomerang_State.activate;
                     }
                     break;
                 }
