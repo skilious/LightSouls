@@ -18,7 +18,7 @@ public class Basic_CursorRotation : MonoBehaviour
         {
             Vector3 targetPos = cameraRay.GetPoint(d);
             Quaternion targetRot = Quaternion.LookRotation(targetPos - transform.position, Vector3.up);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, adjustments);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, adjustments * Time.fixedDeltaTime);
         }
     }
 }
