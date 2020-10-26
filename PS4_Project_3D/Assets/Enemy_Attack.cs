@@ -21,6 +21,5 @@ public class Enemy_Attack : NPCBase
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         NPC.GetComponent<EnemyAI>().StopAttack();
-        NPC.GetComponent<EnemyAI>().boomerang.position = NPC.transform.position;
     }
 }

@@ -40,12 +40,13 @@ public class Enemy_Patrol : NPCBase
                 curWaypoints = 0;
             }
         }
+        agent.SetDestination(waypoints[curWaypoints].transform.position);
         //Rotating towards whatever current waypoint is located.
-        Vector3 direction = waypoints[curWaypoints].transform.position - NPC.transform.position;
-        direction.y = 0;
+        //Vector3 direction = waypoints[curWaypoints].transform.position - NPC.transform.position;
+        //direction.y = 0;
         //Slerp assists in smooth rotation and clamps between 0 and 1 in range.
-        NPC.transform.rotation = Quaternion.Slerp(NPC.transform.rotation, Quaternion.LookRotation(direction), rotSpeed * Time.deltaTime);
-        NPC.transform.Translate(0, 0, Time.deltaTime * speed); //Translate to current waypoint.
+        //NPC.transform.rotation = Quaternion.Slerp(NPC.transform.rotation, Quaternion.LookRotation(direction), rotSpeed * Time.deltaTime);
+        //NPC.transform.Translate(0, 0, Time.deltaTime * speed); //Translate to current waypoint.
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
