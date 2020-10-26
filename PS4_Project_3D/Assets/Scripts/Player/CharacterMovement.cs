@@ -42,10 +42,11 @@ public class CharacterMovement : MonoBehaviour
         //If its not dashing, you can use WASD/Arrow keys to move your character instead.
         if (Input.anyKey)
             Movement();
-    }
 
-    private void Update()
-    {
+        if(!Input.anyKey)
+        {
+            rb.velocity = Vector3.zero;
+        }
         //This creates a hover effect.
         RaycastHit hit;
         //Ray uses transform.position and direction negative transform.up to detect floor.
@@ -59,6 +60,10 @@ public class CharacterMovement : MonoBehaviour
             //AddForce rigidbody with "Acceleration" to continuously acceleration while ignoring its mass.
             rb.AddForce(appliedHoverForce, ForceMode.Acceleration);
         }
+    }
+
+    private void Update()
+    {
 
         switch (dashState)
         {

@@ -42,20 +42,18 @@ public class AI_Projectile : MonoBehaviour
 
     private void FixedUpdate()
     {
-
-
         if (ability == Abilities.grenade)
         {
             if (timer > maxTimer)
             {
                 timer = 0;
-                GameObject cloneGrenade = Object_Pooling.SharedInstance.GetPooledObject("Grenade");
-                Projectile_Col projScript = cloneGrenade.GetComponent<Projectile_Col>();
+                GameObject obj = Object_Pooling.SharedInstance.GetPooledObject("Grenade");
+                Projectile_Col projScript = obj.GetComponent<Projectile_Col>();
                 projScript.damage = 10.0f;
-                cloneGrenade.SetActive(true);
-                cloneGrenade.transform.position = transform.position + transform.forward * 2.0f;
-                cloneGrenade.transform.rotation = transform.rotation;
-                Rigidbody cloneRB = cloneGrenade.GetComponent<Rigidbody>();
+                obj.SetActive(true);
+                obj.transform.position = transform.position + transform.forward * 2.0f;
+                obj.transform.rotation = transform.rotation;
+                Rigidbody cloneRB = obj.GetComponent<Rigidbody>();
                 cloneRB.AddForce(transform.forward * 500.0f + transform.up * 100.0f, ForceMode.Acceleration);
             }
         }
