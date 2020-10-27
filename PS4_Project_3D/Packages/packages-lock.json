@@ -38,7 +38,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.inputsystem": {
-      "version": "0.9.4-preview",
+      "version": "0.9.5-preview",
       "depth": 0,
       "source": "registry",
       "dependencies": {
