@@ -12,7 +12,9 @@ public class Projectile_Col : MonoBehaviour
     public GameObject projectiles;
 
     public float damage = 0.0f;
-    private bool enableTimer = false;
+    
+    // UNUSED
+    //private bool enableTimer = false;
 
     protected private Vector3 curPos = Vector3.zero;
     public float timerToDisable = 0;
@@ -81,6 +83,7 @@ public class Projectile_Col : MonoBehaviour
         reflected = false;
     }
 
+    /* UNUSED
     private void OnEnable()
     {
         enableTimer = true;
@@ -92,4 +95,5 @@ public class Projectile_Col : MonoBehaviour
         rb.velocity = Vector3.zero;
         enableTimer = false;
     }
+    */
 }

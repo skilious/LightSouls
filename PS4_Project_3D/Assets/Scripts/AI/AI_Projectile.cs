@@ -17,7 +17,7 @@ public class AI_Projectile : MonoBehaviour
     };
 
     [SerializeField]
-    private Transform boomblade;
+    private Transform boomblade = default;
 
     private GameObject instantiateObj;
     private Boomerang_State ability_state;

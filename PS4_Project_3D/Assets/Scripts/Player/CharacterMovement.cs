@@ -22,10 +22,13 @@ public class CharacterMovement : MonoBehaviour
 
     public float hoverForce, hoverHeight;
     public static Rigidbody rb;
-    private bool dashing = false;
+
+    // Unused for now
+    //private bool dashing = false;
     
     public static Vector3 forward, right;
     private ParticleSystem dashParticle;
+
     private void Awake()
     {
         dashParticle = GameObject.Find("Particle_Effect").GetComponent<ParticleSystem>();
@@ -73,7 +76,7 @@ public class CharacterMovement : MonoBehaviour
                     if (isKeyDown)
                     {
                         gameObject.tag = "Temp";
-                        dashing = true;
+                        //dashing = true;
                         dashState = DashState.Dashing;
                         dashParticle.Play();
                     }
@@ -87,7 +90,7 @@ public class CharacterMovement : MonoBehaviour
                     if (timer >= maxTimer)
                     {
                         dashParticle.Stop();
-                        dashing = false;
+                        //dashing = false;
                         timer = maxTimer;
                         dashState = DashState.Cooldown;
                         rb.velocity = Vector3.zero;

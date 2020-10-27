@@ -11,10 +11,10 @@ public class AI_Movement : MonoBehaviour
     private List<Transform> waypoints;
 
     [SerializeField]
-    private int waypoint_count;
+    private int waypoint_count = default;
 
     [SerializeField]
-    private int rangeMin, rangeMax;
+    private int rangeMin = 0, rangeMax = 0;
 
     protected int randDestination;
     NavMeshAgent aiAgent;

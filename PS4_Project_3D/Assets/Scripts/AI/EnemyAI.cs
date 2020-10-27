@@ -21,7 +21,7 @@ public class EnemyAI : MonoBehaviour
     public Transform boomerang;
 
     [SerializeField]
-    private float attackTimer, repeatTimer;
+    private float attackTimer = 0.0f, repeatTimer = 0.0f;
     private float curDistance = 0;
 
     [SerializeField]
@@ -105,7 +105,7 @@ public class EnemyAI : MonoBehaviour
     private void BoomerangThrow()
     {
         boomerang.position += transform.forward * Time.deltaTime * 3.0f;
-        print("Forward");
+        // print("Forward");
         if (curDistance > 7.5f)
         {
             boomerang.SetParent(transform);
@@ -116,7 +116,7 @@ public class EnemyAI : MonoBehaviour
     private void BoomerangRetrieve()
     {
         boomerang.position = Vector3.MoveTowards(boomerang.position, transform.position, Time.deltaTime * 2.0f);
-        print("Backward");
+        // print("Backward");
         if (curDistance <= 0.0f)
         {
             boomerang.SetParent(null);
