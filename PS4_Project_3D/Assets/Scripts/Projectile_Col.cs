@@ -13,8 +13,7 @@ public class Projectile_Col : MonoBehaviour
 
     public float damage = 0.0f;
     
-    // UNUSED
-    //private bool enableTimer = false;
+    protected bool enableTimer = false;
 
     protected private Vector3 curPos = Vector3.zero;
     public float timerToDisable = 0;
@@ -82,8 +81,6 @@ public class Projectile_Col : MonoBehaviour
         curPos = transform.position;
         reflected = false;
     }
-
-    /* UNUSED
     private void OnEnable()
     {
         enableTimer = true;
@@ -95,5 +92,4 @@ public class Projectile_Col : MonoBehaviour
         rb.velocity = Vector3.zero;
         enableTimer = false;
     }
-    */
 }

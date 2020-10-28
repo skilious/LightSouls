@@ -112,13 +112,10 @@ public class CharacterMovement : MonoBehaviour
 
     void Movement()
     {
-        if (!dashing)
-        {
-            Vector3 rightMovement = right * moveSpd * Time.deltaTime * Input.GetAxis("Horizontal");
-            Vector3 upMovement = forward * moveSpd * Time.deltaTime * Input.GetAxis("Vertical");
+        Vector3 rightMovement = right * moveSpd * Time.deltaTime * Input.GetAxis("Horizontal");
+        Vector3 upMovement = forward * moveSpd * Time.deltaTime * Input.GetAxis("Vertical");
 
-            transform.position += rightMovement;
-            transform.position += upMovement;
-        }
+        transform.position += rightMovement;
+        transform.position += upMovement;
     }
 }

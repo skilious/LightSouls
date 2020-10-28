@@ -253,10 +253,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d0e8b75daa4298439a40ba7a5b44e7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPos: {fileID: 0}
-  waypoints: []
   waypoint_count: 5
-  randDestination: 0
+  rangeMin: 0
+  rangeMax: 0
 --- !u!114 &223974228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -269,9 +268,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f472bc776ce82dc41b7b8a2dd3537d39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boomblade: {fileID: 0}
   ability: 1
   timer: 0
   maxTimer: 5
+  maxDistance: 0
 --- !u!54 &223974229
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -722,10 +723,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d0e8b75daa4298439a40ba7a5b44e7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPos: {fileID: 0}
-  waypoints: []
   waypoint_count: 5
-  randDestination: 0
+  rangeMin: 0
+  rangeMax: 0
 --- !u!114 &1114040582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -738,9 +738,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f472bc776ce82dc41b7b8a2dd3537d39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boomblade: {fileID: 0}
   ability: 0
   timer: 0
   maxTimer: 1
+  maxDistance: 0
 --- !u!54 &1114040583
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -999,7 +1001,7 @@ Terrain:
   m_DrawInstanced: 0
   m_DrawTreesAndFoliage: 1
   m_ReflectionProbeUsage: 1
-  m_MaterialTemplate: {fileID: 10652, guid: 0000000000000000f000000000000000, type: 0}
+  m_MaterialTemplate: {fileID: 2100000, guid: 266ac250493382f4b893bcb632980469, type: 2}
   m_BakeLightProbesForTrees: 1
   m_PreserveTreePrototypeLayers: 0
   m_DeringLightProbesForTrees: 1
@@ -1243,7 +1245,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 320d6027884fb1a4a9a9a8d7dc59e6af, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1451,7 +1453,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 819635c1c498ec042a49d6598cc6592e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1695,10 +1697,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4822922785633884040, guid: 3d98d34b41e96b5429d4041fc52fb4f2, type: 3}
+      propertyPath: adjustments
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4822922785633884041, guid: 3d98d34b41e96b5429d4041fc52fb4f2, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4822922785633884044, guid: 3d98d34b41e96b5429d4041fc52fb4f2, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0bb2e218c5e72a64894d4036f925923b, type: 2}
     - target: {fileID: 4822922785633884082, guid: 3d98d34b41e96b5429d4041fc52fb4f2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.18

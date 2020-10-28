@@ -5060,7 +5060,7 @@ MonoBehaviour:
   clickMask:
     serializedVersion: 2
     m_Bits: 256
-  adjustments: 0.05
+  adjustments: 3
 --- !u!54 &4822922785633884081
 Rigidbody:
   m_ObjectHideFlags: 0
