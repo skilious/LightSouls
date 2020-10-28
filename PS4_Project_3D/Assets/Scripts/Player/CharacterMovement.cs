@@ -23,8 +23,7 @@ public class CharacterMovement : MonoBehaviour
     public float hoverForce, hoverHeight;
     public static Rigidbody rb;
 
-    // Unused for now
-    //private bool dashing = false;
+    private bool dashing = false;
     
     public static Vector3 forward, right;
     private ParticleSystem dashParticle;
@@ -67,7 +66,6 @@ public class CharacterMovement : MonoBehaviour
 
     private void Update()
     {
-
         switch (dashState)
         {
             case DashState.Ready:
@@ -76,7 +74,7 @@ public class CharacterMovement : MonoBehaviour
                     if (isKeyDown)
                     {
                         gameObject.tag = "Temp";
-                        //dashing = true;
+                        dashing = true;
                         dashState = DashState.Dashing;
                         dashParticle.Play();
                     }
@@ -85,12 +83,12 @@ public class CharacterMovement : MonoBehaviour
             case DashState.Dashing:
                 {
                     timer += Time.deltaTime * 3;
-                    float smoothness = Mathf.Lerp(0.0f, 5.0f, Time.deltaTime * speed);
+                    float smoothness = Mathf.Lerp(0.0f, 3.0f, Time.deltaTime * speed);
                     rb.AddForce(transform.forward * smoothness, ForceMode.VelocityChange);
                     if (timer >= maxTimer)
                     {
                         dashParticle.Stop();
-                        //dashing = false;
+                        dashing = false;
                         timer = maxTimer;
                         dashState = DashState.Cooldown;
                         rb.velocity = Vector3.zero;
@@ -114,10 +112,13 @@ public class CharacterMovement : MonoBehaviour
 
     void Movement()
     {
-        Vector3 rightMovement = right * moveSpd * Time.deltaTime * Input.GetAxis("Horizontal");
-        Vector3 upMovement = forward * moveSpd * Time.deltaTime * Input.GetAxis("Vertical");
+        if (!dashing)
+        {
+            Vector3 rightMovement = right * moveSpd * Time.deltaTime * Input.GetAxis("Horizontal");
+            Vector3 upMovement = forward * moveSpd * Time.deltaTime * Input.GetAxis("Vertical");
 
-        transform.position += rightMovement;
-        transform.position += upMovement;
+            transform.position += rightMovement;
+            transform.position += upMovement;
+        }
     }
 }
