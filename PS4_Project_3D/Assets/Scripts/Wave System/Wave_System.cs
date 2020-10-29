@@ -10,7 +10,7 @@ public class Wave_System : MonoBehaviour
     public static int enemiesLeft;
 
     public bool beginWave = false;
-
+    public bool enableInvincibility = false;
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.T))
@@ -19,7 +19,6 @@ public class Wave_System : MonoBehaviour
             print("Your task is to survive indefinitely!");
             beginWave = true;
         }
-
         //Starts the wave.
         if(beginWave)
         {
@@ -33,8 +32,13 @@ public class Wave_System : MonoBehaviour
         for (int i = 0; i < enemies.Count; i++)
         {
             GameObject enemy = Instantiate(enemies[i], enemySpawn[i].transform.position, enemySpawn[i].transform.rotation);
-            enemy.GetComponent<EnemyStatus>().Invincibility();
-            print(i + " " + enemy.name + " has spawned!");
+            //Enable invincibility on the enemies
+            if(enableInvincibility)
+            {
+                enemy.GetComponent<EnemyStatus>().Invincibility();
+            }
+            //Checking if they are spawning correctly.
+            //print(i + " " + enemy.name + " has spawned!");
         }
         enemiesLeft = enemies.Count;
     }

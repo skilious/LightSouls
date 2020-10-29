@@ -549,8 +549,8 @@ MonoBehaviour:
   - {fileID: 696766884}
   - {fileID: 2121578204}
   - {fileID: 1319297520}
-  enemiesLeft: 0
   beginWave: 0
+  enableInvincibility: 1
 --- !u!4 &680273644
 Transform:
   m_ObjectHideFlags: 0

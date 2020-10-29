@@ -23,7 +23,7 @@ public class CharacterMovement : MonoBehaviour
     public float hoverForce, hoverHeight;
     public static Rigidbody rb;
 
-    private bool dashing = false;
+    protected bool dashing = false;
     
     public static Vector3 forward, right;
     private ParticleSystem dashParticle;
