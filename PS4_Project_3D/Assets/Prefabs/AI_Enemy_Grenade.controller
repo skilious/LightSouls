@@ -39,6 +39,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NPC: {fileID: 0}
   target: {fileID: 0}
+  agent: {fileID: 0}
+  waypoints: []
+  curWaypoints: 0
 --- !u!1101 &-5572846407960844474
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -244,6 +247,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NPC: {fileID: 0}
   target: {fileID: 0}
+  agent: {fileID: 0}
 --- !u!1101 &5184919080584841903
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -283,3 +287,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NPC: {fileID: 0}
   target: {fileID: 0}
+  agent: {fileID: 0}

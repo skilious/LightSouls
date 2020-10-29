@@ -12,8 +12,8 @@ public class EnemyAI : MonoBehaviour
     };
 
     Animator anim;
-    [SerializeField]
-    protected GameObject player;
+    
+    private GameObject player;
 
     [SerializeField]
     protected Attack_Types attack_types;
@@ -29,6 +29,7 @@ public class EnemyAI : MonoBehaviour
 
     void Start()
     {
+        player = GameObject.Find("Player");
         anim = GetComponent<Animator>();
         if (boomerang == null) return;
     }

@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class Enemy_Patrol : NPCBase
 {
+    [SerializeField]
     private GameObject[] waypoints; //An array of waypoints.
+
+    [SerializeField]
     private int curWaypoints; //Current waypoint relating to above.
 
     private void Awake()
@@ -33,7 +36,7 @@ public class Enemy_Patrol : NPCBase
         if(Vector3.Distance(waypoints[curWaypoints].transform.position, NPC.transform.position) < maxDistance)
         {
             //Increments to next waypoint.
-            curWaypoints += Random.Range(0, 2);
+            curWaypoints += Random.Range(1, 2);
             
             if(curWaypoints >= waypoints.Length) //If current waypoint exceeds over waypoints array length, it'll reset back to 0.
             {
