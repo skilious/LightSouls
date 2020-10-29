@@ -14,7 +14,7 @@ public class RayToGround : MonoBehaviour
     private void RaycastSingle()
     {
         Vector3 origin = transform.position;
-        Vector3 direction = transform.forward;
+        Vector3 direction = -transform.up;
 
         Debug.DrawRay(origin, direction * 5f, Color.red);
         Ray ray = new Ray(origin, direction);
