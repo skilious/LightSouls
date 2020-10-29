@@ -27,7 +27,7 @@ public class Character_Status : MonoBehaviour
         }
     }
 
-    public static void ReceiveDamage(float dmg)
+    public void ReceiveDamage(float dmg)
     {
         healthHit -= dmg;
     }

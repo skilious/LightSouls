@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6452807706669769344}
   - component: {fileID: 6452807706669769359}
   - component: {fileID: 1450537431766551602}
+  - component: {fileID: -2852256601412128164}
   m_Layer: 0
   m_Name: Enemy_Grenade
   m_TagString: Enemy
@@ -130,7 +131,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64467bbca65166f459fc669feaf2a786, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   attack_types: 0
   boomerang: {fileID: 0}
   attackTimer: 0.5
@@ -158,3 +158,15 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &-2852256601412128164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6452807706669769358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db8e6754e89e5a349b18c566e9388850, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

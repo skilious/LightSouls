@@ -26,7 +26,16 @@ public class Projectile_Col : MonoBehaviour
     {
         if(collision.gameObject.tag == tagName)
         {
-            Character_Status.ReceiveDamage(damage);
+            if(tagName == "Player")
+            {
+                collision.gameObject.SendMessage("ReceiveDamage", damage);
+            }
+            else if(tagName == "Enemy")
+            {
+                print(collision.gameObject.name);
+                collision.gameObject.SendMessage("ReceiveDamage", damage);
+            }
+                
             gameObject.SetActive(false);
         }
         else if (collision.gameObject.tag == "Wall")

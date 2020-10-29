@@ -7,13 +7,9 @@ public class Wave_System : MonoBehaviour
     public List<GameObject> enemies;
 
     public List<GameObject> enemySpawn;
-    public int enemiesLeft;
+    public static int enemiesLeft;
 
     public bool beginWave = false;
-    private void Start()
-    {
-        enemiesLeft = enemies.Count;
-    }
 
     private void Update()
     {
@@ -37,7 +33,9 @@ public class Wave_System : MonoBehaviour
         for (int i = 0; i < enemies.Count; i++)
         {
             GameObject enemy = Instantiate(enemies[i], enemySpawn[i].transform.position, enemySpawn[i].transform.rotation);
+            enemy.GetComponent<EnemyStatus>().Invincibility();
             print(i + " " + enemy.name + " has spawned!");
         }
+        enemiesLeft = enemies.Count;
     }
 }

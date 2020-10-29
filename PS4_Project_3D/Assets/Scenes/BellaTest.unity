@@ -543,8 +543,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 7802243513370804613, guid: e21c61cf094575449b9e2e20f8b3859c, type: 3}
+  - {fileID: 486994582090207932, guid: 92d162a326ae38849b2d25d80f555656, type: 3}
+  - {fileID: 6452807706669769358, guid: 655663f6c6043464facfd20dfb986de0, type: 3}
   enemySpawn:
   - {fileID: 696766884}
+  - {fileID: 2121578204}
+  - {fileID: 1319297520}
   enemiesLeft: 0
   beginWave: 0
 --- !u!4 &680273644
