@@ -18,20 +18,14 @@ public class EnemyAI : MonoBehaviour
     [SerializeField]
     protected Attack_Types attack_types;
 
-    public Transform boomerang;
-
     [SerializeField]
     private float attackTimer = 0.0f, repeatTimer = 0.0f;
-    private float curDistance = 0;
-
-    [SerializeField]
-    private bool boomerangRetrieve;
+    protected float curDistance = 0;
 
     void Start()
     {
         player = GameObject.Find("Player");
         anim = GetComponent<Animator>();
-        if (boomerang == null) return;
     }
     protected void Attack()
     {
@@ -44,16 +38,7 @@ public class EnemyAI : MonoBehaviour
                 }
             case Attack_Types.Boomerang:
                 {
-                    curDistance = Vector3.Distance(transform.position, boomerang.position);
-                    if (!boomerangRetrieve)
-                    {
-                        BoomerangThrow();
-                    }
-
-                    else if (boomerangRetrieve)
-                    {
-                        BoomerangRetrieve();
-                    }
+                    BoombladeAttack();
                     break;
                 }
             case Attack_Types.Grenade:
@@ -82,8 +67,6 @@ public class EnemyAI : MonoBehaviour
     private void GrenadeAttack()
     {
         GameObject obj = Object_Pooling.SharedInstance.GetPooledObject("Grenade");
-        Projectile_Col projScript = obj.GetComponent<Projectile_Col>();
-        projScript.damage = 10.0f;
         obj.SetActive(true);
         obj.transform.position = transform.position + transform.forward * 2.0f;
         obj.transform.rotation = transform.rotation;
@@ -94,36 +77,22 @@ public class EnemyAI : MonoBehaviour
     private void BasicAttack()
     {
         GameObject obj = Object_Pooling.SharedInstance.GetPooledObject("EnemyProjectile");
-        Projectile_Col projScript = obj.GetComponent<Projectile_Col>();
-        projScript.damage = 10.0f;
         obj.SetActive(true);
         obj.transform.position = transform.position + transform.forward * 2.0f;
         obj.transform.rotation = transform.rotation;
         Rigidbody cloneRB = obj.GetComponent<Rigidbody>();
-        cloneRB.AddForce(transform.forward * 500.0f + transform.up * 100.0f, ForceMode.Acceleration);
+        cloneRB.AddForce(transform.forward * 500.0f, ForceMode.Acceleration);
     }
 
-    private void BoomerangThrow()
+    private void BoombladeAttack()
     {
-        boomerang.position += transform.forward * Time.deltaTime * 3.0f;
-        // print("Forward");
-        if (curDistance > 7.5f)
-        {
-            boomerang.SetParent(transform);
-            boomerangRetrieve = true;
-        }
-    }
-
-    private void BoomerangRetrieve()
-    {
-        boomerang.position = Vector3.MoveTowards(boomerang.position, transform.position, Time.deltaTime * 2.0f);
-        // print("Backward");
-        if (curDistance <= 0.0f)
-        {
-            boomerang.SetParent(null);
-            boomerangRetrieve = false;
-        }
-
+        GameObject obj = Object_Pooling.SharedInstance.GetPooledObject("Boomerang");
+        obj.GetComponent<Projectile_Boomblade>().getSpawnPos = transform.position;
+        obj.SetActive(true);
+        obj.transform.position = transform.position;
+        obj.transform.rotation = Quaternion.identity;
+        Rigidbody cloneRB = obj.GetComponent<Rigidbody>();
+        cloneRB.AddForce(transform.forward * 500.0f, ForceMode.Acceleration);
     }
 
     void Update()

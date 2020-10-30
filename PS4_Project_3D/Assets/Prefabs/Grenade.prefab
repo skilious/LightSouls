@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4277903351602086481}
   - component: {fileID: 174562017456757716}
   - component: {fileID: 3102506088070217571}
-  - component: {fileID: 7013780035613891420}
+  - component: {fileID: -5165537019545850195}
   m_Layer: 0
   m_Name: Grenade
   m_TagString: Grenade
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 5561349426305759274, guid: edddb959ce49a134892d1b5b2383d6d3, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -113,7 +113,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &7013780035613891420
+--- !u!114 &-5165537019545850195
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,10 +122,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3923790772110429413}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed8d864190cdad446bc55e68498fb4b9, type: 3}
+  m_Script: {fileID: 11500000, guid: c86dd2286e4250f4d9fc4ba35f296b16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
-  tagName: Enemy
-  grenadeSelected: 1
-  projectiles: {fileID: 8924443175435004896, guid: 76bd95699044e1f459aa7e0bbd358ab1, type: 3}
+  tagName: Player
+  damage: 30
+  maxTimer: 3
+  timer: 0

@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 92175062}
   m_Layer: 8
   m_Name: wall_SE
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
@@ -542,13 +542,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies:
-  - {fileID: 7802243513370804613, guid: e21c61cf094575449b9e2e20f8b3859c, type: 3}
   - {fileID: 486994582090207932, guid: 92d162a326ae38849b2d25d80f555656, type: 3}
-  - {fileID: 6452807706669769358, guid: 655663f6c6043464facfd20dfb986de0, type: 3}
   enemySpawn:
   - {fileID: 696766884}
-  - {fileID: 2121578204}
-  - {fileID: 1319297520}
   beginWave: 0
   enableInvincibility: 1
 --- !u!4 &680273644
@@ -855,7 +851,7 @@ GameObject:
   - component: {fileID: 943107578}
   m_Layer: 8
   m_Name: wall_SW
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
@@ -986,7 +982,7 @@ GameObject:
   - component: {fileID: 1122097255}
   m_Layer: 8
   m_Name: wall_NW
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
@@ -1395,7 +1391,7 @@ GameObject:
   - component: {fileID: 1612631809}
   m_Layer: 8
   m_Name: wall_NE
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
@@ -1932,16 +1928,32 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 416012614521192238, guid: 12801850be873944a86e99dd97c7f68f, type: 3}
+      propertyPath: objects.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 416012614521192238, guid: 12801850be873944a86e99dd97c7f68f, type: 3}
+      propertyPath: amountToInstantiate.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 416012614521192238, guid: 12801850be873944a86e99dd97c7f68f, type: 3}
       propertyPath: amountToInstantiate.Array.data[0]
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 416012614521192238, guid: 12801850be873944a86e99dd97c7f68f, type: 3}
       propertyPath: amountToInstantiate.Array.data[1]
-      value: 100
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 416012614521192238, guid: 12801850be873944a86e99dd97c7f68f, type: 3}
       propertyPath: amountToInstantiate.Array.data[2]
-      value: 100
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 416012614521192238, guid: 12801850be873944a86e99dd97c7f68f, type: 3}
+      propertyPath: objects.Array.data[3]
+      value: 
+      objectReference: {fileID: 5114725315232597780, guid: 08bd98de681341347a10f350607f9644, type: 3}
+    - target: {fileID: 416012614521192238, guid: 12801850be873944a86e99dd97c7f68f, type: 3}
+      propertyPath: amountToInstantiate.Array.data[3]
+      value: 317
       objectReference: {fileID: 0}
     - target: {fileID: 416012614521192239, guid: 12801850be873944a86e99dd97c7f68f, type: 3}
       propertyPath: m_Name
