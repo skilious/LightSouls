@@ -218,6 +218,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &179248148 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4822922785633884047, guid: 3d98d34b41e96b5429d4041fc52fb4f2, type: 3}
+  m_PrefabInstance: {fileID: 4822922785346091219}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8be64c67eb5074d46813b76a867e5889, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &220029197
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1605,6 +1616,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthColour: {fileID: 1582430493}
+  characterStats: {fileID: 179248148}
 --- !u!114 &1838851147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2052,6 +2064,18 @@ PrefabInstance:
       propertyPath: speed
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 4822922785633884047, guid: 3d98d34b41e96b5429d4041fc52fb4f2, type: 3}
+      propertyPath: maxCapacity
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4822922785633884047, guid: 3d98d34b41e96b5429d4041fc52fb4f2, type: 3}
+      propertyPath: isLifestealing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4822922785633884047, guid: 3d98d34b41e96b5429d4041fc52fb4f2, type: 3}
+      propertyPath: curHealth
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 4822922785633884081, guid: 3d98d34b41e96b5429d4041fc52fb4f2, type: 3}
       propertyPath: m_Mass
       value: 50
@@ -2112,5 +2136,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4822922785633884085, guid: 3d98d34b41e96b5429d4041fc52fb4f2, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3d98d34b41e96b5429d4041fc52fb4f2, type: 3}

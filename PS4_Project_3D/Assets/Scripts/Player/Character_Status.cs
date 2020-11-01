@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Character_Status : MonoBehaviour
 {
-    public static float curHealth = 0f;
-    private static float healthHit;
-    public static float maxHealth = 100.0f;
+    public float curHealth = 0f;
+    public float healthHit;
+    public float maxHealth = 100.0f;
 
     public int level;
     void Start()
@@ -15,7 +15,7 @@ public class Character_Status : MonoBehaviour
         healthHit = curHealth;
     }
 
-    void Update()
+    protected virtual void Update()
     {
         if (healthHit < curHealth)
         {
