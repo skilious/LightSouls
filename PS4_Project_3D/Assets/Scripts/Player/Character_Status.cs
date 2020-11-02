@@ -8,6 +8,9 @@ public class Character_Status : MonoBehaviour
     public float healthHit;
     public float maxHealth = 100.0f;
 
+    [SerializeField]
+    protected int curCapacity, maxCapacity, capacityClip;
+
     public int level;
     void Start()
     {
@@ -30,5 +33,15 @@ public class Character_Status : MonoBehaviour
     public void ReceiveDamage(float dmg)
     {
         healthHit -= dmg;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        //Just increases the amount of clips you have in your inventory.
+        if(other.gameObject.CompareTag("AmmoClip"))
+        {
+            capacityClip++;
+            Destroy(other.gameObject);
+        }
     }
 }

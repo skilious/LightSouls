@@ -15,6 +15,7 @@ TagManager:
   - Boomerang
   - Waypoint
   - Wall
+  - AmmoClip
   layers:
   - Default
   - TransparentFX

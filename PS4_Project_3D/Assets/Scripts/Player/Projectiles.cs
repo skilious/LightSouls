@@ -9,9 +9,6 @@ public class Projectiles : Character_Status
     private float BasicSpeed = 0, ShotgunSpeed = 0;
 
     [SerializeField]
-    private int curCapacity, maxCapacity;
-
-    [SerializeField]
     protected bool isReloading = false;
     [SerializeField]
     protected bool isLifestealing = false;
@@ -47,10 +44,11 @@ public class Projectiles : Character_Status
 
         else if(Input.GetKeyDown(KeyCode.R) & !isReloading)
         {
-            if (curCapacity <= maxCapacity - 1 && !isLifestealing)
+            if (curCapacity <= maxCapacity - 1 && !isLifestealing && capacityClip > 0)
             {
+                capacityClip--;
                 isReloading = true;
-                InvokeRepeating("ReloadCapacity", 1.0f, 0.5f);
+                InvokeRepeating("ReloadCapacity", 0.2f, 0.25f);
             }
 
             else if(isLifestealing && curCapacity <= maxCapacity - 1)
@@ -117,9 +115,8 @@ public class Projectiles : Character_Status
 
     protected void ReloadLifesteal()
     {
-        if (curCapacity <= maxCapacity - 1)
+        if (curCapacity <= maxCapacity - 1 && curHealth >= 3.0f)
         {
-            print(healthHit);
             ReceiveDamage(3.0f);
             curCapacity++;
         }
@@ -127,7 +124,7 @@ public class Projectiles : Character_Status
         {
             isReloading = false;
             CancelInvoke("ReloadLifesteal");
-            print("Full capacity already!");
+            print("Capacity is full or insufficient health!");
         }
     }
 }
