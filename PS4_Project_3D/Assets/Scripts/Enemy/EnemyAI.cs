@@ -11,6 +11,7 @@ public class EnemyAI : MonoBehaviour
         Basic
     };
 
+    protected float getDistance;
     Animator anim;
     
     private GameObject player;
@@ -97,6 +98,7 @@ public class EnemyAI : MonoBehaviour
 
     void Update()
     {
-        anim.SetFloat("Distance", Vector3.Distance(transform.position, player.transform.position));
+        getDistance = Vector3.Distance(transform.position, player.transform.position);
+        anim.SetFloat("Distance", getDistance);
     }
 }

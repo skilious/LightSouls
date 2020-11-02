@@ -16,7 +16,7 @@ public class Projectiles : Character_Status
     {
         Basic_Shots,
         Shotgun_Shots,
-        Laser_Shots,
+        Orb_Shots,
     };
     public ShootTypes shootTypes;
 
@@ -40,6 +40,10 @@ public class Projectiles : Character_Status
         else if(Input.GetKeyDown(KeyCode.Alpha2))
         {
             shootTypes = ShootTypes.Shotgun_Shots;
+        }
+        else if(Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            shootTypes = ShootTypes.Orb_Shots;
         }
 
         else if(Input.GetKeyDown(KeyCode.R) & !isReloading)
@@ -93,6 +97,14 @@ public class Projectiles : Character_Status
                                 rb.AddForce(cloning.transform.forward * ShotgunSpeed, ForceMode.Acceleration);
                             }
                         }
+                        break;
+                    }
+                case ShootTypes.Orb_Shots:
+                    {
+                        GameObject cloning = Object_Pooling.SharedInstance.GetPooledObject("OrbPortal");
+                        cloning.SetActive(true);
+                        cloning.transform.position = transform.position + -transform.forward * 1.0f + transform.up * 2.5f;
+                        cloning.transform.rotation = Quaternion.Euler(cloning.transform.eulerAngles.x, transform.eulerAngles.y, 0.0f);
                         break;
                     }
             }

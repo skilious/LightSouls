@@ -7,7 +7,7 @@ using UnityEngine;
 public class ProjectileBase : MonoBehaviour
 {
     //Grab rigidbody from Projectile themselves.
-    private Rigidbody rb;
+    protected Rigidbody rb;
     [SerializeField]
     protected string tagName;
 
