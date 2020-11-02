@@ -46,7 +46,6 @@ public class Projectiles : Character_Status
         {
             if (curCapacity <= maxCapacity - 1 && !isLifestealing && capacityClip > 0)
             {
-                capacityClip--;
                 isReloading = true;
                 InvokeRepeating("ReloadCapacity", 0.2f, 0.25f);
             }
@@ -60,6 +59,7 @@ public class Projectiles : Character_Status
         if (Input.GetKeyDown(KeyCode.Mouse0) && curCapacity > 0)
         {
             CancelInvoke("ReloadCapacity");
+            CancelInvoke("ReloadLifesteal");
             isReloading = false;
             Vector3 getPos = transform.position + transform.forward * 2.0f;
             switch (shootTypes)
@@ -101,10 +101,12 @@ public class Projectiles : Character_Status
 
     void ReloadCapacity()
     {
-        if(curCapacity <= maxCapacity - 1)
-        //It literally just increments by 1.
-        curCapacity++;
-
+        if(curCapacity <= maxCapacity - 1 && capacityClip > 0)
+        {
+            //It literally just increments by 1.
+            curCapacity++;
+            capacityClip--;
+        }
         else
         {
             isReloading = false;

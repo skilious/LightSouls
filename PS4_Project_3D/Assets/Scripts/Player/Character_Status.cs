@@ -40,7 +40,7 @@ public class Character_Status : MonoBehaviour
         //Just increases the amount of clips you have in your inventory.
         if(other.gameObject.CompareTag("AmmoClip"))
         {
-            capacityClip++;
+            capacityClip += 10;
             Destroy(other.gameObject);
         }
     }
