@@ -7,6 +7,7 @@ public class Orb_Portal : ProjectileBase
     [SerializeField]
     private Transform target = null;
 
+    private Vector3 getPos;
     [SerializeField]
     private float attackTime, repeatRate;
     protected override void Update()
@@ -27,13 +28,17 @@ public class Orb_Portal : ProjectileBase
 
     protected void OrbAttack()
     {
-        Vector3 getPos = target.position - transform.position;
-        GameObject cloning = Object_Pooling.SharedInstance.GetPooledObject("Projectile");
-        cloning.SetActive(true);
-        cloning.transform.position = transform.position;
-        cloning.transform.rotation = Quaternion.Euler(0.0f, transform.eulerAngles.y, 0.0f);
-        Rigidbody rb = cloning.GetComponent<Rigidbody>();
-        rb.AddForce(getPos * 100.0f, ForceMode.Acceleration);
+        if(target != null)
+        {
+            getPos = target.position - transform.position;
+
+            GameObject cloning = Object_Pooling.SharedInstance.GetPooledObject("Projectile");
+            cloning.SetActive(true);
+            cloning.transform.position = transform.position;
+            cloning.transform.rotation = Quaternion.Euler(0.0f, transform.eulerAngles.y, 0.0f);
+            Rigidbody rb = cloning.GetComponent<Rigidbody>();
+            rb.AddForce(getPos * 100.0f, ForceMode.Acceleration);
+        }
     }
 
     private Transform FindNearestEnemy(float radius)

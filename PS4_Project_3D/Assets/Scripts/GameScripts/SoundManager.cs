@@ -32,7 +32,8 @@ public static class SoundManager
 
     private static AudioClip GetAudioClip(Sound sound)
     {
-        foreach (GameAssets.SoundAudioClip soundAudioClip in GameAssets.GetInstance().soundAudioClipArray)
+        GameAssets gameAssets = GameObject.Find("GameAssets").GetComponent<GameAssets>();
+        foreach (GameAssets.SoundAudioClip soundAudioClip in gameAssets.soundAudioClipArray)
         {
             if (soundAudioClip.sound == sound)
             {
