@@ -112,7 +112,7 @@ public class Projectiles : Character_Status
         }
     }
 
-    void ReloadCapacity()
+    protected void ReloadCapacity()
     {
         if(curCapacity <= maxCapacity - 1 && capacityClip > 0)
         {

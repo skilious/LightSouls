@@ -8240,8 +8240,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 486994582090207932, guid: 92d162a326ae38849b2d25d80f555656, type: 3}
+  - {fileID: 6452807706669769358, guid: 655663f6c6043464facfd20dfb986de0, type: 3}
+  - {fileID: 7802243513370804613, guid: e21c61cf094575449b9e2e20f8b3859c, type: 3}
   enemySpawn:
   - {fileID: 696766884}
+  - {fileID: 2121578204}
+  - {fileID: 1319297520}
   beginWave: 0
   enableInvincibility: 1
 --- !u!4 &680273644
@@ -24836,11 +24840,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 416012614521192238, guid: 12801850be873944a86e99dd97c7f68f, type: 3}
       propertyPath: objects.Array.size
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 416012614521192238, guid: 12801850be873944a86e99dd97c7f68f, type: 3}
       propertyPath: amountToInstantiate.Array.size
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 416012614521192238, guid: 12801850be873944a86e99dd97c7f68f, type: 3}
       propertyPath: amountToInstantiate.Array.data[0]
@@ -24860,7 +24864,23 @@ PrefabInstance:
       objectReference: {fileID: 5114725315232597780, guid: 08bd98de681341347a10f350607f9644, type: 3}
     - target: {fileID: 416012614521192238, guid: 12801850be873944a86e99dd97c7f68f, type: 3}
       propertyPath: amountToInstantiate.Array.data[3]
-      value: 317
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 416012614521192238, guid: 12801850be873944a86e99dd97c7f68f, type: 3}
+      propertyPath: objects.Array.data[4]
+      value: 
+      objectReference: {fileID: 5100165298146315355, guid: 401b581586077f648b7f186331191aff, type: 3}
+    - target: {fileID: 416012614521192238, guid: 12801850be873944a86e99dd97c7f68f, type: 3}
+      propertyPath: amountToInstantiate.Array.data[4]
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 416012614521192238, guid: 12801850be873944a86e99dd97c7f68f, type: 3}
+      propertyPath: objects.Array.data[5]
+      value: 
+      objectReference: {fileID: 7000777182217639627, guid: 23633cda271bd554dba75c5f012df9c4, type: 3}
+    - target: {fileID: 416012614521192238, guid: 12801850be873944a86e99dd97c7f68f, type: 3}
+      propertyPath: amountToInstantiate.Array.data[5]
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 416012614521192239, guid: 12801850be873944a86e99dd97c7f68f, type: 3}
       propertyPath: m_Name
