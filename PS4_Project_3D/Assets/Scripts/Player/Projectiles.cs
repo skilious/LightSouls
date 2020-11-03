@@ -96,6 +96,7 @@ public class Projectiles : Character_Status
                                 Rigidbody rb = cloning.gameObject.GetComponent<Rigidbody>();
                                 rb.AddForce(cloning.transform.forward * ShotgunSpeed, ForceMode.Acceleration);
                             }
+
                         }
                         break;
                     }
