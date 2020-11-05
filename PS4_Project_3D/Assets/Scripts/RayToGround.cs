@@ -4,24 +4,20 @@ using UnityEngine;
 public class RayToGround : MonoBehaviour
 {
     [SerializeField]
-    private Color tintColor = Color.green;
+    protected Color tintColor = Color.green;
 
-    private void Update()
+    protected Vector3 rayOrigin;
+    protected Vector3 rayDirection;
+    protected Ray ray;
+    protected float distance = 5f;
+
+    protected virtual void RaycastDown(LayerMask layerMask)
     {
-        RaycastSingle();
+        Debug.DrawRay(rayOrigin, rayDirection * distance, Color.red);
     }
 
-    private void RaycastSingle()
+    protected virtual void RaycastForward(LayerMask layerMask)
     {
-        Vector3 origin = transform.position;
-        Vector3 direction = -transform.up;
-
-        Debug.DrawRay(origin, direction * 5f, Color.red);
-        Ray ray = new Ray(origin, direction);
-
-        if (Physics.Raycast(ray, out RaycastHit raycastHit))
-        {
-            raycastHit.collider.GetComponent<Renderer>().material.color = tintColor;
-        }
+        Debug.DrawRay(rayOrigin, rayDirection * distance, Color.blue);
     }
 }
