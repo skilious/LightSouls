@@ -87,9 +87,8 @@ public class EnemyAI : MonoBehaviour
 
     private void BoombladeAttack()
     {
-        print(player.transform.position);
         GameObject obj = Object_Pooling.SharedInstance.GetPooledObject("Boomerang");
-        obj.GetComponent<Projectile_Boomblade>().getSpawnPos = new Vector3(player.transform.position.x, player.transform.position.y + 0.25f, player.transform.position.z);
+        obj.GetComponent<Projectile_Boomblade>().getSpawnPos = transform.position;
         obj.SetActive(true);
         obj.transform.position = transform.position;
         obj.transform.LookAt(player.transform.position);

@@ -24,15 +24,17 @@ public class cameraFollow : MonoBehaviour
     {
         if(!rotating)
         {
+            float dpadAxis = Input.GetAxis("Rotate");
+            print(dpadAxis);
             smoothSpeed = 0.0f;
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                directions++;
-                StartCoroutine(rotationChange());
-            }
-            else if (Input.GetKeyDown(KeyCode.Q))
+            if (dpadAxis >= 1)
             {
                 directions--;
+                StartCoroutine(rotationChange());
+            }
+            else if (dpadAxis <= -1)
+            {
+                directions++;
                 StartCoroutine(rotationChange());
             }
         }

@@ -13,9 +13,9 @@ public class Projectiles : Character_Status
     [SerializeField]
     protected bool isLifestealing = false;
 
-    private Vector3 targetPos = Vector3.zero;
+    private float timer = 0;
 
-    public LayerMask ground;
+    private int selection = 0;
     public enum ShootTypes
     {
         Basic_Shots,
@@ -36,21 +36,38 @@ public class Projectiles : Character_Status
         {
             curCapacity = 0;
         }
+        if (timer < 0)
+        {
+            timer = 0;
+        }
+        else if (timer > 0)
+        {
+            timer -= Time.deltaTime;
+        }
 
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (selection == 0)
         {
             shootTypes = ShootTypes.Basic_Shots;
         }
-        else if(Input.GetKeyDown(KeyCode.Alpha2))
+        else if (selection == 1)
         {
             shootTypes = ShootTypes.Shotgun_Shots;
         }
-        else if(Input.GetKeyDown(KeyCode.Alpha3))
+        else if (selection == 2)
         {
             shootTypes = ShootTypes.Orb_Shots;
         }
 
-        else if(Input.GetKeyDown(KeyCode.R) & !isReloading)
+        if(selection > 2)
+        {
+            selection = 0;
+        }
+        else if(selection < 0)
+        {
+            selection = 2;
+        }
+
+        else if (Input.GetKeyDown(KeyCode.R) & !isReloading)
         {
             if (curCapacity <= maxCapacity - 1 && !isLifestealing && capacityClip > 0)
             {
@@ -58,72 +75,87 @@ public class Projectiles : Character_Status
                 InvokeRepeating("ReloadCapacity", 0.2f, 0.25f);
             }
 
-            else if(isLifestealing && curCapacity <= maxCapacity - 1)
+            else if (isLifestealing && curCapacity <= maxCapacity - 1)
             {
                 InvokeRepeating("ReloadLifesteal", 1.0f, 0.5f);
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Mouse0) && curCapacity > 0)
+        if(Input.GetButtonDown("SwitchWeapon_up"))
         {
-            RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit, 1000, ground))
+            print(shootTypes);
+            selection++;
+        }
+        else if(Input.GetButtonDown("SwitchWeapon_down"))
+        {
+            print(shootTypes);
+            selection--;
+        }
+
+        if (Input.GetButton("Shoot") && curCapacity > 0 && timer <= 0)
+        {
+            //RaycastHit hit;
+            //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            //if (Physics.Raycast(ray, out hit, 1000, ground))
+            //{
+            //targetPos = new Vector3(hit.point.x, hit.point.y + 0.5f, hit.point.z);
+            //}
+            CancelInvoke("ReloadCapacity");
+            CancelInvoke("ReloadLifesteal");
+            isReloading = false;
+            Vector3 getPos = transform.position + transform.forward * 1.5f;
+            switch (shootTypes)
             {
-                targetPos = new Vector3(hit.point.x, hit.point.y + 0.5f, hit.point.z);
-                CancelInvoke("ReloadCapacity");
-                CancelInvoke("ReloadLifesteal");
-                isReloading = false;
-                Vector3 getPos = transform.position + transform.forward * 0.5f;
-                switch (shootTypes)
-                {
-                    case ShootTypes.Basic_Shots:
+                case ShootTypes.Basic_Shots:
+                    {
+                        curCapacity--;
+                        GameObject cloning = Object_Pooling.SharedInstance.GetPooledObject("Projectile");
+                        cloning.SetActive(true);
+                        cloning.transform.position = getPos;
+                        cloning.transform.rotation = transform.rotation;
+                        Rigidbody rb = cloning.gameObject.GetComponent<Rigidbody>();
+                        rb.AddForce(cloning.transform.forward * BasicSpeed, ForceMode.Acceleration);
+                        timer = 0.25f;
+
+                        break;
+                    }
+                case ShootTypes.Shotgun_Shots:
+                    {
+                        if (curCapacity >= 3)
                         {
-                            curCapacity--;
-                            GameObject cloning = Object_Pooling.SharedInstance.GetPooledObject("Projectile");
-                            cloning.SetActive(true);
-                            cloning.transform.position = getPos;
-                            cloning.transform.LookAt(targetPos + transform.forward);
-                            Rigidbody rb = cloning.gameObject.GetComponent<Rigidbody>();
-                            rb.AddForce(cloning.transform.forward * BasicSpeed, ForceMode.Acceleration);
-                            break;
-                        }
-                    case ShootTypes.Shotgun_Shots:
-                        {
-                            if (curCapacity >= 3)
+                            //Calculating the angle
+                            for (int i = 0; i < 3; i++)
                             {
-                                //Calculating the angle
-                                for (int i = 0; i < 3; i++)
-                                {
-                                    curCapacity--;
-                                    float spread = Random.Range(-30, 30);
-                                    GameObject cloning = Object_Pooling.SharedInstance.GetPooledObject("Projectile");
-                                    cloning.SetActive(true);
-                                    cloning.transform.position = getPos;
-                                    cloning.transform.LookAt(targetPos + transform.forward);
-                                    cloning.transform.Rotate(0, spread, 0);
-                                    Rigidbody rb = cloning.gameObject.GetComponent<Rigidbody>();
-                                    rb.AddForce(cloning.transform.forward * ShotgunSpeed, ForceMode.Acceleration);
-                                }
+                                curCapacity--;
+                                float spread = Random.Range(-30, 30);
+                                GameObject cloning = Object_Pooling.SharedInstance.GetPooledObject("Projectile");
+                                cloning.SetActive(true);
+                                cloning.transform.position = getPos;
+                                cloning.transform.rotation = transform.rotation;
+                                cloning.transform.Rotate(0, spread, 0);
+                                Rigidbody rb = cloning.gameObject.GetComponent<Rigidbody>();
+                                rb.AddForce(cloning.transform.forward * ShotgunSpeed, ForceMode.Acceleration);
+                                timer = 1.0f;
                             }
-                            break;
                         }
-                    case ShootTypes.Orb_Shots:
-                        {
-                            GameObject cloning = Object_Pooling.SharedInstance.GetPooledObject("OrbPortal");
-                            cloning.SetActive(true);
-                            cloning.transform.position = transform.position + -transform.forward * 1.0f + transform.up * 2.5f;
-                            cloning.transform.rotation = Quaternion.Euler(cloning.transform.eulerAngles.x, transform.eulerAngles.y, 0.0f);
-                            break;
-                        }
-                }
+                        break;
+                    }
+                case ShootTypes.Orb_Shots:
+                    {
+                        GameObject cloning = Object_Pooling.SharedInstance.GetPooledObject("OrbPortal");
+                        cloning.SetActive(true);
+                        cloning.transform.position = transform.position + -transform.forward * 1.0f + transform.up * 2.5f;
+                        cloning.transform.rotation = Quaternion.Euler(cloning.transform.eulerAngles.x, transform.eulerAngles.y, 0.0f);
+                        timer = 5.0f;
+                        break;
+                    }
             }
         }
     }
 
     protected void ReloadCapacity()
     {
-        if(curCapacity <= maxCapacity - 1 && capacityClip > 0)
+        if (curCapacity <= maxCapacity - 1 && capacityClip > 0)
         {
             //It literally just increments by 1.
             curCapacity++;

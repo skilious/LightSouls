@@ -24,7 +24,7 @@ public class CharacterMovement : MonoBehaviour
     public static Rigidbody rb;
 
     protected bool dashing = false;
-    
+
     public static Vector3 forward, right;
     private ParticleSystem dashParticle;
 
@@ -42,10 +42,10 @@ public class CharacterMovement : MonoBehaviour
     private void FixedUpdate()
     {
         //If its not dashing, you can use WASD/Arrow keys to move your character instead.
-        if (Input.anyKey)
-            Movement();
 
-        if(!Input.anyKey)
+        Movement();
+
+        if (!Input.anyKey)
         {
             rb.velocity = Vector3.zero;
         }
@@ -114,7 +114,8 @@ public class CharacterMovement : MonoBehaviour
     {
         Vector3 rightMovement = right * moveSpd * Time.deltaTime * Input.GetAxis("Horizontal");
         Vector3 upMovement = forward * moveSpd * Time.deltaTime * Input.GetAxis("Vertical");
-
+        //print("Input Hori: " + Input.GetAxis("Horizontal_PS4"));
+        //print("Input Vert: " + Input.GetAxis("Vertical"));
         transform.position += rightMovement;
         transform.position += upMovement;
     }
