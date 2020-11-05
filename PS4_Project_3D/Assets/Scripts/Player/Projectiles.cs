@@ -12,6 +12,10 @@ public class Projectiles : Character_Status
     protected bool isReloading = false;
     [SerializeField]
     protected bool isLifestealing = false;
+
+    private Vector3 targetPos = Vector3.zero;
+
+    public LayerMask ground;
     public enum ShootTypes
     {
         Basic_Shots,
@@ -62,52 +66,57 @@ public class Projectiles : Character_Status
 
         if (Input.GetKeyDown(KeyCode.Mouse0) && curCapacity > 0)
         {
-            CancelInvoke("ReloadCapacity");
-            CancelInvoke("ReloadLifesteal");
-            isReloading = false;
-            Vector3 getPos = transform.position + transform.forward * 2.0f;
-            switch (shootTypes)
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit, 1000, ground))
             {
-                case ShootTypes.Basic_Shots:
-                    {
-                        curCapacity--;
-                        GameObject cloning = Object_Pooling.SharedInstance.GetPooledObject("Projectile");
-                        cloning.SetActive(true);
-                        cloning.transform.position = getPos;
-                        cloning.transform.rotation = transform.rotation;
-                        Rigidbody rb = cloning.gameObject.GetComponent<Rigidbody>();
-                        rb.AddForce(transform.forward * BasicSpeed, ForceMode.Acceleration);
-                        break;
-                    }
-                case ShootTypes.Shotgun_Shots:
-                    {
-                        if (curCapacity >= 3)
+                targetPos = new Vector3(hit.point.x, hit.point.y + 0.5f, hit.point.z);
+                CancelInvoke("ReloadCapacity");
+                CancelInvoke("ReloadLifesteal");
+                isReloading = false;
+                Vector3 getPos = transform.position + transform.forward * 0.5f;
+                switch (shootTypes)
+                {
+                    case ShootTypes.Basic_Shots:
                         {
-                            //Calculating the angle
-                            for (int i = 0; i < 3; i++)
-                            {
-                                curCapacity--;
-                                float spread = Random.Range(-30, 30);
-                                GameObject cloning = Object_Pooling.SharedInstance.GetPooledObject("Projectile");
-                                cloning.SetActive(true);
-                                cloning.transform.position = getPos;
-                                cloning.transform.rotation = transform.rotation;
-                                cloning.transform.Rotate(0, spread, 0);
-                                Rigidbody rb = cloning.gameObject.GetComponent<Rigidbody>();
-                                rb.AddForce(cloning.transform.forward * ShotgunSpeed, ForceMode.Acceleration);
-                            }
-
+                            curCapacity--;
+                            GameObject cloning = Object_Pooling.SharedInstance.GetPooledObject("Projectile");
+                            cloning.SetActive(true);
+                            cloning.transform.position = getPos;
+                            cloning.transform.LookAt(targetPos + transform.forward);
+                            Rigidbody rb = cloning.gameObject.GetComponent<Rigidbody>();
+                            rb.AddForce(cloning.transform.forward * BasicSpeed, ForceMode.Acceleration);
+                            break;
                         }
-                        break;
-                    }
-                case ShootTypes.Orb_Shots:
-                    {
-                        GameObject cloning = Object_Pooling.SharedInstance.GetPooledObject("OrbPortal");
-                        cloning.SetActive(true);
-                        cloning.transform.position = transform.position + -transform.forward * 1.0f + transform.up * 2.5f;
-                        cloning.transform.rotation = Quaternion.Euler(cloning.transform.eulerAngles.x, transform.eulerAngles.y, 0.0f);
-                        break;
-                    }
+                    case ShootTypes.Shotgun_Shots:
+                        {
+                            if (curCapacity >= 3)
+                            {
+                                //Calculating the angle
+                                for (int i = 0; i < 3; i++)
+                                {
+                                    curCapacity--;
+                                    float spread = Random.Range(-30, 30);
+                                    GameObject cloning = Object_Pooling.SharedInstance.GetPooledObject("Projectile");
+                                    cloning.SetActive(true);
+                                    cloning.transform.position = getPos;
+                                    cloning.transform.LookAt(targetPos + transform.forward);
+                                    cloning.transform.Rotate(0, spread, 0);
+                                    Rigidbody rb = cloning.gameObject.GetComponent<Rigidbody>();
+                                    rb.AddForce(cloning.transform.forward * ShotgunSpeed, ForceMode.Acceleration);
+                                }
+                            }
+                            break;
+                        }
+                    case ShootTypes.Orb_Shots:
+                        {
+                            GameObject cloning = Object_Pooling.SharedInstance.GetPooledObject("OrbPortal");
+                            cloning.SetActive(true);
+                            cloning.transform.position = transform.position + -transform.forward * 1.0f + transform.up * 2.5f;
+                            cloning.transform.rotation = Quaternion.Euler(cloning.transform.eulerAngles.x, transform.eulerAngles.y, 0.0f);
+                            break;
+                        }
+                }
             }
         }
     }

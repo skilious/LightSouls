@@ -80,20 +80,21 @@ public class EnemyAI : MonoBehaviour
         GameObject obj = Object_Pooling.SharedInstance.GetPooledObject("EnemyProjectile");
         obj.SetActive(true);
         obj.transform.position = transform.position + transform.forward * 2.0f;
-        obj.transform.rotation = transform.rotation;
+        obj.transform.LookAt(player.transform.position);
         Rigidbody cloneRB = obj.GetComponent<Rigidbody>();
-        cloneRB.AddForce(transform.forward * 500.0f, ForceMode.Acceleration);
+        cloneRB.AddForce(cloneRB.transform.forward * 500.0f, ForceMode.Acceleration);
     }
 
     private void BoombladeAttack()
     {
+        print(player.transform.position);
         GameObject obj = Object_Pooling.SharedInstance.GetPooledObject("Boomerang");
-        obj.GetComponent<Projectile_Boomblade>().getSpawnPos = transform.position;
+        obj.GetComponent<Projectile_Boomblade>().getSpawnPos = new Vector3(player.transform.position.x, player.transform.position.y + 0.25f, player.transform.position.z);
         obj.SetActive(true);
         obj.transform.position = transform.position;
-        obj.transform.rotation = Quaternion.identity;
+        obj.transform.LookAt(player.transform.position);
         Rigidbody cloneRB = obj.GetComponent<Rigidbody>();
-        cloneRB.AddForce(transform.forward * 500.0f, ForceMode.Acceleration);
+        cloneRB.AddForce(cloneRB.transform.forward * 500.0f, ForceMode.Acceleration);
     }
 
     void Update()

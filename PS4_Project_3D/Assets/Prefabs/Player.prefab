@@ -5089,15 +5089,18 @@ MonoBehaviour:
   healthHit: 0
   maxHealth: 100
   curCapacity: 0
-  maxCapacity: 100
+  maxCapacity: 1000
   capacityClip: 0
   level: 0
   obj: {fileID: 8924443175435004896, guid: 76bd95699044e1f459aa7e0bbd358ab1, type: 3}
   BasicSpeed: 800
   ShotgunSpeed: 1000
   isReloading: 0
-  isLifestealing: 1
-  shootTypes: 1
+  isLifestealing: 0
+  ground:
+    serializedVersion: 2
+    m_Bits: 256
+  shootTypes: 0
 --- !u!114 &4822922785633884040
 MonoBehaviour:
   m_ObjectHideFlags: 0
