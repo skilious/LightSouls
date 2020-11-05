@@ -9,15 +9,14 @@ public class EnemyStatus : MonoBehaviour
     [SerializeField]
     protected bool isInvincible = false;
 
+    [SerializeField]
     protected float maxHealth;
 
-    [SerializeField]
     private float curHealth;
     private Vector3 spawnPos;
     void Start()
     {
         spawnPos = transform.position;
-        maxHealth = 10.0f;
         curHealth = maxHealth;
     }
 

@@ -132,10 +132,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attack_types: 2
-  boomerang: {fileID: 0}
   attackTimer: 0.5
   repeatTimer: 0.5
-  boomerangRetrieve: 0
 --- !u!195 &775880473294995355
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -170,3 +168,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db8e6754e89e5a349b18c566e9388850, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isAlive: 1
+  isInvincible: 0
+  maxHealth: 100

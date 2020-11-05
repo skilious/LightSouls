@@ -170,4 +170,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isAlive: 1
   isInvincible: 0
-  curHealth: 0
+  maxHealth: 100

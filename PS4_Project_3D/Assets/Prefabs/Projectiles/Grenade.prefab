@@ -127,5 +127,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagName: Player
   damage: 30
-  maxTimer: 3
+  maxTimer: 1
   timer: 0
