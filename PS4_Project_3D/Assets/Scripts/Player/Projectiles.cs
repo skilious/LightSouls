@@ -16,6 +16,7 @@ public class Projectiles : Character_Status
     private float timer = 0;
 
     private int selection = 0;
+    private bool selected = false;
     public enum ShootTypes
     {
         Basic_Shots,
@@ -31,20 +32,26 @@ public class Projectiles : Character_Status
 
     protected override void Update()
     {
+        float dpadAxis = Input.GetAxis("SwitchWeapon_Dpad");
         base.Update();
+        //Ran out of ammo
         if (curCapacity < 0)
         {
+            //Stays at 0.
             curCapacity = 0;
         }
+        //Timer less than 0, it'll end up at 0.
         if (timer < 0)
         {
             timer = 0;
         }
+        //Otherwise if it is more, decrease timer.
         else if (timer > 0)
         {
             timer -= Time.deltaTime;
         }
 
+        //Selections are equal to different types of shots.
         if (selection == 0)
         {
             shootTypes = ShootTypes.Basic_Shots;
@@ -57,17 +64,20 @@ public class Projectiles : Character_Status
         {
             shootTypes = ShootTypes.Orb_Shots;
         }
-
+        //Checks if its exceeding the limit.
         if(selection > 2)
         {
+            //sets it back to 0.
             selection = 0;
         }
+        //Same with the opposite.
         else if(selection < 0)
         {
+            //set it back up to 2.
             selection = 2;
         }
 
-        else if (Input.GetKeyDown(KeyCode.R) & !isReloading)
+        if (Input.GetKeyDown(KeyCode.R) & !isReloading)
         {
             if (curCapacity <= maxCapacity - 1 && !isLifestealing && capacityClip > 0)
             {
@@ -81,15 +91,21 @@ public class Projectiles : Character_Status
             }
         }
 
-        if(Input.GetButtonDown("SwitchWeapon_up"))
+        if(dpadAxis >= 1 && !selected)
         {
+            selected = true;
             print(shootTypes);
             selection++;
         }
-        else if(Input.GetButtonDown("SwitchWeapon_down"))
+        else if(dpadAxis <= -1 && !selected)
         {
+            selected = true;
             print(shootTypes);
             selection--;
+        }
+        else if(selected && dpadAxis == 0)
+        {
+            selected = false;
         }
 
         if (Input.GetButton("Shoot") && curCapacity > 0 && timer <= 0)

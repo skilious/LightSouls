@@ -25,7 +25,6 @@ public class cameraFollow : MonoBehaviour
         if(!rotating)
         {
             float dpadAxis = Input.GetAxis("Rotate");
-            print(dpadAxis);
             smoothSpeed = 0.0f;
             if (dpadAxis >= 1)
             {
