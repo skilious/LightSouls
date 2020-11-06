@@ -11697,6 +11697,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4822922785633884046, guid: 3d98d34b41e96b5429d4041fc52fb4f2, type: 3}
+      propertyPath: hoverForce
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 4822922785633884082, guid: 3d98d34b41e96b5429d4041fc52fb4f2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.361
