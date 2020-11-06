@@ -6,10 +6,27 @@ public class Projectile_Basic : ProjectileBase
 {
     [SerializeField]
     private float damageModifier = 2;
-
+    [SerializeField]
+    protected bool isAOEProjectile;
     protected float damageModify()
     {
         damage = damageModifier;
         return damage;
+    }
+
+    protected override void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.CompareTag(tagName))
+        {
+            if (tagName == "Enemy" && isAOEProjectile)
+            {
+                print(collision.gameObject.name);
+                collision.gameObject.SendMessage("ReceiveDamage", damage);
+            }
+            else if(tagName == "Enemy" && !isAOEProjectile)
+            {
+                collision.gameObject.SendMessage("ReceiveDamage", damage);
+            }
+        }
     }
 }

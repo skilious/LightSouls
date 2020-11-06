@@ -33,6 +33,7 @@ public class EnemyStatus : Popup_Text
         if (objPrefab)
         {
             objPrefab.GetComponent<TextMesh>().text = dmg.ToString();
+            objPrefab.GetComponent<TextMesh>().color = color;
             ShowFloatingText();
         }
         return curHealth;

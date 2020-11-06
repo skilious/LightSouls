@@ -18,6 +18,7 @@ TagManager:
   - AmmoClip
   - OrbPortal
   - Orb
+  - AOEProjectile
   layers:
   - Default
   - TransparentFX

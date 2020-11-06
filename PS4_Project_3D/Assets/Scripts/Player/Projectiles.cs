@@ -2,26 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Tai's shitty code on projectiles before I even bothered to learn inheritance.
 public class Projectiles : Character_Status
 {
-    public GameObject obj;
+    //Speed of the projectiles coming out w/ addforce rigidbody.
     [SerializeField]
     private float BasicSpeed = 0, ShotgunSpeed = 0;
 
+    //Two booleans represents either reloading from Ammo Capacity or lifestealing your health.
     [SerializeField]
     protected bool isReloading = false;
     [SerializeField]
     protected bool isLifestealing = false;
 
-    private float timer = 0;
+    //Firerate for each weapon.
+    private float fireRate = 0;
 
+    //Selection of the weapons swapping
     private int selection = 0;
+    //Prevents miss selecting the right weapon (Prevents holding due to the way how dpad is set to axis).
     private bool selected = false;
+
+    //All the types of projectiles that we are going to use.
     public enum ShootTypes
     {
         Basic_Shots,
         Shotgun_Shots,
         Orb_Shots,
+        AOEShot,
+        LaserShot
     };
     public ShootTypes shootTypes;
 
@@ -40,32 +49,44 @@ public class Projectiles : Character_Status
             //Stays at 0.
             curCapacity = 0;
         }
-        //Timer less than 0, it'll end up at 0.
-        if (timer < 0)
+
+        //fireRate less than 0, it'll end up at 0.
+        if (fireRate < 0)
         {
-            timer = 0;
+            fireRate = 0;
         }
-        //Otherwise if it is more, decrease timer.
-        else if (timer > 0)
+        //Otherwise if it is more, decrease fireRate timer.
+        else if (fireRate > 0)
         {
-            timer -= Time.deltaTime;
+            fireRate -= Time.deltaTime;
         }
 
         //Selections are equal to different types of shots.
-        if (selection == 0)
+        switch(selection)
         {
-            shootTypes = ShootTypes.Basic_Shots;
-        }
-        else if (selection == 1)
-        {
-            shootTypes = ShootTypes.Shotgun_Shots;
-        }
-        else if (selection == 2)
-        {
-            shootTypes = ShootTypes.Orb_Shots;
+            case 0:
+                {
+                    shootTypes = ShootTypes.Basic_Shots;
+                    break;
+                }
+            case 1:
+                {
+                    shootTypes = ShootTypes.Shotgun_Shots;
+                    break;
+                }
+            case 2:
+                {
+                    shootTypes = ShootTypes.Orb_Shots;
+                    break;
+                }
+            case 3:
+                {
+                    shootTypes = ShootTypes.AOEShot;
+                    break;
+                }
         }
         //Checks if its exceeding the limit.
-        if(selection > 2)
+        if(selection > 3)
         {
             //sets it back to 0.
             selection = 0;
@@ -73,8 +94,8 @@ public class Projectiles : Character_Status
         //Same with the opposite.
         else if(selection < 0)
         {
-            //set it back up to 2.
-            selection = 2;
+            //set it back up to 3.
+            selection = 3;
         }
 
         if (Input.GetButtonDown("Reload") & !isReloading)
@@ -82,20 +103,21 @@ public class Projectiles : Character_Status
             if (curCapacity <= maxCapacity - 1 && !isLifestealing && capacityClip > 0)
             {
                 isReloading = true;
-                InvokeRepeating("ReloadCapacity", 0.2f, 0.25f);
+                InvokeRepeating("ReloadCapacity", 0.1f, 0.15f);
             }
 
             else if (isLifestealing && curCapacity <= maxCapacity - 1)
             {
-                InvokeRepeating("ReloadLifesteal", 1.0f, 0.5f);
+                InvokeRepeating("ReloadLifesteal", 0.15f, 0.20f);
             }
         }
 
         if(dpadAxis >= 1 && !selected)
         {
             selected = true;
-            print(shootTypes);
             selection++;
+
+            print(shootTypes);
         }
         else if(dpadAxis <= -1 && !selected)
         {
@@ -108,14 +130,8 @@ public class Projectiles : Character_Status
             selected = false;
         }
 
-        if (Input.GetButton("Shoot") && curCapacity > 0 && timer <= 0)
+        if (Input.GetButton("Shoot") && curCapacity > 0 && fireRate <= 0)
         {
-            //RaycastHit hit;
-            //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            //if (Physics.Raycast(ray, out hit, 1000, ground))
-            //{
-            //targetPos = new Vector3(hit.point.x, hit.point.y + 0.5f, hit.point.z);
-            //}
             CancelInvoke("ReloadCapacity");
             CancelInvoke("ReloadLifesteal");
             isReloading = false;
@@ -131,19 +147,18 @@ public class Projectiles : Character_Status
                         cloning.transform.rotation = transform.rotation;
                         Rigidbody rb = cloning.gameObject.GetComponent<Rigidbody>();
                         rb.AddForce(cloning.transform.forward * BasicSpeed, ForceMode.Acceleration);
-                        timer = 0.25f;
-
+                        fireRate = 0.25f;
                         break;
                     }
                 case ShootTypes.Shotgun_Shots:
                     {
                         if (curCapacity >= 3)
                         {
+                            float spread = -15.0f;
                             //Calculating the angle
                             for (int i = 0; i < 3; i++)
                             {
                                 curCapacity--;
-                                float spread = Random.Range(-30, 30);
                                 GameObject cloning = Object_Pooling.SharedInstance.GetPooledObject("Projectile");
                                 cloning.SetActive(true);
                                 cloning.transform.position = getPos;
@@ -151,18 +166,32 @@ public class Projectiles : Character_Status
                                 cloning.transform.Rotate(0, spread, 0);
                                 Rigidbody rb = cloning.gameObject.GetComponent<Rigidbody>();
                                 rb.AddForce(cloning.transform.forward * ShotgunSpeed, ForceMode.Acceleration);
-                                timer = 1.0f;
+                                fireRate = 1.0f;
+                                spread += 15.0f;
                             }
                         }
                         break;
                     }
                 case ShootTypes.Orb_Shots:
                     {
+                        curCapacity--;
                         GameObject cloning = Object_Pooling.SharedInstance.GetPooledObject("OrbPortal");
                         cloning.SetActive(true);
                         cloning.transform.position = transform.position + -transform.forward * 1.0f + transform.up * 2.5f;
                         cloning.transform.rotation = Quaternion.Euler(cloning.transform.eulerAngles.x, transform.eulerAngles.y, 0.0f);
-                        timer = 5.0f;
+                        fireRate = 5.0f;
+                        break;
+                    }
+                case ShootTypes.AOEShot:
+                    {
+                        curCapacity--;
+                        GameObject cloning = Object_Pooling.SharedInstance.GetPooledObject("AOEProjectile");
+                        cloning.SetActive(true);
+                        cloning.transform.position = getPos;
+                        cloning.transform.rotation = transform.rotation;
+                        Rigidbody rb = cloning.gameObject.GetComponent<Rigidbody>();
+                        rb.AddForce(cloning.transform.forward * 500.0f, ForceMode.Acceleration);
+                        fireRate = 1.5f;
                         break;
                     }
             }
@@ -175,16 +204,19 @@ public class Projectiles : Character_Status
         {
             //It literally just increments by 1.
             curCapacity++;
+            //Grabs ammo capacity clip in return.
             capacityClip--;
         }
         else
         {
+            //No longer reloading and stops the function.
             isReloading = false;
             CancelInvoke("ReloadCapacity");
-            print("Full capacity already!");
+            print("Full capacity already!"); //Yeets a print telling you that your weapon is ready to fire again!
         }
     }
 
+    //Lifesteal method.
     protected void ReloadLifesteal()
     {
         if (curCapacity <= maxCapacity - 1 && curHealth >= 3.0f)
@@ -200,3 +232,14 @@ public class Projectiles : Character_Status
         }
     }
 }
+
+
+/*UNUSED CODE HERE
+ * Raycast reference for aimming and height adjustments. However, its PC only with the mouse.
+ *          RaycastHit hit;
+            //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            //if (Physics.Raycast(ray, out hit, 1000, ground))
+            //{
+            //targetPos = new Vector3(hit.point.x, hit.point.y + 0.5f, hit.point.z);
+            //}
+*/

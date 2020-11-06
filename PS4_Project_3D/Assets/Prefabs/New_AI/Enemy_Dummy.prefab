@@ -11,6 +11,22 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 1000
       objectReference: {fileID: 0}
+    - target: {fileID: -1885151945863529984, guid: e21c61cf094575449b9e2e20f8b3859c, type: 3}
+      propertyPath: color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1885151945863529984, guid: e21c61cf094575449b9e2e20f8b3859c, type: 3}
+      propertyPath: color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1885151945863529984, guid: e21c61cf094575449b9e2e20f8b3859c, type: 3}
+      propertyPath: color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1885151945863529984, guid: e21c61cf094575449b9e2e20f8b3859c, type: 3}
+      propertyPath: color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7802243513370804612, guid: e21c61cf094575449b9e2e20f8b3859c, type: 3}
       propertyPath: attackTimer
       value: 0

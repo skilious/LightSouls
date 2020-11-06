@@ -7612,7 +7612,8 @@ MonoBehaviour:
   - {fileID: 5100165298146315355, guid: 401b581586077f648b7f186331191aff, type: 3}
   - {fileID: 3923790772110429413, guid: 847c421dd01052247a3c7f983853d3a4, type: 3}
   - {fileID: 5114725315232597780, guid: 08bd98de681341347a10f350607f9644, type: 3}
-  amountToInstantiate: 64000000640000000a000000320000003200000032000000
+  - {fileID: 5288582561039260149, guid: 2cd8a7a6587d334499ec00c4435affa2, type: 3}
+  amountToInstantiate: 320000006400000001000000050000000a0000000a00000005000000
   objectPooled: []
   objCounter: 0
 --- !u!1001 &634928297
@@ -11742,17 +11743,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1522295048, guid: 3d98d34b41e96b5429d4041fc52fb4f2, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4822922785633884041, guid: 3d98d34b41e96b5429d4041fc52fb4f2, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 4822922785633884046, guid: 3d98d34b41e96b5429d4041fc52fb4f2, type: 3}
-      propertyPath: hoverForce
-      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4822922785633884082, guid: 3d98d34b41e96b5429d4041fc52fb4f2, type: 3}
       propertyPath: m_LocalPosition.x
