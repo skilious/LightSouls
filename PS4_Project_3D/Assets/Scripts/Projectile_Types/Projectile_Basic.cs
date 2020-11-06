@@ -23,9 +23,12 @@ public class Projectile_Basic : ProjectileBase
                 print(collision.gameObject.name);
                 collision.gameObject.SendMessage("ReceiveDamage", damage);
             }
-            else if(tagName == "Enemy" && !isAOEProjectile)
+            
+            if(tagName == "Player" && !isAOEProjectile)
             {
+                print(collision.gameObject.name);
                 collision.gameObject.SendMessage("ReceiveDamage", damage);
+                gameObject.SetActive(false);
             }
         }
     }

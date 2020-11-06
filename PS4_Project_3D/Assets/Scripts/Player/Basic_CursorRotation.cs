@@ -4,17 +4,11 @@ using UnityEngine;
 
 public class Basic_CursorRotation : MonoBehaviour
 {
-    public LayerMask clickMask;
-    Ray cameraRay;
-
-    private Vector3 forward, right;
-    public float adjustments;
-
     private void Awake()
     {
         //Yeet this from CharacterMovement so it could be relative to the camera.
         //Isometric support too. That's what "right" is for.
-        CharacterMovement.forward = Camera.main.transform.forward;
+        CharacterMovement.forward = Camera.main.transform.forward; //Check out CharacterMovement's script for the entire descrption of why this is needed.
         CharacterMovement.forward.y = 0;
         CharacterMovement.right = Quaternion.Euler(new Vector3(0, 90, 0)) * CharacterMovement.forward;
     }
@@ -23,14 +17,16 @@ public class Basic_CursorRotation : MonoBehaviour
         //Grabs GetAxis from right analog w/ X (R_Horizontal) and Y (R_Vertical).
         float hAxis = Input.GetAxis("R_Horizontal");
         float vAxis = Input.GetAxis("R_Vertical");
-        //print("Horizontal: " + hAxis + " " + " Vertical" + vAxis);
+        print("Horizontal: " + hAxis + " " + " Vertical" + vAxis);
 
         Vector3 rightRotation = CharacterMovement.right * 10.0f * Time.deltaTime * hAxis;
         Vector3 upRotation = CharacterMovement.forward * 10.0f * Time.deltaTime * vAxis;
+
         //Angle - Rotating character
-        //float angle = Mathf.Atan2(hAxis, vAxis) * Mathf.Rad2Deg;
-        if (hAxis != 0 || vAxis != 0)
+        //float angle = Mathf.Atan2(hAxis, vAxis) * Mathf.Rad2Deg; This no longer is being used as it only calculates the angle for Y axis.
+        if (hAxis != 0 || vAxis != 0) //This piece of shit if statement checks if hAxis/vAxis are not equal to 0.
         {
+            //Supports rotation and relative to the camera.
             Quaternion rotSmooth = Quaternion.LookRotation(rightRotation + upRotation);
             transform.rotation = Quaternion.Slerp(transform.rotation, rotSmooth, 10.0f * Time.deltaTime);
             //transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(upRotation), 10.0f * Time.deltaTime);

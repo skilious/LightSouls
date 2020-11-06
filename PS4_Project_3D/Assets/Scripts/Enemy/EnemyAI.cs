@@ -79,7 +79,7 @@ public class EnemyAI : MonoBehaviour
     {
         GameObject obj = Object_Pooling.SharedInstance.GetPooledObject("EnemyProjectile");
         obj.SetActive(true);
-        obj.transform.position = transform.position + transform.forward * 2.0f;
+        obj.transform.position = transform.position + transform.forward * 1.0f;
         obj.transform.LookAt(player.transform.position);
         Rigidbody cloneRB = obj.GetComponent<Rigidbody>();
         cloneRB.AddForce(cloneRB.transform.forward * 500.0f, ForceMode.Acceleration);
