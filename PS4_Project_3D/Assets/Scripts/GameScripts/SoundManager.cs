@@ -5,6 +5,8 @@ public static class SoundManager
     public enum Sound
     {
         ThemeMusic,
+        ControlsMusic,
+        CreditsMusic,
 
         // UNIMPLEMENTED... FOR NOW.
         ButtonOver,
