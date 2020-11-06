@@ -8,9 +8,7 @@ public class Character_Status : MonoBehaviour
     public float healthHit;
     public float maxHealth = 100.0f;
 
-    [SerializeField]
-    protected int curCapacity, maxCapacity, capacityClip;
-
+    public static int curCapacity, maxCapacity = 100, capacityClip = 999;
     public int level;
     void Start()
     {

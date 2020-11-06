@@ -18,12 +18,12 @@ public class Basic_CursorRotation : MonoBehaviour
         CharacterMovement.forward.y = 0;
         CharacterMovement.right = Quaternion.Euler(new Vector3(0, 90, 0)) * CharacterMovement.forward;
     }
-    void FixedUpdate()
+    void Update()
     {
         //Grabs GetAxis from right analog w/ X (R_Horizontal) and Y (R_Vertical).
         float hAxis = Input.GetAxis("R_Horizontal");
         float vAxis = Input.GetAxis("R_Vertical");
-        print("Horizontal: " + hAxis + " " + " Vertical" + vAxis);
+        //print("Horizontal: " + hAxis + " " + " Vertical" + vAxis);
 
         Vector3 rightRotation = CharacterMovement.right * 10.0f * Time.deltaTime * hAxis;
         Vector3 upRotation = CharacterMovement.forward * 10.0f * Time.deltaTime * vAxis;

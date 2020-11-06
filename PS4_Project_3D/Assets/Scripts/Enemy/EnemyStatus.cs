@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyStatus : MonoBehaviour
+public class EnemyStatus : Popup_Text
 {
     [SerializeField]
     private bool isAlive = true;
@@ -24,11 +24,17 @@ public class EnemyStatus : MonoBehaviour
     {
         //print("Object:  " + gameObject.name + "'s health: " + curHealth);
         aliveStatus();
+
     }
 
     public float ReceiveDamage(float dmg)
     {
-        curHealth -= dmg;
+        curHealth -= dmg; 
+        if (objPrefab)
+        {
+            objPrefab.GetComponent<TextMesh>().text = dmg.ToString();
+            ShowFloatingText();
+        }
         return curHealth;
     }
 

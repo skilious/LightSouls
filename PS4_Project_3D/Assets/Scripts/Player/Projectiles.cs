@@ -77,7 +77,7 @@ public class Projectiles : Character_Status
             selection = 2;
         }
 
-        if (Input.GetKeyDown(KeyCode.R) & !isReloading)
+        if (Input.GetButtonDown("Reload") & !isReloading)
         {
             if (curCapacity <= maxCapacity - 1 && !isLifestealing && capacityClip > 0)
             {

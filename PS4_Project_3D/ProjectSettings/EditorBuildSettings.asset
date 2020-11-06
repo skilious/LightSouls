@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LoadingScene.unity
     guid: e556007576abac84fa5adbd8d4010a6f
+  - enabled: 1
+    path: Assets/Scenes/SoulGame.unity
+    guid: c81c7f9f66f993d40884dd2bd574c92e
   m_configObjects: {}
