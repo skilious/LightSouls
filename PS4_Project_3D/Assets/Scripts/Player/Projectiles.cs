@@ -130,14 +130,16 @@ public class Projectiles : Character_Status
             selected = false;
         }
 
+        //Shoot is for PS4 only and checks if curCapacity is over than 0 and fireRate is equal to 0 or less.
         if (Input.GetButton("Shoot") && curCapacity > 0 && fireRate <= 0)
         {
-            CancelInvoke("ReloadCapacity");
+            CancelInvoke("ReloadCapacity"); //Cancels both reloading functions preventing them to continue on whilst shooting.
             CancelInvoke("ReloadLifesteal");
-            isReloading = false;
-            Vector3 getPos = transform.position + transform.forward * 1.5f;
+            isReloading = false; //Sets the boolean and allows the player to reload again.
+            Vector3 getPos = transform.position + transform.forward * 1.5f; //Grab's the players position w/ offset.
             switch (shootTypes)
             {
+                //Basic projectile that shoots wherever the player is facing.
                 case ShootTypes.Basic_Shots:
                     {
                         curCapacity--;
@@ -150,7 +152,7 @@ public class Projectiles : Character_Status
                         fireRate = 0.25f;
                         break;
                     }
-                case ShootTypes.Shotgun_Shots:
+                case ShootTypes.Shotgun_Shots: //Shoots three projectiles split away from each other.
                     {
                         if (curCapacity >= 3)
                         {
@@ -163,7 +165,7 @@ public class Projectiles : Character_Status
                                 cloning.SetActive(true);
                                 cloning.transform.position = getPos;
                                 cloning.transform.rotation = transform.rotation;
-                                cloning.transform.Rotate(0, spread, 0);
+                                cloning.transform.Rotate(0, spread, 0); //This used to be randomized until its difficult to predict. Now its fixed to have normal spreading.
                                 Rigidbody rb = cloning.gameObject.GetComponent<Rigidbody>();
                                 rb.AddForce(cloning.transform.forward * ShotgunSpeed, ForceMode.Acceleration);
                                 fireRate = 1.0f;
@@ -172,7 +174,7 @@ public class Projectiles : Character_Status
                         }
                         break;
                     }
-                case ShootTypes.Orb_Shots:
+                case ShootTypes.Orb_Shots: //This one summons a portal above and behind the player. Shoots fire orbs and automatically aims nearest enemy.
                     {
                         curCapacity--;
                         GameObject cloning = Object_Pooling.SharedInstance.GetPooledObject("OrbPortal");
@@ -182,7 +184,7 @@ public class Projectiles : Character_Status
                         fireRate = 5.0f;
                         break;
                     }
-                case ShootTypes.AOEShot:
+                case ShootTypes.AOEShot: //This is wider comparing to the original and does the same except it goes through enemies.
                     {
                         curCapacity--;
                         GameObject cloning = Object_Pooling.SharedInstance.GetPooledObject("AOEProjectile");

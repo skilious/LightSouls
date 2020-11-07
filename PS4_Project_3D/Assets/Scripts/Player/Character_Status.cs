@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Tai's script
 public class Character_Status : MonoBehaviour
 {
     public float curHealth = 0f;
@@ -20,16 +21,17 @@ public class Character_Status : MonoBehaviour
     {
         if (healthHit < curHealth)
         {
-            curHealth = Mathf.Lerp(curHealth, healthHit, 5.0f * Time.deltaTime);
+            curHealth = Mathf.Lerp(curHealth, healthHit, 5.0f * Time.deltaTime); //Smooth transition which later used w/ slider UI.
         }
         else if(healthHit >= curHealth)
         {
-            curHealth = Mathf.RoundToInt(healthHit);
+            curHealth = Mathf.RoundToInt(healthHit); //Rounds it once it hits curHealth
         }
     }
 
     public void ReceiveDamage(float dmg)
     {
+        //Simple damage receiver.
         healthHit -= dmg;
     }
 

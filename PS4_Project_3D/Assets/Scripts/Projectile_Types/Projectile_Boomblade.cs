@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Tai's script
 public class Projectile_Boomblade : ProjectileBase
 {
     [SerializeField]
@@ -22,6 +23,7 @@ public class Projectile_Boomblade : ProjectileBase
         base.Update();
         if(timer < 3.0f)
         {
+            //Does not use rigidbody because, its literally just moving towards the target and back after it meets the target.
             transform.position = Vector3.MoveTowards(transform.position, getSpawnPos, Time.fixedDeltaTime * 20.0f); 
             if (Vector3.Distance(getSpawnPos, transform.position) < 1.0f)
             {

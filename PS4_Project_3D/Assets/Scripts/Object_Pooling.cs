@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Tai's script.
 public class Object_Pooling : MonoBehaviour
 {
     /*Instructions:
@@ -26,6 +27,7 @@ public class Object_Pooling : MonoBehaviour
         SharedInstance = this;
     }
 
+    //This function only starts at the beginning w/ for looping until it instantiates all the necessary GameObjects that are needed in the scene.
     private void Start()
     {
         while(objCounter != objects.Length)
@@ -40,15 +42,18 @@ public class Object_Pooling : MonoBehaviour
             objCounter++;
         }
     }
+    //Can be used to reference a GameObject w/ Tag.
     public GameObject GetPooledObject(string tag)
     {
+        //Grabs every objectpooled GameObject.
         for (int i = 0; i < objectPooled.Count; i++)
         {
+            //Until it relates to whatever tag you selected and its inactive in the inhierarchy.
             if(!objectPooled[i].activeInHierarchy && objectPooled[i].tag == tag)
             {
-                return objectPooled[i];
+                return objectPooled[i]; //Returns and do whatever you want with it.
             }
         }
-        return null;
+        return null; //Otherwise, it doesnt exist or all is being used up at the same time. Throws a null error.
     }
 }

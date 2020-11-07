@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Tai's script
 public class EnemyStatus : Popup_Text
 {
     [SerializeField]
@@ -29,12 +30,14 @@ public class EnemyStatus : Popup_Text
 
     public float ReceiveDamage(float dmg)
     {
+        //Damage receiver
         curHealth -= dmg; 
+        //objPrefab is from Popup_Text.
         if (objPrefab)
         {
-            objPrefab.GetComponent<TextMesh>().text = dmg.ToString();
-            objPrefab.GetComponent<TextMesh>().color = color;
-            ShowFloatingText();
+            objPrefab.GetComponent<TextMesh>().text = dmg.ToString(); //Grabs the variable from other class that its inheriting.
+            objPrefab.GetComponent<TextMesh>().color = color; //To set values such as this.
+            ShowFloatingText(); //From inherited class that instantiates the text as prefab.
         }
         return curHealth;
     }

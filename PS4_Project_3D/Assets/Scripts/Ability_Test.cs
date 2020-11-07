@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//This is Tai's script but, its no longer being used as it
+//is somewhat pointless now due to converting w/ ps4 controller.
+//I am just lazy to deal with this method.
+//TLDR: I am lazy and have a better method instead. This is abandoned.
 public class Ability_Test : MonoBehaviour
 {
     //Instantiate atleast 3-5 projectiles behind the character

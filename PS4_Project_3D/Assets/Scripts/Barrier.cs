@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Abandoned script by Tai. For now.
 public class Barrier : MonoBehaviour
 {
     private Rigidbody rb;

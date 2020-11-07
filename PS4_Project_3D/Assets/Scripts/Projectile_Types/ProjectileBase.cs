@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Tai's script
 //This is the base of the projectile.
 //Literally handles all similaries to all projectiles no matter what.
 public class ProjectileBase : MonoBehaviour

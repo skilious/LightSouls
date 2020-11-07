@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Tai's script learnt from tutorial.
 public class Enemy_Patrol : NPCBase
 {
     [SerializeField]

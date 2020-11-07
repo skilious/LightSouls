@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Tai's script
 public class Basic_CursorRotation : MonoBehaviour
 {
     private void Awake()

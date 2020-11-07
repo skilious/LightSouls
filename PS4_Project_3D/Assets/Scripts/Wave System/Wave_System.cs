@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class Wave_System : MonoBehaviour
 {
-    public List<GameObject> enemies;
+    public List<GameObject> enemies; //Types of enemies
 
-    public List<GameObject> enemySpawn;
+    public List<GameObject> enemySpawn; //Waypoints
     public static int enemiesLeft;
 
     public bool beginWave = false;
-    public bool enableInvincibility = false;
+    public bool enableInvincibility = false; //Enables invincibility for each enemy thats being spawned in.
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.T))
+        if(Input.GetKeyDown(KeyCode.T)) //Simple, Press T on keyboard. It starts the wave.
         {
             print("Wave has begun!");
             print("Your task is to survive indefinitely!");
@@ -28,6 +28,7 @@ public class Wave_System : MonoBehaviour
 
     private void StartWave()
     {
+        //Sets the boolean to false to prevent spamming for loop.
         beginWave = false;
         for (int i = 0; i < enemies.Count; i++)
         {
@@ -40,6 +41,7 @@ public class Wave_System : MonoBehaviour
             //Checking if they are spawning correctly.
             //print(i + " " + enemy.name + " has spawned!");
         }
+        //set the enemiesLeft from enemies.Count.
         enemiesLeft = enemies.Count;
     }
 }

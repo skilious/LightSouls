@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Tai's script
 public class EnemyAI : MonoBehaviour
 {
     protected enum Attack_Types

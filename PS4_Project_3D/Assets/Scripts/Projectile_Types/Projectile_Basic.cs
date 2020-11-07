@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Tai's script
 public class Projectile_Basic : ProjectileBase
 {
     //Damage modifier is useless for now.
