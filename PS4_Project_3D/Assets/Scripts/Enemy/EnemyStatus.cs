@@ -63,6 +63,7 @@ public class EnemyStatus : Popup_Text
         {
             //This disables the invincibility
             isInvincible = false;
+            print("All enemies are no longer invincible");
         }
         //If its not alive anymore, destroy it.
         if (!isAlive)
