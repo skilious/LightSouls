@@ -38,6 +38,8 @@ public class ProjectileBase : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
+    //Opens out to the classes that inherit this class and overrides this function to do differently comparing to this.
+    //However, if its not being overriden, this function will be called out instead.
     protected virtual void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.CompareTag(tagName))
@@ -58,11 +60,13 @@ public class ProjectileBase : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
+    //Automatically sets timer to maxTimer once the GameObject is active.
     private void OnEnable()
     {
         timer = maxTimer;
     }
-
+    
+    //Set timer to maxTimer as backup and set rigidbody's velocity to zero to prevent any unnecessary force from previous shot.
     private void OnDisable()
     {
         timer = maxTimer;

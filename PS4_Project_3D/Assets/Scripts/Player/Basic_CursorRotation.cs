@@ -17,19 +17,33 @@ public class Basic_CursorRotation : MonoBehaviour
         //Grabs GetAxis from right analog w/ X (R_Horizontal) and Y (R_Vertical).
         float hAxis = Input.GetAxis("R_Horizontal");
         float vAxis = Input.GetAxis("R_Vertical");
-        print("Horizontal: " + hAxis + " " + " Vertical" + vAxis);
 
+        //Some other float variables to get axis from left analog.
+        float hAxis2 = Input.GetAxis("Horizontal");
+        float vAxis2 = Input.GetAxis("Vertical");
+
+        //print("Horizontal: " + hAxis + " " + " Vertical" + vAxis); Checks if they are registering properly.
+
+        //Hacky vector3s to check if they are properly rotating based on its rotation from the camera.
         Vector3 rightRotation = CharacterMovement.right * 10.0f * Time.deltaTime * hAxis;
         Vector3 upRotation = CharacterMovement.forward * 10.0f * Time.deltaTime * vAxis;
 
-        //Angle - Rotating character
-        //float angle = Mathf.Atan2(hAxis, vAxis) * Mathf.Rad2Deg; This no longer is being used as it only calculates the angle for Y axis.
-        if (hAxis != 0 || vAxis != 0) //This piece of shit if statement checks if hAxis/vAxis are not equal to 0.
+        Vector3 rightRotationH = CharacterMovement.right * 10.0f * Time.deltaTime * hAxis2;
+        Vector3 upRotationV = CharacterMovement.forward * 10.0f * Time.deltaTime * vAxis2;
+
+        //Angle - Rotating character - Right analog stick focuses on rotating the character.
+        if (hAxis != 0 || vAxis != 0) //This piece of shit checks if hAxis/vAxis are not equal to 0. (This takes priority over the "else if" statement)
         {
             //Supports rotation and relative to the camera.
             Quaternion rotSmooth = Quaternion.LookRotation(rightRotation + upRotation);
             transform.rotation = Quaternion.Slerp(transform.rotation, rotSmooth, 10.0f * Time.deltaTime);
             //transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(upRotation), 10.0f * Time.deltaTime);
+        }
+        //Recently added to allow player to rotate the character with the other analog whilst moving.
+        else if(hAxis2 != 0 || vAxis2 != 0)
+        {
+            Quaternion rotSmooth = Quaternion.LookRotation(rightRotationH + upRotationV);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotSmooth, 10.0f * Time.deltaTime);
         }
     }
 }
