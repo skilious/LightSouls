@@ -102,7 +102,8 @@ public class Projectiles : Character_Status
             selection = 3;
         }
 
-        if (Input.GetButtonDown("Reload") & !isReloading && SimplePause.notPaused)
+        // Added ( 'OR' KeyCode.R ) to restore PC functionality for prototyping. - Tarek
+        if ((Input.GetButtonDown("Reload") || Input.GetKeyDown(KeyCode.R)) & !isReloading && SimplePause.notPaused)
         {
             if (curCapacity <= maxCapacity - 1 && !isLifestealing && capacityClip > 0)
             {
@@ -135,7 +136,10 @@ public class Projectiles : Character_Status
         }
 
         //Shoot is for PS4 only and checks if curCapacity is over than 0 and fireRate is equal to 0 or less.
-        if (Input.GetButton("Shoot") && curCapacity > 0 && fireRate <= 0 && SimplePause.notPaused)
+
+        // Added 'OR' Conditional to make it work for both PS4 and PC while we are still in prototype phase. - Tarek
+
+        if ((Input.GetButton("Shoot") || Input.GetButton("Fire1")) && curCapacity > 0 && fireRate <= 0 && SimplePause.notPaused)
         {
             CancelInvoke("ReloadCapacity"); //Cancels both reloading functions preventing them to continue on whilst shooting.
             CancelInvoke("ReloadLifesteal");

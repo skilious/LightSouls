@@ -21,6 +21,7 @@ public class GameAssets : MonoBehaviour
     // Teleporter Transforms for Prefabs
     public Transform pfTeleporterRed;
     public Transform pfTeleporterGreen;
+    public Transform pfTeleporterBlank;
 
     public SoundAudioClip[] soundAudioClipArray;
 

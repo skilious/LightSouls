@@ -7,6 +7,6 @@ public class Music : MonoBehaviour
     void Start()
     {
         // Access SoundManager to play sound
-        SoundManager.PlayTheme(SoundManager.Sound.ThemeMusic);
+        SoundManager.PlayTheme(SoundManager.Sound.MenuMusic);
     }
 }

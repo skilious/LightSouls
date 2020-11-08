@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 3b66fa3c70c331b48b25564f3a1c5145
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Deutsche Uncialis
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 49d2a4d02ca859e46b6698b248a926cf, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

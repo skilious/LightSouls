@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class MusicBox : MonoBehaviour
 {
-    private void Awake()
+    private void Start()
     {
         // Start Theme Music on play start
-        SoundManager.PlayTheme(SoundManager.Sound.ThemeMusic);
+        SoundManager.PlayTheme(SoundManager.Sound.MenuMusic);
     }
 }

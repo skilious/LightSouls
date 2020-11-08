@@ -1576,7 +1576,7 @@ public class EG : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             goaway.SetActive(true);
-            goaway.GetComponent<Text>().text = "Hidden Easteregg by Tai and, no one from the group knows this except me and you.";
+            goaway.GetComponent<Text>().text = "Hidden Easteregg by Tai and no one from the group knows this except me and you.";
             if(otherMusic == null)
             {
                 otherMusic = GameObject.Find("Sound");

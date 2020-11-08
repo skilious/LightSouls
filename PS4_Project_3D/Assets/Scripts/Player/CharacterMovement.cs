@@ -77,7 +77,9 @@ public class CharacterMovement : MonoBehaviour
                     if (SimplePause.notPaused)
                     {
                         bool isKeyDown = Input.GetButtonDown("Dash");
-                        if (isKeyDown)
+
+                        // Added  ( 'OR' KeyCode.Space ) to restore PC functionality for prototyping - Tarek
+                        if (isKeyDown || Input.GetKeyDown(KeyCode.Space))
                         {
                             //Changes to temp to create an invincibility moment.
                             gameObject.tag = "Temp";

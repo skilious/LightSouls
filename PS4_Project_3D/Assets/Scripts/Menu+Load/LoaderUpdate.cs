@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LoaderUpdate : MonoBehaviour
 {
-    private const float DELAY_BEFORE_LOAD = 2f;
+    private const float DELAY_BEFORE_LOAD = 1f;
 
     private float timeElapsed;
 

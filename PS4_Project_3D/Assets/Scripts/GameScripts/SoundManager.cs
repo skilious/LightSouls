@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(GameAssets))]
 public static class SoundManager
 {
     public enum Sound
     {
-        ThemeMusic,
+        MenuMusic,
         ControlsMusic,
         CreditsMusic,
 
@@ -17,26 +18,28 @@ public static class SoundManager
     {
         GameObject gameObject = new GameObject("Sound", typeof(AudioSource));
         AudioSource audioSource = gameObject.GetComponent<AudioSource>();
-        audioSource.PlayOneShot(GetAudioClip(sound), volumeScale: 0.01f);
-
+        audioSource.PlayOneShot(GetAudioClip(sound), volumeScale: 0.05f);
 
         // Want to destroy to clean up game sounds... no such function in static void?
-
 
     }
 
     public static void PlayTheme(Sound sound)
     {
-        GameObject soundStorage = new GameObject("Sound", typeof(AudioSource));
-        AudioSource audioSource = soundStorage.GetComponent<AudioSource>();
+        GameObject gameObject = new GameObject("Sound", typeof(AudioSource));
+        AudioSource audioSource = gameObject.GetComponent<AudioSource>();
         audioSource.PlayOneShot(GetAudioClip(sound), volumeScale: 0.1f);
     }
 
     private static AudioClip GetAudioClip(Sound sound)
     {
-        GameAssets gameAssets = GameObject.Find("GameAssets").GetComponent<GameAssets>();
+        // Removed Tai's fix. Added a 'RequireComponent' at beginning of script to make sure it
+        // finds the GameAssets component in the scene. Also, the issue was occurring due to 
+        // random execution order of Awake() calls. See '...MenuWindow' Scripts for comment.
+        // Basically, had to move a function call from Awake() to Start() for initial game sound.
+        // GameAssets gameAssets = GameObject.Find("GameAssets").GetComponent<GameAssets>();
 
-        foreach (GameAssets.SoundAudioClip soundAudioClip in gameAssets.soundAudioClipArray)
+        foreach (GameAssets.SoundAudioClip soundAudioClip in GameAssets.GetInstance().soundAudioClipArray)
         {
             if (soundAudioClip.sound == sound)
             {

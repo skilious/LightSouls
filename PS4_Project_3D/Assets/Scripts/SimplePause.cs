@@ -8,7 +8,8 @@ public class SimplePause : MonoBehaviour
     public static bool notPaused = true;
     void Update()
     {
-        if (Input.GetButtonDown("Pause"))
+        // Added ( 'OR' KeyCode.P ) to restore PC functionality for prototyping. - Tarek
+        if (Input.GetButtonDown("Pause") || Input.GetKeyDown(KeyCode.P))
         {
             if (notPaused)
             {
