@@ -1,5 +1,80 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &899652832
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 899652833}
+  - component: {fileID: 899652835}
+  - component: {fileID: 899652834}
+  m_Layer: 0
+  m_Name: FireRate
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &899652833
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 899652832}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.3438, y: 1.3438, z: 1.3438}
+  m_Children: []
+  m_Father: {fileID: 5070365713476266118}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 5, y: 5}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &899652835
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 899652832}
+  m_CullTransparentMesh: 0
+--- !u!114 &899652834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 899652832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 0
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 2f2a25493dca68f4782e78c67ca96033, type: 3}
+  m_Type: 3
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &1522295048
 GameObject:
   m_ObjectHideFlags: 0
@@ -205,9 +280,8 @@ GameObject:
   - component: {fileID: 2949017755406047337}
   - component: {fileID: 3970020647559923312}
   - component: {fileID: 8091676993781213290}
-  - component: {fileID: 1869144621}
   m_Layer: 0
-  m_Name: Image
+  m_Name: Reloader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -270,18 +344,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1869144621
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2189123504116396348}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57ff62cd3a41891458d39cd5a90fa16b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4822922784820727188
 GameObject:
   m_ObjectHideFlags: 0
@@ -5325,15 +5387,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8be64c67eb5074d46813b76a867e5889, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objPrefab: {fileID: 7693102096020922219, guid: aa303823bb635a347ab3bb373a0fc613, type: 3}
+  color: {r: 1, g: 0, b: 0, a: 0}
   curHealth: 100
   healthHit: 0
   maxHealth: 100
+  curCapacity: 0
+  maxCapacity: 100
+  capacityClip: 999
   level: 0
   BasicSpeed: 800
   ShotgunSpeed: 1000
   isReloading: 0
   isLifestealing: 0
-  shootTypes: 0
 --- !u!114 &4822922785633884040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5346,10 +5412,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b027f60079d7c69429ffa3910c70cc20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickMask:
-    serializedVersion: 2
-    m_Bits: 256
-  adjustments: 3
 --- !u!54 &4822922785633884081
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5398,6 +5460,7 @@ GameObject:
   - component: {fileID: 887213184699133166}
   - component: {fileID: 8073074936654824190}
   - component: {fileID: 5200061355047566903}
+  - component: {fileID: 1119876881}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -5418,6 +5481,7 @@ RectTransform:
   m_Children:
   - {fileID: 2949017755406047337}
   - {fileID: 1559012930}
+  - {fileID: 899652833}
   m_Father: {fileID: 4822922785633884082}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
@@ -5486,3 +5550,17 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &1119876881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7127492610575290404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57ff62cd3a41891458d39cd5a90fa16b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  capacityCircle: {fileID: 8091676993781213290}
+  fireRate: {fileID: 899652834}
