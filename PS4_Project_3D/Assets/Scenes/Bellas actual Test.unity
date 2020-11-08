@@ -44792,6 +44792,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5c0cbb35764fca4bbfdaf0e6c78da4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  curCapacity: {fileID: 0}
+  capacityClips: {fileID: 0}
+  weapon: {fileID: 0}
   healthColour: {fileID: 1582430493}
   characterStats: {fileID: 179248148}
 --- !u!114 &1838851147
@@ -50453,7 +50456,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4822922785633884082, guid: 3d98d34b41e96b5429d4041fc52fb4f2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 46.7
+      value: 67.69
       objectReference: {fileID: 0}
     - target: {fileID: 4822922785633884082, guid: 3d98d34b41e96b5429d4041fc52fb4f2, type: 3}
       propertyPath: m_LocalPosition.y
