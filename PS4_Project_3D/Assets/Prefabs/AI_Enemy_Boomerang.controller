@@ -92,6 +92,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NPC: {fileID: 0}
   target: {fileID: 0}
+  agent: {fileID: 0}
 --- !u!114 &-2755751689706903273
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -106,6 +107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NPC: {fileID: 0}
   target: {fileID: 0}
+  agent: {fileID: 0}
 --- !u!91 &9100000
 AnimatorController:
   m_ObjectHideFlags: 0
@@ -205,6 +207,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NPC: {fileID: 0}
   target: {fileID: 0}
+  agent: {fileID: 0}
+  waypoints: []
+  curWaypoints: 0
 --- !u!1101 &3919168161561239880
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -215,7 +220,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 3
     m_ConditionEvent: Distance
-    m_EventTreshold: 20
+    m_EventTreshold: 15
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -5602003048818031236}
   m_Solo: 0
@@ -268,7 +273,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 4
     m_ConditionEvent: Distance
-    m_EventTreshold: 20
+    m_EventTreshold: 15
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 3681103327887478335}
   m_Solo: 0

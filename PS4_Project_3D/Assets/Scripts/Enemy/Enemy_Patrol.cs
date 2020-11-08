@@ -21,7 +21,7 @@ public class Enemy_Patrol : NPCBase
     {
         base.OnStateEnter(animator, stateInfo, layerIndex);
         //Start at current Waypoint (0).
-        curWaypoints = 0;
+        curWaypoints = Random.Range(0, waypoints.Length);
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -37,7 +37,7 @@ public class Enemy_Patrol : NPCBase
         if(Vector3.Distance(waypoints[curWaypoints].transform.position, NPC.transform.position) < maxDistance)
         {
             //Increments to next waypoint.
-            curWaypoints += Random.Range(1, 2);
+            curWaypoints++;
             
             if(curWaypoints >= waypoints.Length) //If current waypoint exceeds over waypoints array length, it'll reset back to 0.
             {
