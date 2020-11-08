@@ -25,20 +25,17 @@ public class Projectile_Basic : ProjectileBase
             //If its an enemy and AOE projectile, use this statement.
             if (tagName == "Enemy" && isAOEProjectile)
             {
-                print(collision.gameObject.name);
                 collision.gameObject.SendMessage("ReceiveDamage", damage);
             }
             //Otherwise, assume its the original projectile.
             else if (tagName == "Enemy" && !isAOEProjectile)
             {
-                print(collision.gameObject.name);
                 collision.gameObject.SendMessage("ReceiveDamage", damage);
                 gameObject.SetActive(false);
             }
             //This only gets called out if the enemy is shooting towards the player.
             if (tagName == "Player" && !isAOEProjectile)
             {
-                print(collision.gameObject.name);
                 collision.gameObject.SendMessage("ReceiveDamage", damage);
                 gameObject.SetActive(false);
             }
