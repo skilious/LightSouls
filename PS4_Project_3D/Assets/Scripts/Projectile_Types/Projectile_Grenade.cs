@@ -15,6 +15,11 @@ public class Projectile_Grenade : ProjectileBase
             {
                 Quaternion rot = Quaternion.AngleAxis(rand, Vector3.up);
                 GameObject explosionClone = Object_Pooling.SharedInstance.GetPooledObject("EnemyProjectile");
+                if(explosionClone == null)
+                {
+                    print("Yeet not gonna exist mate");
+                    gameObject.SetActive(false);
+                }
                 explosionClone.SetActive(true);
                 explosionClone.transform.position = transform.position;
                 explosionClone.transform.rotation = rot;
