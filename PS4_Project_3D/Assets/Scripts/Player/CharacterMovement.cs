@@ -74,17 +74,20 @@ public class CharacterMovement : MonoBehaviour
             case DashState.Ready:
                 {
                     //Sets bool depending on user input (Spacebar).
-                    bool isKeyDown = Input.GetButtonDown("Dash");
-                    if (isKeyDown)
+                    if (SimplePause.notPaused)
                     {
-                        //Changes to temp to create an invincibility moment.
-                        gameObject.tag = "Temp";
-                        //Sets the bool to true which disables this whole if statement afterwards.
-                        dashing = true;
-                        //Switches state to Dashing.
-                        dashState = DashState.Dashing;
-                        //Plays some shitty particle effect.
-                        dashParticle.Play();
+                        bool isKeyDown = Input.GetButtonDown("Dash");
+                        if (isKeyDown)
+                        {
+                            //Changes to temp to create an invincibility moment.
+                            gameObject.tag = "Temp";
+                            //Sets the bool to true which disables this whole if statement afterwards.
+                            dashing = true;
+                            //Switches state to Dashing.
+                            dashState = DashState.Dashing;
+                            //Plays some shitty particle effect.
+                            dashParticle.Play();
+                        }
                     }
                     break;
                 }

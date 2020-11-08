@@ -23,6 +23,7 @@ public class Projectiles : Character_Status
     //Prevents miss selecting the right weapon (Prevents holding due to the way how dpad is set to axis).
     private bool selected = false;
 
+    protected float dpadAxis;
     //All the types of projectiles that we are going to use.
     public enum ShootTypes
     {
@@ -41,7 +42,10 @@ public class Projectiles : Character_Status
 
     protected override void Update()
     {
-        float dpadAxis = Input.GetAxis("SwitchWeapon_Dpad");
+        if(SimplePause.notPaused)
+        {
+            dpadAxis = Input.GetAxis("SwitchWeapon_Dpad");
+        }
         base.Update();
         //Ran out of ammo
         if (curCapacity < 0)
@@ -98,7 +102,7 @@ public class Projectiles : Character_Status
             selection = 3;
         }
 
-        if (Input.GetButtonDown("Reload") & !isReloading)
+        if (Input.GetButtonDown("Reload") & !isReloading && SimplePause.notPaused)
         {
             if (curCapacity <= maxCapacity - 1 && !isLifestealing && capacityClip > 0)
             {
@@ -131,7 +135,7 @@ public class Projectiles : Character_Status
         }
 
         //Shoot is for PS4 only and checks if curCapacity is over than 0 and fireRate is equal to 0 or less.
-        if (Input.GetButton("Shoot") && curCapacity > 0 && fireRate <= 0)
+        if (Input.GetButton("Shoot") && curCapacity > 0 && fireRate <= 0 && SimplePause.notPaused)
         {
             CancelInvoke("ReloadCapacity"); //Cancels both reloading functions preventing them to continue on whilst shooting.
             CancelInvoke("ReloadLifesteal");

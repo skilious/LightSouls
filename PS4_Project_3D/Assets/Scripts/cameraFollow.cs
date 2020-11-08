@@ -24,7 +24,7 @@ public class cameraFollow : MonoBehaviour
 
     private void Update()
     {
-        if(!rotating)
+        if(!rotating && SimplePause.notPaused)
         {
             float dpadAxis = Input.GetAxis("Rotate"); //PS4 "Rotate" uses axis and it'll have to work differently.
             smoothSpeed = 0.0f;

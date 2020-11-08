@@ -32,19 +32,22 @@ public class Basic_CursorRotation : MonoBehaviour
         Vector3 rightRotationH = CharacterMovement.right * 10.0f * Time.deltaTime * hAxis2;
         Vector3 upRotationV = CharacterMovement.forward * 10.0f * Time.deltaTime * vAxis2;
 
-        //Angle - Rotating character - Right analog stick focuses on rotating the character.
-        if (hAxis != 0 || vAxis != 0) //This piece of shit checks if hAxis/vAxis are not equal to 0. (This takes priority over the "else if" statement)
+        if (SimplePause.notPaused)
         {
-            //Supports rotation and relative to the camera.
-            Quaternion rotSmooth = Quaternion.LookRotation(rightRotation + upRotation);
-            transform.rotation = Quaternion.Slerp(transform.rotation, rotSmooth, 10.0f * Time.deltaTime);
-            //transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(upRotation), 10.0f * Time.deltaTime);
-        }
-        //Recently added to allow player to rotate the character with the other analog whilst moving.
-        else if(hAxis2 != 0 || vAxis2 != 0)
-        {
-            Quaternion rotSmooth = Quaternion.LookRotation(rightRotationH + upRotationV);
-            transform.rotation = Quaternion.Slerp(transform.rotation, rotSmooth, 10.0f * Time.deltaTime);
+            //Angle - Rotating character - Right analog stick focuses on rotating the character.
+            if (hAxis != 0 || vAxis != 0) //This piece of shit checks if hAxis/vAxis are not equal to 0. (This takes priority over the "else if" statement)
+            {
+                //Supports rotation and relative to the camera.
+                Quaternion rotSmooth = Quaternion.LookRotation(rightRotation + upRotation);
+                transform.rotation = Quaternion.Slerp(transform.rotation, rotSmooth, 10.0f * Time.deltaTime);
+                //transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(upRotation), 10.0f * Time.deltaTime);
+            }
+            //Recently added to allow player to rotate the character with the other analog whilst moving.
+            else if (hAxis2 != 0 || vAxis2 != 0)
+            {
+                Quaternion rotSmooth = Quaternion.LookRotation(rightRotationH + upRotationV);
+                transform.rotation = Quaternion.Slerp(transform.rotation, rotSmooth, 10.0f * Time.deltaTime);
+            }
         }
     }
 }
