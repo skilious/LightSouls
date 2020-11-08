@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SoulGame.unity
     guid: c81c7f9f66f993d40884dd2bd574c92e
+  - enabled: 1
+    path: Assets/Scenes/UI_Scene.unity
+    guid: d8896589f3f3cd349bb167a769596644
+  - enabled: 1
+    path: Assets/Scenes/Pause_Scene.unity
+    guid: 3fd76b9fe0074ad4db55b7aba2d37cd5
   m_configObjects: {}

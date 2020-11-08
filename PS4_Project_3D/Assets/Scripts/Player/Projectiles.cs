@@ -16,7 +16,7 @@ public class Projectiles : Character_Status
     protected bool isLifestealing = false;
 
     //Firerate for each weapon.
-    private float fireRate = 0;
+    public static float fireRate = 0;
 
     //Selection of the weapons swapping
     private int selection = 0;
@@ -32,7 +32,7 @@ public class Projectiles : Character_Status
         AOEShot,
         LaserShot
     };
-    public ShootTypes shootTypes;
+    public static ShootTypes shootTypes;
 
     private void Awake()
     {

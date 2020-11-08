@@ -43,5 +43,9 @@ public class Projectile_Basic : ProjectileBase
                 gameObject.SetActive(false);
             }
         }
+        else if(collision.CompareTag("Wall"))
+        {
+            gameObject.SetActive(false);
+        }
     }
 }
