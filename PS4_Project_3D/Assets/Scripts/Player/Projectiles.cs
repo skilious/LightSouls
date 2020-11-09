@@ -117,14 +117,14 @@ public class Projectiles : Character_Status
             }
         }
 
-        if(dpadAxis >= 1 && !selected)
+        if(dpadAxis >= 1 && !selected || Input.GetKeyDown(KeyCode.UpArrow)) //Up Arrow is added for PC functionality
         {
             selected = true;
             selection++;
 
             print(shootTypes);
         }
-        else if(dpadAxis <= -1 && !selected)
+        else if(dpadAxis <= -1 && !selected || Input.GetKeyDown(KeyCode.DownArrow)) // Same with the down arrow
         {
             selected = true;
             print(shootTypes);

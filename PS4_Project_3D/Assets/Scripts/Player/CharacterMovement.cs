@@ -141,7 +141,7 @@ public class CharacterMovement : MonoBehaviour
         Vector3 rightMovement = right * moveSpd * Time.deltaTime * Input.GetAxis("Horizontal");
         //upMovement - Relative to camera's forward w/ Y axis remaining 0. Then, you normalize it between -1 and 1.
         Vector3 upMovement = forward * moveSpd * Time.deltaTime * Input.GetAxis("Vertical");
-        //print("Input Hori: " + Input.GetAxis("Horizontal_PS4")); //Both of these print func checks the input axis if its being recognised.
+        //print("Input Hori: " + Input.GetAxis("Horizontal)); //Both of these print func checks the input axis if its being recognised.
         //print("Input Vert: " + Input.GetAxis("Vertical"));
         transform.position += rightMovement;
         transform.position += upMovement;

@@ -5,6 +5,11 @@ using UnityEngine;
 //Tai's script
 public class Basic_CursorRotation : MonoBehaviour
 {
+    Ray cameraRay;
+    private float adjustments = 3.0f;
+
+    [SerializeField]
+    private bool PCMode = false;
     private void Awake()
     {
         //Yeet this from CharacterMovement so it could be relative to the camera.
@@ -31,11 +36,26 @@ public class Basic_CursorRotation : MonoBehaviour
 
         Vector3 rightRotationH = CharacterMovement.right * 10.0f * Time.deltaTime * hAxis2;
         Vector3 upRotationV = CharacterMovement.forward * 10.0f * Time.deltaTime * vAxis2;
-
         if (SimplePause.notPaused)
         {
+            //PC - Cursor purposes (Raycast)
+
+            //Plane grabs current position of the player
+            Plane playerPlane = new Plane(Vector3.up, transform.position);
+
+            //Uses Ray relative to main camera and point to ray w / mouse position.
+            cameraRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+            //d = distance;
+            if (playerPlane.Raycast(cameraRay, out float d))
+            {
+                Vector3 targetPos = cameraRay.GetPoint(d);
+                Quaternion targetRot = Quaternion.LookRotation(targetPos - transform.position, Vector3.up);
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, adjustments * Time.fixedDeltaTime);
+            }
+
+
             //Angle - Rotating character - Right analog stick focuses on rotating the character.
-            if (hAxis != 0 || vAxis != 0) //This piece of shit checks if hAxis/vAxis are not equal to 0. (This takes priority over the "else if" statement)
+            if (hAxis != 0 || vAxis != 0 && !PCMode) //This piece of shit checks if hAxis/vAxis are not equal to 0. (This takes priority over the "else if" statement)
             {
                 //Supports rotation and relative to the camera.
                 Quaternion rotSmooth = Quaternion.LookRotation(rightRotation + upRotation);
@@ -43,7 +63,7 @@ public class Basic_CursorRotation : MonoBehaviour
                 //transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(upRotation), 10.0f * Time.deltaTime);
             }
             //Recently added to allow player to rotate the character with the other analog whilst moving.
-            else if (hAxis2 != 0 || vAxis2 != 0)
+            else if (hAxis2 != 0 && !PCMode || vAxis2 != 0 && !PCMode)
             {
                 Quaternion rotSmooth = Quaternion.LookRotation(rightRotationH + upRotationV);
                 transform.rotation = Quaternion.Slerp(transform.rotation, rotSmooth, 10.0f * Time.deltaTime);

@@ -28,12 +28,12 @@ public class cameraFollow : MonoBehaviour
         {
             float dpadAxis = Input.GetAxis("Rotate"); //PS4 "Rotate" uses axis and it'll have to work differently.
             smoothSpeed = 0.0f;
-            if (dpadAxis >= 1)
+            if (dpadAxis >= 1 || Input.GetKeyDown(KeyCode.E)) //Added GetKeyDown for PC functionality
             {
                 directions--;
                 StartCoroutine(rotationChange());
             }
-            else if (dpadAxis <= -1)
+            else if (dpadAxis <= -1 || Input.GetKey(KeyCode.Q))
             {
                 directions++;
                 StartCoroutine(rotationChange());
