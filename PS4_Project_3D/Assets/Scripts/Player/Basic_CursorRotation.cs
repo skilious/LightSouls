@@ -39,21 +39,21 @@ public class Basic_CursorRotation : MonoBehaviour
         if (SimplePause.notPaused)
         {
             //PC - Cursor purposes (Raycast)
-
-            //Plane grabs current position of the player
-            Plane playerPlane = new Plane(Vector3.up, transform.position);
-
-            //Uses Ray relative to main camera and point to ray w / mouse position.
-            cameraRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-            //d = distance;
-            if (playerPlane.Raycast(cameraRay, out float d))
+            if (PCMode)
             {
-                Vector3 targetPos = cameraRay.GetPoint(d);
-                Quaternion targetRot = Quaternion.LookRotation(targetPos - transform.position, Vector3.up);
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, adjustments * Time.fixedDeltaTime);
+                //Plane grabs current position of the player
+                Plane playerPlane = new Plane(Vector3.up, transform.position);
+
+                //Uses Ray relative to main camera and point to ray w / mouse position.
+                cameraRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+                //d = distance;
+                if (playerPlane.Raycast(cameraRay, out float d))
+                {
+                    Vector3 targetPos = cameraRay.GetPoint(d);
+                    Quaternion targetRot = Quaternion.LookRotation(targetPos - transform.position, Vector3.up);
+                    transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, adjustments * Time.fixedDeltaTime);
+                }
             }
-
-
             //Angle - Rotating character - Right analog stick focuses on rotating the character.
             if (hAxis != 0 || vAxis != 0 && !PCMode) //This piece of shit checks if hAxis/vAxis are not equal to 0. (This takes priority over the "else if" statement)
             {

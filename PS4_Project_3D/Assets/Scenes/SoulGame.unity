@@ -50789,7 +50789,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4822922785633884040, guid: 3d98d34b41e96b5429d4041fc52fb4f2, type: 3}
       propertyPath: PCMode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4822922785633884041, guid: 3d98d34b41e96b5429d4041fc52fb4f2, type: 3}
       propertyPath: m_Name
