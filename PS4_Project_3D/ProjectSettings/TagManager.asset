@@ -19,6 +19,7 @@ TagManager:
   - OrbPortal
   - Orb
   - AOEProjectile
+  - Laser
   layers:
   - Default
   - TransparentFX

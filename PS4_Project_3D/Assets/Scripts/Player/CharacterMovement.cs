@@ -64,6 +64,10 @@ public class CharacterMovement : MonoBehaviour
             //AddForce rigidbody with "Acceleration" to continuously acceleration while ignoring its mass.
             rb.AddForce(appliedHoverForce, ForceMode.Acceleration);
         }
+        else
+        {
+            rb.velocity = new Vector3(0, Physics.gravity.y, 0);
+        }
     }
 
     private void Update()

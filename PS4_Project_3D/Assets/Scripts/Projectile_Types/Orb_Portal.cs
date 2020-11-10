@@ -72,10 +72,9 @@ public class Orb_Portal : ProjectileBase
         InvokeRepeating("OrbAttack", attackTime, repeatRate);
     }
 
-    private void OnDisable()
+    protected override void OnDisable()
     {
-        //Makes sure it doesnt yeet across the scene quickly out of nowhere.
-        rb.velocity = Vector3.zero;
+        base.OnDisable();
         CancelInvoke("OrbAttack"); //Stops the function from continuing.
     }
 }

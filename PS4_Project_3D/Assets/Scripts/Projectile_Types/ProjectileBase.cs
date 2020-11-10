@@ -7,6 +7,7 @@ using UnityEngine;
 //Literally handles all similaries to all projectiles no matter what.
 public class ProjectileBase : MonoBehaviour
 {
+
     //Grab rigidbody from Projectile themselves.
     protected Rigidbody rb;
     [SerializeField]
@@ -68,7 +69,7 @@ public class ProjectileBase : MonoBehaviour
     }
     
     //Set timer to maxTimer as backup and set rigidbody's velocity to zero to prevent any unnecessary force from previous shot.
-    private void OnDisable()
+    protected virtual void OnDisable()
     {
         timer = maxTimer;
         rb.velocity = Vector3.zero;

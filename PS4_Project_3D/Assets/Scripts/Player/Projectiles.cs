@@ -20,10 +20,12 @@ public class Projectiles : Character_Status
 
     //Selection of the weapons swapping
     private int selection = 0;
+
     //Prevents miss selecting the right weapon (Prevents holding due to the way how dpad is set to axis).
     private bool selected = false;
+    protected float dpadAxis; //dpad uses axis and goes between -1 (left) to 1 (right).
 
-    protected float dpadAxis;
+
     //All the types of projectiles that we are going to use.
     public enum ShootTypes
     {
@@ -42,7 +44,7 @@ public class Projectiles : Character_Status
 
     protected override void Update()
     {
-        if(SimplePause.notPaused)
+        if (SimplePause.notPaused)
         {
             dpadAxis = Input.GetAxis("SwitchWeapon_Dpad");
         }
@@ -66,7 +68,7 @@ public class Projectiles : Character_Status
         }
 
         //Selections are equal to different types of shots.
-        switch(selection)
+        switch (selection)
         {
             case 0:
                 {
@@ -88,18 +90,23 @@ public class Projectiles : Character_Status
                     shootTypes = ShootTypes.AOEShot;
                     break;
                 }
+            case 4:
+                {
+                    shootTypes = ShootTypes.LaserShot;
+                    break;
+                }
         }
         //Checks if its exceeding the limit.
-        if(selection > 3)
+        if (selection > 4)
         {
             //sets it back to 0.
             selection = 0;
         }
         //Same with the opposite.
-        else if(selection < 0)
+        else if (selection < 0)
         {
-            //set it back up to 3.
-            selection = 3;
+            //set it back up to 4.
+            selection = 4;
         }
 
         // Added ( 'OR' KeyCode.R ) to restore PC functionality for prototyping. - Tarek
@@ -117,20 +124,20 @@ public class Projectiles : Character_Status
             }
         }
 
-        if(dpadAxis >= 1 && !selected || Input.GetKeyDown(KeyCode.UpArrow)) //Up Arrow is added for PC functionality
+        if (dpadAxis >= 1 && !selected || Input.GetKeyDown(KeyCode.UpArrow)) //Up Arrow is added for PC functionality
         {
             selected = true;
             selection++;
 
             print(shootTypes);
         }
-        else if(dpadAxis <= -1 && !selected || Input.GetKeyDown(KeyCode.DownArrow)) // Same with the down arrow
+        else if (dpadAxis <= -1 && !selected || Input.GetKeyDown(KeyCode.DownArrow)) // Same with the down arrow
         {
             selected = true;
             print(shootTypes);
             selection--;
         }
-        else if(selected && dpadAxis == 0)
+        else if (selected && dpadAxis == 0)
         {
             selected = false;
         }
@@ -144,7 +151,7 @@ public class Projectiles : Character_Status
             CancelInvoke("ReloadCapacity"); //Cancels both reloading functions preventing them to continue on whilst shooting.
             CancelInvoke("ReloadLifesteal");
             isReloading = false; //Sets the boolean and allows the player to reload again.
-            Vector3 getPos = transform.position + transform.forward * 1.5f; //Grab's the players position w/ offset.
+            Vector3 getPos = transform.position + transform.forward * 1.2f; //Grab's the players position w/ offset.
             switch (shootTypes)
             {
                 //Basic projectile that shoots wherever the player is facing.
@@ -204,9 +211,21 @@ public class Projectiles : Character_Status
                         fireRate = 1.5f;
                         break;
                     }
+                case ShootTypes.LaserShot:
+                    {
+                        curCapacity--;
+                        GameObject cloning = Object_Pooling.SharedInstance.GetPooledObject("Laser");
+                        cloning.SetActive(true);
+                        cloning.transform.position = getPos;
+                        cloning.transform.rotation = transform.rotation;
+                        fireRate = 3.0f;
+                    }
+
+                    break;
             }
         }
     }
+
 
     protected void ReloadCapacity()
     {
@@ -242,7 +261,6 @@ public class Projectiles : Character_Status
         }
     }
 }
-
 
 /*UNUSED CODE HERE
  * Raycast reference for aimming and height adjustments. However, its PC only with the mouse.
