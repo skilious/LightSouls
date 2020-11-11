@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,13 +10,17 @@ public class EnemyAI : MonoBehaviour
     {
         Grenade,
         Boomerang,
-        Basic
+        Basic,
+        Tackling
     };
 
     protected float getDistance;
+    private float time = 0.0f;
+
     Animator anim;
-    
+    private CapsuleCollider col;
     private GameObject player;
+    private Vector3 getPlayerPos, getPos;
 
     [SerializeField]
     protected Attack_Types attack_types;
@@ -28,6 +33,7 @@ public class EnemyAI : MonoBehaviour
     {
         player = GameObject.Find("Player");
         anim = GetComponent<Animator>();
+        col = GetComponent<CapsuleCollider>();
     }
     protected void Attack()
     {
@@ -46,6 +52,11 @@ public class EnemyAI : MonoBehaviour
             case Attack_Types.Grenade:
                 {
                     GrenadeAttack();
+                    break;
+                }
+            case Attack_Types.Tackling:
+                {
+                    TacklingAttack();
                     break;
                 }
         }
@@ -96,7 +107,25 @@ public class EnemyAI : MonoBehaviour
         Rigidbody cloneRB = obj.GetComponent<Rigidbody>();
         cloneRB.AddForce(cloneRB.transform.forward * 500.0f, ForceMode.Acceleration);
     }
-
+    private void TacklingAttack()
+    {
+        time += Time.deltaTime * 1.2f;
+        if(time < 3.0f)
+        {
+            getPos = transform.position;
+            getPlayerPos = player.transform.position + transform.forward * 3.0f;
+        }
+        else if(time >= 3.0f)
+        {
+            col.isTrigger = true;
+            transform.position = Vector3.MoveTowards(transform.position, getPlayerPos, 3.5f * Time.fixedDeltaTime);
+            if(Vector3.Distance(transform.position, getPlayerPos) < 1.0f)
+            {
+                col.isTrigger = false;
+                time = 0.0f;
+            }
+        }
+    }
     void Update()
     {
         getDistance = Vector3.Distance(transform.position, player.transform.position);

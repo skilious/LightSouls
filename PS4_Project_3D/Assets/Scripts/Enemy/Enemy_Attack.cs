@@ -11,6 +11,7 @@ public class Enemy_Attack : NPCBase
         //Reference base as NPCBase's version of OnStateEnter.
         base.OnStateEnter(animator, stateInfo, layerIndex);
         NPC.GetComponent<EnemyAI>().StartAttack(); //Grab NPC's EnemyAI to use function "StartAttack".
+        agent.isStopped = true; //Stops the ai from setting destination back.
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -25,5 +26,6 @@ public class Enemy_Attack : NPCBase
     {
         //Stops attacking once it gets out of this state
         NPC.GetComponent<EnemyAI>().StopAttack();
+        agent.isStopped = false; //Resumes the ai after attacking.
     }
 }
