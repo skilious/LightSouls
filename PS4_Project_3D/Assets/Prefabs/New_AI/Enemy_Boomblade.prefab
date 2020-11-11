@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 486994582090207910}
   - component: {fileID: 6677310533535563065}
   - component: {fileID: -6442533590944612745}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Enemy_Boomblade
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attack_types: 1
   attackTimer: 0.5
-  repeatTimer: 5
+  repeatTimer: 1
 --- !u!195 &6677310533535563065
 NavMeshAgent:
   m_ObjectHideFlags: 0

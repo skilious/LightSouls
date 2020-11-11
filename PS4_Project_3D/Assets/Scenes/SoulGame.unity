@@ -109,7 +109,7 @@ NavMeshSettings:
     agentRadius: 0.5
     agentHeight: 2
     agentSlope: 45
-    agentClimb: 0.4
+    agentClimb: 0.75
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2
@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: 18b8a75de050bc54b87fd46498a339b6, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 5918d559192ab254190142bd5f1c9e64, type: 2}
 --- !u!1001 &7219434
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6851,6 +6851,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 751707015}
     m_Modifications:
+    - target: {fileID: 108086, guid: 6cc5ff3cac739ce4296fc450e86d98b4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 81
+      objectReference: {fileID: 0}
     - target: {fileID: 115596, guid: 6cc5ff3cac739ce4296fc450e86d98b4, type: 3}
       propertyPath: m_Name
       value: Bush_02 (1)
@@ -17426,9 +17430,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 751707015}
     m_Modifications:
+    - target: {fileID: 104762, guid: f556ce6177cad8146beda1a7c7da6e26, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 184268, guid: f556ce6177cad8146beda1a7c7da6e26, type: 3}
       propertyPath: m_Name
       value: Soil_03
+      objectReference: {fileID: 0}
+    - target: {fileID: 198022, guid: f556ce6177cad8146beda1a7c7da6e26, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 198022, guid: f556ce6177cad8146beda1a7c7da6e26, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 81
       objectReference: {fileID: 0}
     - target: {fileID: 426998, guid: f556ce6177cad8146beda1a7c7da6e26, type: 3}
       propertyPath: m_LocalPosition.x
@@ -26029,6 +26045,18 @@ PrefabInstance:
     - target: {fileID: 133728, guid: eae5ac486dce69c45a2a4cf73bb34b91, type: 3}
       propertyPath: m_Name
       value: Arch_Alley_08
+      objectReference: {fileID: 0}
+    - target: {fileID: 156352, guid: eae5ac486dce69c45a2a4cf73bb34b91, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 81
+      objectReference: {fileID: 0}
+    - target: {fileID: 157210, guid: eae5ac486dce69c45a2a4cf73bb34b91, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 81
+      objectReference: {fileID: 0}
+    - target: {fileID: 179186, guid: eae5ac486dce69c45a2a4cf73bb34b91, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 81
       objectReference: {fileID: 0}
     - target: {fileID: 471266, guid: eae5ac486dce69c45a2a4cf73bb34b91, type: 3}
       propertyPath: m_LocalPosition.x
@@ -37294,6 +37322,10 @@ PrefabInstance:
       propertyPath: m_NavMeshLayer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 191810, guid: a65d892ddf6b61440ac95a9284593af4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 91
+      objectReference: {fileID: 0}
     - target: {fileID: 463332, guid: a65d892ddf6b61440ac95a9284593af4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.9274254
@@ -38712,6 +38744,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grass_06
       objectReference: {fileID: 0}
+    - target: {fileID: 117540, guid: 8cbb29d968ee6ae489cbeb22a3bc31a7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 81
+      objectReference: {fileID: 0}
     - target: {fileID: 435630, guid: 8cbb29d968ee6ae489cbeb22a3bc31a7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.92736816
@@ -39368,6 +39404,10 @@ PrefabInstance:
       propertyPath: m_NavMeshLayer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 191810, guid: a65d892ddf6b61440ac95a9284593af4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 91
+      objectReference: {fileID: 0}
     - target: {fileID: 463332, guid: a65d892ddf6b61440ac95a9284593af4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -17.613785
@@ -39605,6 +39645,10 @@ PrefabInstance:
     - target: {fileID: 135730, guid: e1738ea6b16bd5b42925129bcbf53645, type: 3}
       propertyPath: m_Name
       value: Grass_02_Dry
+      objectReference: {fileID: 0}
+    - target: {fileID: 135730, guid: e1738ea6b16bd5b42925129bcbf53645, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 81
       objectReference: {fileID: 0}
     - target: {fileID: 461854, guid: e1738ea6b16bd5b42925129bcbf53645, type: 3}
       propertyPath: m_LocalPosition.x
@@ -41056,6 +41100,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 751707015}
     m_Modifications:
+    - target: {fileID: 121412, guid: db3d019277af3094a8d8ff037e97253b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 81
+      objectReference: {fileID: 0}
     - target: {fileID: 139522, guid: db3d019277af3094a8d8ff037e97253b, type: 3}
       propertyPath: m_Name
       value: Bricks_01
@@ -46617,6 +46665,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grass_07_Dry (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 146442, guid: 16ee125225868c44d8f405f0bd4ab1d6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 81
+      objectReference: {fileID: 0}
     - target: {fileID: 460964, guid: 16ee125225868c44d8f405f0bd4ab1d6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.287369
@@ -46827,6 +46879,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 100286, guid: 719bcbee8c1c1894f98917313f7b5677, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 89
+      objectReference: {fileID: 0}
     - target: {fileID: 171400, guid: 719bcbee8c1c1894f98917313f7b5677, type: 3}
       propertyPath: m_Name
       value: Bricks_03
@@ -47253,6 +47309,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 751707015}
     m_Modifications:
+    - target: {fileID: 108086, guid: 6cc5ff3cac739ce4296fc450e86d98b4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 81
+      objectReference: {fileID: 0}
     - target: {fileID: 115596, guid: 6cc5ff3cac739ce4296fc450e86d98b4, type: 3}
       propertyPath: m_Name
       value: Bush_02
@@ -48213,6 +48273,10 @@ PrefabInstance:
     - target: {fileID: 146442, guid: 16ee125225868c44d8f405f0bd4ab1d6, type: 3}
       propertyPath: m_Name
       value: Grass_07_Dry
+      objectReference: {fileID: 0}
+    - target: {fileID: 146442, guid: 16ee125225868c44d8f405f0bd4ab1d6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 81
       objectReference: {fileID: 0}
     - target: {fileID: 460964, guid: 16ee125225868c44d8f405f0bd4ab1d6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -50865,6 +50929,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 899652832, guid: 3d98d34b41e96b5429d4041fc52fb4f2, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1522295048, guid: 3d98d34b41e96b5429d4041fc52fb4f2, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1559012929, guid: 3d98d34b41e96b5429d4041fc52fb4f2, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 132225185176118716, guid: 3d98d34b41e96b5429d4041fc52fb4f2, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2189123504116396348, guid: 3d98d34b41e96b5429d4041fc52fb4f2, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4822922784820727188, guid: 3d98d34b41e96b5429d4041fc52fb4f2, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4822922784944840415, guid: 3d98d34b41e96b5429d4041fc52fb4f2, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4822922785633884040, guid: 3d98d34b41e96b5429d4041fc52fb4f2, type: 3}
       propertyPath: adjustments
       value: 3
@@ -50876,6 +50968,10 @@ PrefabInstance:
     - target: {fileID: 4822922785633884041, guid: 3d98d34b41e96b5429d4041fc52fb4f2, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4822922785633884041, guid: 3d98d34b41e96b5429d4041fc52fb4f2, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4822922785633884047, guid: 3d98d34b41e96b5429d4041fc52fb4f2, type: 3}
       propertyPath: color.a
@@ -50924,6 +51020,10 @@ PrefabInstance:
     - target: {fileID: 4822922785633884082, guid: 3d98d34b41e96b5429d4041fc52fb4f2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7127492610575290404, guid: 3d98d34b41e96b5429d4041fc52fb4f2, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d98d34b41e96b5429d4041fc52fb4f2, type: 3}

@@ -20,7 +20,7 @@ public class EnemyAI : MonoBehaviour
     Animator anim;
     private CapsuleCollider col;
     private GameObject player;
-    private Vector3 getPlayerPos, getPos;
+    private Vector3 getPlayerPos;
 
     [SerializeField]
     protected Attack_Types attack_types;
@@ -109,23 +109,29 @@ public class EnemyAI : MonoBehaviour
     }
     private void TacklingAttack()
     {
+        float maxDistance = 0.55f;
+        GameObject obj = gameObject.transform.GetChild(0).gameObject;
         time += Time.deltaTime * 1.2f;
         if(time < 3.0f)
         {
-            getPos = transform.position;
-            getPlayerPos = player.transform.position + transform.forward * 3.0f;
+            getPlayerPos = player.transform.position + transform.forward * 2.5f;
         }
         else if(time >= 3.0f)
         {
+            obj.SetActive(true);
             col.isTrigger = true;
-            transform.position = Vector3.MoveTowards(transform.position, getPlayerPos, 3.5f * Time.fixedDeltaTime);
-            if(Vector3.Distance(transform.position, getPlayerPos) < 1.0f)
+            transform.position = Vector3.MoveTowards(transform.position, getPlayerPos, 7.0f * Time.fixedDeltaTime);
+            //I hate this part the most of this whole script.
+            //Calling two Raycasts in one if statement for both back and forth of the GameObject.
+            if (Vector3.Distance(transform.position, getPlayerPos) < 1.5f || Physics.Raycast(transform.position,transform.forward, maxDistance) || Physics.Raycast(transform.position, -transform.forward, maxDistance)) 
             {
+                obj.SetActive(false);
                 col.isTrigger = false;
                 time = 0.0f;
             }
         }
     }
+
     void Update()
     {
         getDistance = Vector3.Distance(transform.position, player.transform.position);
