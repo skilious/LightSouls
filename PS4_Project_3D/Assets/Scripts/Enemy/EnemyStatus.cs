@@ -33,10 +33,10 @@ public class EnemyStatus : Popup_Text
         //Damage receiver
         curHealth -= dmg; 
         //objPrefab is from Popup_Text.
-        if (objPrefab)
+        if (damageObjPrefab)
         {
-            objPrefab.GetComponent<TextMesh>().text = dmg.ToString(); //Grabs the variable from other class that its inheriting.
-            objPrefab.GetComponent<TextMesh>().color = color; //To set values such as this.
+            damageObjPrefab.GetComponent<TextMesh>().text = dmg.ToString(); //Grabs the variable from other class that its inheriting.
+            damageObjPrefab.GetComponent<TextMesh>().color = color; //To set values such as this.
             ShowFloatingText(); //From inherited class that instantiates the text as prefab.
         }
         return curHealth;

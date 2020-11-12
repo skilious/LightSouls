@@ -33,10 +33,10 @@ public class Character_Status : Popup_Text
     {
         //Simple damage receiver.
         healthHit -= dmg; 
-        if (objPrefab)
+        if (damageObjPrefab)
         {
-            objPrefab.GetComponent<TextMesh>().text = dmg.ToString(); //Grabs the variable from other class that its inheriting.
-            objPrefab.GetComponent<TextMesh>().color = color; //To set values such as this.
+            damageObjPrefab.GetComponent<TextMesh>().text = dmg.ToString(); //Grabs the variable from other class that its inheriting.
+            damageObjPrefab.GetComponent<TextMesh>().color = color; //To set values such as this.
             ShowFloatingText(); //From inherited class that instantiates the text as prefab.
         }
     }

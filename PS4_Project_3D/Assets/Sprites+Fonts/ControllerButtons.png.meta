@@ -1,0 +1,526 @@
+fileFormatVersion: 2
+guid: ffd1a70849befeb41bc9c6ea91ba5964
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6238460388480826701
+    second: vippng.com-ps4-png-2439650_0
+  - first:
+      213: 364313743973159335
+    second: vippng.com-ps4-png-2439650_1
+  - first:
+      213: -2244664020239215086
+    second: vippng.com-ps4-png-2439650_2
+  - first:
+      213: 619558861796719007
+    second: buttons_Select
+  - first:
+      213: 3033067627694648348
+    second: buttons_Start
+  - first:
+      213: -4009787020320015660
+    second: buttons_Triangle
+  - first:
+      213: -2963781244953099643
+    second: vippng.com-ps4-png-2439650_6
+  - first:
+      213: -1124383803080792295
+    second: vippng.com-ps4-png-2439650_7
+  - first:
+      213: -7956344618764028994
+    second: vippng.com-ps4-png-2439650_8
+  - first:
+      213: -4811952460068696078
+    second: buttons_Square
+  - first:
+      213: 255225685476057057
+    second: buttons_Circle
+  - first:
+      213: -7872649484547733560
+    second: vippng.com-ps4-png-2439650_11
+  - first:
+      213: -4407869381076861522
+    second: vippng.com-ps4-png-2439650_12
+  - first:
+      213: -4298113254875054145
+    second: vippng.com-ps4-png-2439650_13
+  - first:
+      213: -4636678360582394541
+    second: vippng.com-ps4-png-2439650_14
+  - first:
+      213: 6408319010198722354
+    second: vippng.com-ps4-png-2439650_15
+  - first:
+      213: 8588549216661683432
+    second: buttons_Cross
+  - first:
+      213: 5714540087919495900
+    second: buttons_LeftJoystick
+  - first:
+      213: -6627419511428556611
+    second: vippng.com-ps4-png-2439650_18
+  - first:
+      213: -2151680415783328928
+    second: vippng.com-ps4-png-2439650_19
+  - first:
+      213: -8630441355371424081
+    second: vippng.com-ps4-png-2439650_20
+  - first:
+      213: -6555972177622126551
+    second: vippng.com-ps4-png-2439650_21
+  - first:
+      213: -6105862782777055188
+    second: buttons_RightJoystick
+  - first:
+      213: 4382772278305629896
+    second: vippng.com-ps4-png-2439650_23
+  - first:
+      213: 6094684398276537075
+    second: vippng.com-ps4-png-2439650_24
+  - first:
+      213: 6008010458646440446
+    second: vippng.com-ps4-png-2439650_25
+  - first:
+      213: -6985363324740312578
+    second: vippng.com-ps4-png-2439650_26
+  - first:
+      213: -6966358638541068346
+    second: vippng.com-ps4-png-2439650_27
+  - first:
+      213: 8763854873412728633
+    second: buttons_Dpad
+  - first:
+      213: 5345832603100484746
+    second: buttons_Select
+  - first:
+      213: -3111621130537075528
+    second: buttons_Start
+  - first:
+      213: 7907542668572731669
+    second: buttons_Triangle
+  - first:
+      213: 8962170150762883793
+    second: buttons_Square
+  - first:
+      213: -7526347204007704847
+    second: buttons_Circle
+  - first:
+      213: -7310766917266883150
+    second: buttons_Cross
+  - first:
+      213: -5629186991030405138
+    second: buttons_LeftJoystick
+  - first:
+      213: -6366902596772164824
+    second: buttons_RightJoystick
+  - first:
+      213: -6846356984214766934
+    second: ControllerButtons_0
+  - first:
+      213: -4996564834506183250
+    second: ControllerButtons_1
+  - first:
+      213: -7114766807638915539
+    second: ControllerButtons_2
+  - first:
+      213: -3765095656302294959
+    second: ControllerButtons_3
+  - first:
+      213: -1350977058880892502
+    second: ControllerButtons_4
+  - first:
+      213: 6072232248149335158
+    second: ControllerButtons_5
+  - first:
+      213: -1009564264583926877
+    second: ControllerButtons_6
+  - first:
+      213: -5817047422887518820
+    second: ControllerButtons_7
+  - first:
+      213: -3726145617116419336
+    second: ControllerButtons_8
+  - first:
+      213: 1306517832333039450
+    second: ControllerButtons_9
+  - first:
+      213: -7636060240394480650
+    second: ControllerButtons_10
+  - first:
+      213: 2308125731694326759
+    second: ControllerButtons_11
+  - first:
+      213: 1521319472363117118
+    second: ControllerButtons_12
+  - first:
+      213: -8666225314537956120
+    second: ControllerButtons_13
+  - first:
+      213: 1111430026544879019
+    second: buttons_PS4Logo
+  - first:
+      213: 6328706408987618559
+    second: ControllerButtons_15
+  - first:
+      213: 4336983920282581248
+    second: ControllerButtons_0
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 0
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: buttons_Select
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 201
+        width: 23
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f99b6d2908d199800800000000000000
+      internalID: 619558861796719007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: buttons_Start
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 201
+        width: 23
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1ce97000fe971a20800000000000000
+      internalID: 3033067627694648348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: buttons_Triangle
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 182
+        width: 48
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4da7ad423ff5a58c0800000000000000
+      internalID: -4009787020320015660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: buttons_Square
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 134
+        width: 48
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ffc98d7bb2883db0800000000000000
+      internalID: -4811952460068696078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: buttons_Circle
+      rect:
+        serializedVersion: 2
+        x: 507
+        y: 134
+        width: 47
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ef1b50a86eba8300800000000000000
+      internalID: 255225685476057057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: buttons_Cross
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 86
+        width: 47
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ec341b2208a03770800000000000000
+      internalID: 8588549216661683432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: buttons_LeftJoystick
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 29
+        width: 84
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdacb2bdeef1e4f40800000000000000
+      internalID: 5714540087919495900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: buttons_RightJoystick
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 29
+        width: 85
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c28ab49362e934ba0800000000000000
+      internalID: -6105862782777055188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: buttons_Dpad
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 101
+        width: 116
+        height: 111
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93777d013977f9970800000000000000
+      internalID: 8763854873412728633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: buttons_PS4Logo
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 41
+        width: 36
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba519e478b79c6f00800000000000000
+      internalID: 1111430026544879019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -6,15 +6,17 @@ using UnityEngine;
 public class Popup_Text : MonoBehaviour
 {
     [SerializeField]
-    protected GameObject objPrefab; //Prefab
+    protected GameObject damageObjPrefab; //Prefab
     [SerializeField]
     protected Color color; //Change text colour.
 
     private Vector3 rot;
     protected void ShowFloatingText()
     {
+
         //Rot is what's being used to make the text facing towards the camera.
         rot = CharacterMovement.forward;
-        GameObject prefab = Instantiate(objPrefab, transform.position, Quaternion.LookRotation(rot)); //Instantiates the objPrefab w/ rot as Quaternion.
+        GameObject prefab = Instantiate(damageObjPrefab, transform.position, Quaternion.LookRotation(rot)); //Instantiates the objPrefab w/ rot as Quaternion.
+        
     }
 }

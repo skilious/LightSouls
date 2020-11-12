@@ -10,8 +10,9 @@ public static class SoundManager
         CreditsMusic,
 
         // UNIMPLEMENTED... FOR NOW.
+        OnTeleporter,
         ButtonOver,
-        ButtonClick
+        ButtonClick,
     }
 
     public static void PlaySound(Sound sound)
