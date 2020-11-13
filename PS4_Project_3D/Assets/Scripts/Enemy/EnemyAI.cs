@@ -11,7 +11,8 @@ public class EnemyAI : MonoBehaviour
         Grenade,
         Boomerang,
         Basic,
-        Tackling
+        Tackling,
+        Shotgun
     };
 
     protected float getDistance;
@@ -57,6 +58,11 @@ public class EnemyAI : MonoBehaviour
             case Attack_Types.Tackling:
                 {
                     TacklingAttack();
+                    break;
+                }
+            case Attack_Types.Shotgun:
+                {
+                    ShotgunAttack();
                     break;
                 }
         }
@@ -132,6 +138,21 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+    private void ShotgunAttack()
+    {
+        float spread = -15.0f;
+        for(int i = 0; i < 3; i++)
+        {
+            GameObject cloning = Object_Pooling.SharedInstance.GetPooledObject("EnemyProjectile");
+            cloning.SetActive(true);
+            cloning.transform.position = transform.position;
+            cloning.transform.rotation = transform.rotation;
+            cloning.transform.Rotate(0, spread, 0); //This used to be randomized until its difficult to predict. Now its fixed to have normal spreading.
+            Rigidbody rb = cloning.gameObject.GetComponent<Rigidbody>();
+            rb.AddForce(cloning.transform.forward * 500.0f, ForceMode.Acceleration);
+            spread += 15.0f;
+        }
+    }
     void Update()
     {
         getDistance = Vector3.Distance(transform.position, player.transform.position);

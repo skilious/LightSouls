@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db8e6754e89e5a349b18c566e9388850, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objPrefab: {fileID: 7693102096020922219, guid: aa303823bb635a347ab3bb373a0fc613, type: 3}
+  damageObjPrefab: {fileID: 0}
   color: {r: 1, g: 0, b: 0.7233753, a: 1}
   isAlive: 1
   isInvincible: 0
