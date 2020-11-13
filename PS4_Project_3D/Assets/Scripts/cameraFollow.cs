@@ -31,12 +31,12 @@ public class cameraFollow : MonoBehaviour
             if (dpadAxis >= 1 || Input.GetKeyDown(KeyCode.E)) //Added GetKeyDown for PC functionality
             {
                 directions--;
-                StartCoroutine(rotationChange());
+                StartCoroutine(RotationChange());
             }
             else if (dpadAxis <= -1 || Input.GetKey(KeyCode.Q))
             {
                 directions++;
-                StartCoroutine(rotationChange());
+                StartCoroutine(RotationChange());
             }
         }
     }
@@ -51,7 +51,7 @@ public class cameraFollow : MonoBehaviour
 
     //Deals with User input left and right on dpad
     //Using switch statements to deal with rotating and referencing it from an integer value.
-    IEnumerator rotationChange()
+    IEnumerator RotationChange()
     {
         smoothSpeed = 0.1f; //Set the smoothSpeed to 0.1f so, it'll move smoothly instead of snapping.
         if (rotating)

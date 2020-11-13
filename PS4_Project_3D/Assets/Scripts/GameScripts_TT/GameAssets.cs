@@ -18,6 +18,13 @@ public class GameAssets : MonoBehaviour
         instance = this;
     }
 
+    [SerializeField] List<GameObject> _prefabsListTeleporters;
+    // Teleporter Colliders
+    public MeshCollider meshCollider_TeleportStage01;
+    public MeshCollider meshCollider_TeleportStage02;
+    public MeshCollider meshCollider_TeleportStage03;
+    public MeshCollider meshCollider_TeleportStage04;
+
     // Teleporter Transforms for Prefabs
     public Transform pfTeleporterRed;
     public Transform pfTeleporterGreen;

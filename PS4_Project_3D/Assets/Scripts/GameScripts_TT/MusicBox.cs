@@ -7,6 +7,6 @@ public class MusicBox : MonoBehaviour
     private void Start()
     {
         // Start Theme Music on play start
-        SoundManager.PlayTheme(SoundManager.Sound.MenuMusic);
+        SoundManager.PlayTheme(SoundManager.Sound.ThemeMusic);
     }
 }

@@ -8,6 +8,7 @@ public static class SoundManager
         MenuMusic,
         ControlsMusic,
         CreditsMusic,
+        ThemeMusic,
 
         // UNIMPLEMENTED... FOR NOW.
         OnTeleporter,

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class TeleporterCheck : RayToGround
 {
@@ -11,49 +8,66 @@ public class TeleporterCheck : RayToGround
         return instance;
     }
 
-    // Event Shoutout Funtions
+    // Event Shoutouts
     public event System.EventHandler OnTeleporter;
-    public event System.EventHandler OffTeleporter;
+    public event System.EventHandler OnGround;
     
     public LayerMask teleporterLayer;
-    public bool onTeleporter;
-    public bool offTeleporter;
+    public LayerMask groundLayer;
+
+    [SerializeField]
+    protected bool playerOnTeleporter = false;
+
+    [SerializeField]
+    protected MeshCollider meshCollider_OnTeleporter;
+    [SerializeField]
+    protected MeshCollider meshCollider_OffTeleporter;
+
+    [SerializeField]
+    protected Animator animator;
 
     private void Awake()
     {
-        onTeleporter = false;
-        rayOrigin = transform.position;
+        instance = this;
         rayDirection = -transform.up;
     }
-
     private void FixedUpdate()
     {
         rayOrigin = transform.position;
         ray = new Ray(rayOrigin, rayDirection * distance);
         RaycastDown(teleporterLayer);
+        //RaycastDown(groundLayer);
     }
 
-    protected override void RaycastDown(LayerMask layerMask)
+    protected void RaycastDown(LayerMask layerMask)
     {
-        base.RaycastDown(layerMask);
+        // base.RaycastDown(layerMask);
 
         // Dray ray for debugging
         Debug.DrawRay(rayOrigin, rayDirection * distance, Color.red);
 
+        Debug.Log(playerOnTeleporter);
+
         if (Physics.Raycast(ray, out RaycastHit raycastHit, distance, layerMask))
         {
-            onTeleporter = true;
-            Debug.Log("ON Teleporter");
+            if (raycastHit.collider.isTrigger)
+            {
+                playerOnTeleporter = true;
+                // animator.SetBool("onTeleporter" , true);
+                Debug.Log("ON Teleporter = " + playerOnTeleporter);
 
-            // Do Teleporter Stuff
+                // Do Teleporter Stuff
+                OnTeleporter.Invoke(this, System.EventArgs.Empty);
 
-            // Text Popup: "Press X to Enter Stage"
-        }
-        else
-        {
-            onTeleporter = false;
-            Debug.Log("OFF Teleporter");
+                // Text Popup: "Press X to Enter Stage"
+            }
+            else if (!raycastHit.collider.isTrigger)
+            {
+                playerOnTeleporter = false;
+                // animator.SetBool("onTeleporter", false);
+                Debug.Log("OFF Teleporter" + playerOnTeleporter);
+                OnGround.Invoke(this, System.EventArgs.Empty);
+            }
         }
     }
-
 }

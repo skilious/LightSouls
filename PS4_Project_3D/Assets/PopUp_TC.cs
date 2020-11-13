@@ -1,36 +1,54 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
-
-public class PopUp_TC : Popup_Text
+using UnityEngine;
+public class PopUp_TC : TeleporterCheck
 {
-    [SerializeField]
-    private TextMeshPro teleporterCheckText;
-    private void Awake()
-    {
-        // teleporterCheckText = transform.Find("scoreText").GetComponent<TextMeshPro>();
+    //[SerializeField]
+    //protected GameObject popUpText_TeleporterCheck;
 
-        // Start Theme Music on play start
-        SoundManager.PlaySound(SoundManager.Sound.ButtonOver);
+    [SerializeField]
+    private TMP_Text teleporterCheckText;
+
+    private readonly int[] stageNumber = new int[] { 1, 2, 3, 4 };
+
+    protected Vector3 rotationFaceCamera;
+
+    protected Vector3 RotateToFaceCamera()
+    {
+        // Taken from Tai's Popup_Text Script
+        rotationFaceCamera = CharacterMovement.forward;
+        return rotationFaceCamera;
     }
 
     private void Start()
     {
-        teleporterCheckText.text = "Press 'X' to Start Stage";
+        teleporterCheckText.text = "Press 'X' to Start Stage " + stageNumber[0];
         TeleporterCheck.GetInstance().OnTeleporter += TeleporterCheck_OnTeleporter;
-        TeleporterCheck.GetInstance().OffTeleporter += TeleporterCheck_OffTeleporter;
-        Hide();
+        TeleporterCheck.GetInstance().OnGround += TeleporterCheck_OnGround;
+        //Hide();
     }
+
+    private void FixedUpdate()
+    {
+        RotateToFaceCamera();
+        teleporterCheckText.transform.rotation = Quaternion.LookRotation(rotationFaceCamera);
+    }
+
     private void TeleporterCheck_OnTeleporter(object sender, EventArgs e)
     {
-        Show();
+        // Play OnTeleporter Sound
+        // SoundManager.PlaySound(SoundManager.Sound.ButtonOver);
+        Debug.Log("Do THings for ON tele text");
+        animator.SetBool("onTeleporter" , true);
+        //Show();
     }
-    private void TeleporterCheck_OffTeleporter(object sender, EventArgs e)
+    private void TeleporterCheck_OnGround(object sender, EventArgs e)
     {
-        Hide();
+        // Play OffTeleporter Sound
+        // SoundManager.PlaySound(SoundManager.Sound.ButtonClick);
+        animator.SetBool("onTeleporter", false);
+        //if(!animator.isActiveAndEnabled)
+        //    Hide();
     }
     private void Hide()
     {
