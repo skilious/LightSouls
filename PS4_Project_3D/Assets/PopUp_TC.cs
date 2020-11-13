@@ -23,8 +23,8 @@ public class PopUp_TC : TeleporterCheck
     private void Start()
     {
         teleporterCheckText.text = "Press 'X' to Start Stage " + stageNumber[0];
-        TeleporterCheck.GetInstance().OnTeleporter += TeleporterCheck_OnTeleporter;
-        TeleporterCheck.GetInstance().OnGround += TeleporterCheck_OnGround;
+        GetInstance().OnTeleporter += TeleporterCheck_OnTeleporter; //Removed TeleporterCheck as its already inherited from the "TeleporterCheck" class...
+        GetInstance().OnGround += TeleporterCheck_OnGround;
         //Hide();
     }
 
@@ -40,6 +40,11 @@ public class PopUp_TC : TeleporterCheck
         // SoundManager.PlaySound(SoundManager.Sound.ButtonOver);
         Debug.Log("Do THings for ON tele text");
         animator.SetBool("onTeleporter" , true);
+        if(Input.GetKeyDown(KeyCode.X))
+        {
+            print("Stage 1 loading");
+            Loader.Load(Loader.Scene.Level_Skull);
+        }
         //Show();
     }
     private void TeleporterCheck_OnGround(object sender, EventArgs e)
@@ -50,12 +55,13 @@ public class PopUp_TC : TeleporterCheck
         //if(!animator.isActiveAndEnabled)
         //    Hide();
     }
-    private void Hide()
-    {
-        gameObject.SetActive(false);
-    }
-    private void Show()
-    {
-        gameObject.SetActive(true);
-    }
+    //No longer in use - Animator replaced this code.
+    //private void Hide()
+    //{
+    //    gameObject.SetActive(false);
+    //}
+    //private void Show()
+    //{
+    //    gameObject.SetActive(true);
+    //}
 }

@@ -12,7 +12,7 @@ public static class Loader
         ControlsScene,
         SoulGame,
         CreditsScene,
-
+        Level_Skull,
         // UNUSED
         // Add Level Scenes Here
     }
