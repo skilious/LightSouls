@@ -140,17 +140,17 @@ public class EnemyAI : MonoBehaviour
 
     private void ShotgunAttack()
     {
-        float spread = -15.0f;
+        float spread = -120.0f;
         for(int i = 0; i < 3; i++)
         {
             GameObject cloning = Object_Pooling.SharedInstance.GetPooledObject("EnemyProjectile");
             cloning.SetActive(true);
-            cloning.transform.position = transform.position;
+            cloning.transform.position = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z) - transform.forward * 0.1f;
             cloning.transform.rotation = transform.rotation;
             cloning.transform.Rotate(0, spread, 0); //This used to be randomized until its difficult to predict. Now its fixed to have normal spreading.
             Rigidbody rb = cloning.gameObject.GetComponent<Rigidbody>();
             rb.AddForce(cloning.transform.forward * 500.0f, ForceMode.Acceleration);
-            spread += 15.0f;
+            spread += 120.0f;
         }
     }
     void Update()
