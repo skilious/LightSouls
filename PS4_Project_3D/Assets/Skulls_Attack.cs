@@ -15,7 +15,8 @@ public class Skulls_Attack : NPCBase
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        NPC.transform.rotation = Quaternion.Euler(0.0f, rotation++, 0.0f);
+        if(SimplePause.notPaused)
+        NPC.transform.rotation = Quaternion.Euler(0.0f, rotation++ * 0.5f, 0.0f);
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

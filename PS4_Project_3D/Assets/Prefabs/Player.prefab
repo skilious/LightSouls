@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 899652833}
   - component: {fileID: 899652835}
   - component: {fileID: 899652834}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: FireRate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,7 +85,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1522295049}
   - component: {fileID: 1522295050}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: RayToGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 1559012930}
   - component: {fileID: 1559012932}
   - component: {fileID: 1559012931}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -205,7 +205,7 @@ GameObject:
   - component: {fileID: 7801675405651200860}
   - component: {fileID: 2513065352341415360}
   - component: {fileID: 4851728959258958293}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: SpriteRenderer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -280,7 +280,7 @@ GameObject:
   - component: {fileID: 2949017755406047337}
   - component: {fileID: 3970020647559923312}
   - component: {fileID: 8091676993781213290}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Reloader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -356,7 +356,7 @@ GameObject:
   - component: {fileID: 4822922784820727193}
   - component: {fileID: 4822922784820727194}
   - component: {fileID: 4822922784820727195}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Barrier_Shield
   m_TagString: Barrier
   m_Icon: {fileID: 0}
@@ -450,7 +450,7 @@ GameObject:
   - component: {fileID: 4822922784944840414}
   - component: {fileID: 4822922784944840412}
   - component: {fileID: 4822922784944840413}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Particle_Effect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5268,7 +5268,7 @@ GameObject:
   - component: {fileID: 4822922785633884040}
   - component: {fileID: 4822922785633884081}
   - component: {fileID: 4822922785633884080}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -5387,8 +5387,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8be64c67eb5074d46813b76a867e5889, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objPrefab: {fileID: 7693102096020922219, guid: aa303823bb635a347ab3bb373a0fc613, type: 3}
-  color: {r: 1, g: 0, b: 0, a: 0}
+  damageObjPrefab: {fileID: 7693102096020922219, guid: aa303823bb635a347ab3bb373a0fc613, type: 3}
+  color: {r: 1, g: 0, b: 0, a: 1}
   curHealth: 100
   healthHit: 0
   maxHealth: 100
@@ -5412,6 +5412,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b027f60079d7c69429ffa3910c70cc20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PCMode: 0
 --- !u!54 &4822922785633884081
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5461,7 +5462,7 @@ GameObject:
   - component: {fileID: 8073074936654824190}
   - component: {fileID: 5200061355047566903}
   - component: {fileID: 1119876881}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}

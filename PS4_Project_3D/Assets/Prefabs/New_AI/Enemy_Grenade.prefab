@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c2920e2232d10a24385a550590b4f37c, type: 2}
+  - {fileID: 2100000, guid: 6eafb2b9e059c204187085db7311ca41, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db8e6754e89e5a349b18c566e9388850, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objPrefab: {fileID: 7693102096020922219, guid: aa303823bb635a347ab3bb373a0fc613, type: 3}
+  damageObjPrefab: {fileID: 7693102096020922219, guid: aa303823bb635a347ab3bb373a0fc613, type: 3}
   color: {r: 0.6981132, g: 0.6981132, b: 0.6981132, a: 1}
   isAlive: 1
   isInvincible: 0

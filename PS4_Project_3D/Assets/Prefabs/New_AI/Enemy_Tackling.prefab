@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6133825600151692079}
   - component: {fileID: 1779515120352955794}
   - component: {fileID: 6123202462688506876}
-  - component: {fileID: 8006774700762245945}
+  - component: {fileID: 1336838865666516961}
   m_Layer: 2
   m_Name: Enemy_Tackling
   m_TagString: Enemy
@@ -155,12 +155,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db8e6754e89e5a349b18c566e9388850, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageObjPrefab: {fileID: 0}
+  damageObjPrefab: {fileID: 7693102096020922219, guid: aa303823bb635a347ab3bb373a0fc613, type: 3}
   color: {r: 1, g: 0, b: 0.7233753, a: 1}
   isAlive: 1
   isInvincible: 0
   maxHealth: 100
---- !u!136 &8006774700762245945
+--- !u!136 &1336838865666516961
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -168,7 +168,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6133825600151692078}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 2

@@ -8,8 +8,8 @@ public class NPCBase : StateMachineBehaviour
 {
     public GameObject NPC; //This GameObject
     public GameObject target; //Player's GameObject
-    protected float speed = 3.0f; //Movement speed
-    protected float rotSpeed = 0.25f; //Rotation speed (Slerp)
+    //protected float speed = 3.0f; //Movement speed
+    //protected float rotSpeed = 0.25f; //Rotation speed (Slerp)
     protected float maxDistance = 3.0f; //Distance comparison w/ waypoints
 
     public NavMeshAgent agent; //NPC's NavMeshAgent.
