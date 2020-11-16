@@ -16,6 +16,7 @@ public class UI_Manager : MonoBehaviour
     public Character_Status characterStats;
     private void Start()
     {
+        DontDestroyOnLoad(gameObject);
         characterStats = GameObject.Find("Player").GetComponent<Character_Status>();
         healthSlider = GameObject.FindGameObjectWithTag("healthSlider").GetComponent<Slider>();
         float startingColour = 30.0f / 100.0f;

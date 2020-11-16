@@ -6,6 +6,11 @@ using UnityEngine.SceneManagement;
 public class SimplePause : MonoBehaviour
 {
     public static bool notPaused = true;
+
+    private void Start()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
     void Update()
     {
         // Added ( 'OR' KeyCode.P ) to restore PC functionality for prototyping. - Tarek

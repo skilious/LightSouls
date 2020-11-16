@@ -16,6 +16,10 @@ public class cameraFollow : MonoBehaviour
 
     private int directions = 0;
 
+    private void Start()
+    {
+        target = GameObject.Find("Player").GetComponent<Transform>();
+    }
     private void LateUpdate()
     {
         //This then, follows the Target (Player).

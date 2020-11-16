@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 899652833}
   - component: {fileID: 899652835}
   - component: {fileID: 899652834}
-  m_Layer: 2
+  m_Layer: 11
   m_Name: FireRate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,14 +84,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1522295049}
-  - component: {fileID: 1522295050}
-  m_Layer: 2
-  m_Name: RayToGround
+  - component: {fileID: 1991238599}
+  m_Layer: 11
+  m_Name: TeleporterCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1522295049
 Transform:
   m_ObjectHideFlags: 0
@@ -106,7 +106,7 @@ Transform:
   m_Father: {fileID: 4822922785633884082}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1522295050
+--- !u!114 &1991238599
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,10 +115,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1522295048}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1052ac14ff590d4e918b9e330dbde16, type: 3}
+  m_Script: {fileID: 11500000, guid: f6d527a0d876715428d32d29be73e6fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tintColor: {r: 0, g: 1, b: 0, a: 1}
+  teleporterLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  playerOnTeleporter: 0
+  meshCollider_OnTeleporter: {fileID: 0}
+  meshCollider_OffTeleporter: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!1 &1559012929
 GameObject:
   m_ObjectHideFlags: 0
@@ -130,7 +140,7 @@ GameObject:
   - component: {fileID: 1559012930}
   - component: {fileID: 1559012932}
   - component: {fileID: 1559012931}
-  m_Layer: 2
+  m_Layer: 11
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -205,7 +215,7 @@ GameObject:
   - component: {fileID: 7801675405651200860}
   - component: {fileID: 2513065352341415360}
   - component: {fileID: 4851728959258958293}
-  m_Layer: 2
+  m_Layer: 11
   m_Name: SpriteRenderer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -280,7 +290,7 @@ GameObject:
   - component: {fileID: 2949017755406047337}
   - component: {fileID: 3970020647559923312}
   - component: {fileID: 8091676993781213290}
-  m_Layer: 2
+  m_Layer: 11
   m_Name: Reloader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -356,7 +366,7 @@ GameObject:
   - component: {fileID: 4822922784820727193}
   - component: {fileID: 4822922784820727194}
   - component: {fileID: 4822922784820727195}
-  m_Layer: 2
+  m_Layer: 11
   m_Name: Barrier_Shield
   m_TagString: Barrier
   m_Icon: {fileID: 0}
@@ -450,7 +460,7 @@ GameObject:
   - component: {fileID: 4822922784944840414}
   - component: {fileID: 4822922784944840412}
   - component: {fileID: 4822922784944840413}
-  m_Layer: 2
+  m_Layer: 11
   m_Name: Particle_Effect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5268,7 +5278,7 @@ GameObject:
   - component: {fileID: 4822922785633884040}
   - component: {fileID: 4822922785633884081}
   - component: {fileID: 4822922785633884080}
-  m_Layer: 2
+  m_Layer: 11
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -5462,7 +5472,7 @@ GameObject:
   - component: {fileID: 8073074936654824190}
   - component: {fileID: 5200061355047566903}
   - component: {fileID: 1119876881}
-  m_Layer: 2
+  m_Layer: 11
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
