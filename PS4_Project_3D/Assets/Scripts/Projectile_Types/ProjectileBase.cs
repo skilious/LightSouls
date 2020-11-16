@@ -63,7 +63,7 @@ public class ProjectileBase : MonoBehaviour
         }
     }
     //Automatically sets timer to maxTimer once the GameObject is active.
-    private void OnEnable()
+    protected void OnEnable()
     {
         timer = maxTimer;
     }

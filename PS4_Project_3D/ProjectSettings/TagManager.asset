@@ -20,6 +20,7 @@ TagManager:
   - Orb
   - AOEProjectile
   - Laser
+  - EnemyLaser
   layers:
   - Default
   - TransparentFX

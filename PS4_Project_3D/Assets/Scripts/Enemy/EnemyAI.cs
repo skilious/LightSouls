@@ -16,7 +16,8 @@ public class EnemyAI : MonoBehaviour
         Boomerang,
         Basic,
         Tackling,
-        Shotgun
+        Shotgun,
+        Laser
     };
 
     protected float getDistance;
@@ -68,6 +69,11 @@ public class EnemyAI : MonoBehaviour
             case Attack_Types.Shotgun:
                 {
                     ShotgunAttack();
+                    break;
+                }
+            case Attack_Types.Laser:
+                {
+                    AttackLaser();
                     break;
                 }
         }
@@ -199,6 +205,16 @@ public class EnemyAI : MonoBehaviour
             print("Set off the hardest");
         }
     }
+
+    void AttackLaser()
+    {
+        GameObject cloning = Object_Pooling.SharedInstance.GetPooledObject("EnemyLaser");
+        cloning.SetActive(true);
+        cloning.transform.position = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z) + transform.forward * 0.5f;
+        cloning.transform.rotation = transform.rotation;
+
+    }
+
     void Update()
     {
         getDistance = Vector3.Distance(transform.position, player.transform.position);
