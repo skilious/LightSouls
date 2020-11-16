@@ -9,8 +9,8 @@ public class TeleporterCheck : RayToGround
     }
 
     // Event Shoutouts
-    public event System.EventHandler OnTeleporter;
-    public event System.EventHandler OnGround;
+    //public event System.EventHandler OnTeleporter;
+    //public event System.EventHandler OnGround;
     
     public LayerMask teleporterLayer;
     public LayerMask groundLayer;
@@ -50,24 +50,42 @@ public class TeleporterCheck : RayToGround
 
         if (Physics.Raycast(ray, out RaycastHit raycastHit, distance, layerMask))
         {
-            if (raycastHit.collider.isTrigger)
+            if (raycastHit.collider.gameObject.GetComponentInChildren<PopUp_TC>())
             {
                 playerOnTeleporter = true;
                 // animator.SetBool("onTeleporter" , true);
                 Debug.Log("ON Teleporter = " + playerOnTeleporter);
 
                 // Do Teleporter Stuff
-                OnTeleporter.Invoke(this, System.EventArgs.Empty);
+                Debug.Log("Do THings for ON tele text");
+                OnTeleporterStuff();
+                // OnTeleporter.Invoke(this, System.EventArgs.Empty);
 
                 // Text Popup: "Press X to Enter Stage"
             }
-            else if (!raycastHit.collider.isTrigger)
+            else if (!raycastHit.collider.gameObject.GetComponentInChildren<PopUp_TC>())
             {
                 playerOnTeleporter = false;
                 // animator.SetBool("onTeleporter", false);
                 Debug.Log("OFF Teleporter" + playerOnTeleporter);
-                OnGround.Invoke(this, System.EventArgs.Empty);
+
+                OffTeleporterStuff();
+                //OnGround.Invoke(this, System.EventArgs.Empty);
             }
         }
+    }
+
+    protected void OnTeleporterStuff()
+    {
+        animator.SetBool("onTeleporter", true);
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            print("Stage 1 loading");
+            Loader.Load(Loader.Scene.Level_Skull);
+        }
+    }
+    protected void OffTeleporterStuff()
+    {
+        animator.SetBool("onTeleporter", false);
     }
 }
