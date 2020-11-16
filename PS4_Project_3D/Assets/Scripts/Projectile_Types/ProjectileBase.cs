@@ -63,7 +63,8 @@ public class ProjectileBase : MonoBehaviour
         }
     }
     //Automatically sets timer to maxTimer once the GameObject is active.
-    protected void OnEnable()
+    // TT - Converted to virtual to fix warning in editor - See Orb_Portal (line 69) for the reference that raised the warning.
+    protected virtual void OnEnable()
     {
         timer = maxTimer;
     }

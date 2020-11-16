@@ -13,6 +13,10 @@ public static class Loader
         SoulGame,
         CreditsScene,
         Level_Skull,
+        Stage_01,
+        Stage_02,
+        Stage_03,
+        Stage_04,
         // UNUSED
         // Add Level Scenes Here
     }

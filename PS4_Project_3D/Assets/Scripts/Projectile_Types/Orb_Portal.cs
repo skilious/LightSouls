@@ -66,7 +66,7 @@ public class Orb_Portal : ProjectileBase
         //Returns your closest enemy!
         return target = nearest;
     }
-    private void OnEnable()
+    protected override void OnEnable()
     {
         //Once spawned, it starts the function "OrbAttack" with attackTime and repeatRate.
         InvokeRepeating("OrbAttack", attackTime, repeatRate);
