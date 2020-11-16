@@ -6,6 +6,10 @@ using UnityEngine;
 //Tai's script
 public class EnemyAI : MonoBehaviour
 {
+    //Reference EnemyStatus script
+    private EnemyStatus status;
+
+    private bool finalStage = false; //It triggers a special difficulty at the end.
     protected enum Attack_Types
     {
         Grenade,
@@ -32,6 +36,7 @@ public class EnemyAI : MonoBehaviour
 
     void Start()
     {
+        status = GetComponent<EnemyStatus>();
         player = GameObject.Find("Player");
         anim = GetComponent<Animator>();
         col = GetComponent<CapsuleCollider>();
@@ -118,18 +123,18 @@ public class EnemyAI : MonoBehaviour
         float maxDistance = 0.55f;
         GameObject obj = gameObject.transform.GetChild(0).gameObject;
         time += Time.deltaTime * 1.2f;
-        if(time < 3.0f)
+        if (time < 3.0f)
         {
             getPlayerPos = player.transform.position + transform.forward * 2.5f;
         }
-        else if(time >= 3.0f)
+        else if (time >= 3.0f)
         {
             obj.SetActive(true);
             col.isTrigger = true;
             transform.position = Vector3.MoveTowards(transform.position, getPlayerPos, 7.0f * Time.fixedDeltaTime);
             //I hate this part the most of this whole script.
             //Calling two Raycasts in one if statement for both back and forth of the GameObject.
-            if (Vector3.Distance(transform.position, getPlayerPos) < 1.5f || Physics.Raycast(transform.position,transform.forward, maxDistance) || Physics.Raycast(transform.position, -transform.forward, maxDistance)) 
+            if (Vector3.Distance(transform.position, getPlayerPos) < 1.5f || Physics.Raycast(transform.position, transform.forward, maxDistance) || Physics.Raycast(transform.position, -transform.forward, maxDistance))
             {
                 obj.SetActive(false);
                 col.isTrigger = false;
@@ -140,22 +145,70 @@ public class EnemyAI : MonoBehaviour
 
     private void ShotgunAttack()
     {
-        float spread = -120.0f;
-        for(int i = 0; i < 3; i++)
+        if(PercentageHealth() >= 75.0f)
         {
             GameObject cloning = Object_Pooling.SharedInstance.GetPooledObject("EnemyProjectile");
             cloning.SetActive(true);
             cloning.transform.position = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z) - transform.forward * 0.1f;
             cloning.transform.rotation = transform.rotation;
-            cloning.transform.Rotate(0, spread, 0); //This used to be randomized until its difficult to predict. Now its fixed to have normal spreading.
             Rigidbody rb = cloning.gameObject.GetComponent<Rigidbody>();
             rb.AddForce(cloning.transform.forward * 500.0f, ForceMode.Acceleration);
-            spread += 120.0f;
+            print("Start off easy."); //Testing purposes.
+        }
+        else if(PercentageHealth() >= 30.0f && PercentageHealth() < 75.0f)
+        {
+            float spread = -120.0f;
+            for (int i = 0; i < 2; i++)
+            {
+                GameObject cloning = Object_Pooling.SharedInstance.GetPooledObject("EnemyProjectile");
+                cloning.SetActive(true);
+                cloning.transform.position = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z) - transform.forward * 0.1f;
+                cloning.transform.rotation = transform.rotation;
+                cloning.transform.Rotate(0, spread, 0); //This used to be randomized until its difficult to predict. Now its fixed to have normal spreading.
+                Rigidbody rb = cloning.gameObject.GetComponent<Rigidbody>();
+                rb.AddForce(cloning.transform.forward * 500.0f, ForceMode.Acceleration);
+                spread += 240.0f;
+            }
+            print("Second attack pattern change, one more to go.");
+
+        }
+        else if(PercentageHealth() >= 0.0f && PercentageHealth() < 30.0f)
+        {
+            if (!finalStage)
+            {
+                finalStage = true;
+                print("Difficulty change");
+                GameObject clone = Instantiate(gameObject, transform.position + transform.right * 1.0f, transform.rotation);
+                EnemyAI setClone = clone.GetComponent<EnemyAI>();
+                setClone.status = setClone.GetComponent<EnemyStatus>();
+                setClone.finalStage = true;
+                setClone.status.curHealth = status.curHealth;
+            }
+            float spread = -120.0f;
+            for (int i = 0; i < 3; i++)
+            {
+                GameObject cloning = Object_Pooling.SharedInstance.GetPooledObject("EnemyProjectile");
+                cloning.SetActive(true);
+                cloning.transform.position = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z) - transform.forward * 0.1f;
+                cloning.transform.rotation = transform.rotation;
+                cloning.transform.Rotate(0, spread, 0); //This used to be randomized until its difficult to predict. Now its fixed to have normal spreading.
+                Rigidbody rb = cloning.gameObject.GetComponent<Rigidbody>();
+                rb.AddForce(cloning.transform.forward * 500.0f, ForceMode.Acceleration);
+                spread += 120.0f;
+            }
+            print("Set off the hardest");
         }
     }
     void Update()
     {
         getDistance = Vector3.Distance(transform.position, player.transform.position);
         anim.SetFloat("Distance", getDistance);
+    }
+
+    private float PercentageHealth()
+    {
+        float healthLeft = (status.curHealth / status.maxHealth) * 100.0f; //Basically 100% health with this formula.
+        print(healthLeft);
+        return healthLeft;
     }
 }

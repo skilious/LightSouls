@@ -10,22 +10,19 @@ public class EnemyStatus : Popup_Text
     [SerializeField]
     protected bool isInvincible = false;
 
-    [SerializeField]
-    protected float maxHealth;
+    public float maxHealth;
+    public float curHealth;
 
-    private float curHealth;
     private Vector3 spawnPos;
     void Start()
     {
         spawnPos = transform.position;
-        curHealth = maxHealth;
     }
 
     void Update()
     {
         //print("Object:  " + gameObject.name + "'s health: " + curHealth);
         aliveStatus();
-
     }
 
     public float ReceiveDamage(float dmg)

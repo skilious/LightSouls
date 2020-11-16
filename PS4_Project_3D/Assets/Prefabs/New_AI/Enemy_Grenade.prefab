@@ -173,3 +173,4 @@ MonoBehaviour:
   isAlive: 1
   isInvincible: 0
   maxHealth: 100
+  curHealth: 100

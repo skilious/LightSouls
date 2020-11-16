@@ -16,7 +16,9 @@ public class Skulls_Attack : NPCBase
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         if(SimplePause.notPaused)
-        NPC.transform.rotation = Quaternion.Euler(0.0f, rotation++ * 0.5f, 0.0f);
+        {
+            NPC.transform.rotation = Quaternion.Euler(0.0f, rotation++ * 0.5f, 0.0f);
+        }
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

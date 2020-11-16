@@ -15384,7 +15384,7 @@ MonoBehaviour:
   - {fileID: 5114725315232597780, guid: 08bd98de681341347a10f350607f9644, type: 3}
   - {fileID: 5288582561039260149, guid: 2cd8a7a6587d334499ec00c4435affa2, type: 3}
   - {fileID: 6781844042477102944, guid: e74fcf724a731cb4c8a25e8a8280d4b2, type: 3}
-  amountToInstantiate: 64000000640000000a000000320000000a0000000a0000000a00000005000000
+  amountToInstantiate: 64000000960000000a000000320000000a0000000a0000000a00000005000000
   objectPooled: []
   objCounter: 0
 --- !u!1001 &762802962
@@ -51701,10 +51701,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2938814153075011200, guid: aeee862ef6ea75c4b9b39fd5d980b0b8, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: b1c66719680e3e24f8d7cfd2b068fd7d, type: 2}
     - target: {fileID: 2938814153075011203, guid: aeee862ef6ea75c4b9b39fd5d980b0b8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 44.988453
@@ -51752,18 +51748,6 @@ PrefabInstance:
     - target: {fileID: 2938814153075011205, guid: aeee862ef6ea75c4b9b39fd5d980b0b8, type: 3}
       propertyPath: m_Name
       value: Enemy_Skulls
-      objectReference: {fileID: 0}
-    - target: {fileID: 2938814153075011206, guid: aeee862ef6ea75c4b9b39fd5d980b0b8, type: 3}
-      propertyPath: maxHealth
-      value: 10000
-      objectReference: {fileID: 0}
-    - target: {fileID: 2938814153075011207, guid: aeee862ef6ea75c4b9b39fd5d980b0b8, type: 3}
-      propertyPath: repeatTimer
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2938814153075011207, guid: aeee862ef6ea75c4b9b39fd5d980b0b8, type: 3}
-      propertyPath: attackTimer
-      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aeee862ef6ea75c4b9b39fd5d980b0b8, type: 3}

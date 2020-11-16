@@ -81,7 +81,7 @@ Animator:
   m_GameObject: {fileID: 2938814153075011205}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b1c66719680e3e24f8d7cfd2b068fd7d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -103,8 +103,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attack_types: 4
-  attackTimer: 1
-  repeatTimer: 2
+  attackTimer: 0.1
+  repeatTimer: 0.1
 --- !u!114 &2938814153075011206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,7 +121,8 @@ MonoBehaviour:
   color: {r: 1, g: 0, b: 0, a: 1}
   isAlive: 1
   isInvincible: 0
-  maxHealth: 100
+  maxHealth: 200
+  curHealth: 200
 --- !u!1001 &2938814153453243699
 PrefabInstance:
   m_ObjectHideFlags: 0
