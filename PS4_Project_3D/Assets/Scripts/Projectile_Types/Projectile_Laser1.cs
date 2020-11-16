@@ -20,7 +20,6 @@ public class Projectile_Laser1 : ProjectileBase
         if(other.gameObject.CompareTag("Player"))
         {
             other.gameObject.SendMessage("ReceiveDamage", damage);
-            print("Painful as feck");
         }
     }
     protected override void OnTriggerEnter(Collider other)
