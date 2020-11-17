@@ -18,6 +18,7 @@ public class TeleporterCheck : RayToGround
     [SerializeField]
     protected bool playerOnTeleporter = false;
 
+    // Serialized for testing purposes - to see them change in the editor
     [SerializeField]
     protected MeshCollider meshCollider_OnTeleporter;
     [SerializeField]
