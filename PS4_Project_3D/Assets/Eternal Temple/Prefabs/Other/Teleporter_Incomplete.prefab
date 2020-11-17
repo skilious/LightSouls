@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 477744}
   - component: {fileID: 3390478}
   - component: {fileID: 2347614}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Teleporter_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 478942}
   - component: {fileID: 19826920}
   - component: {fileID: 19952386}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: FX_Smoke_01 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -363,7 +363,7 @@ ParticleSystem:
         m_RotationOrder: 0
     startSizeY:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -416,7 +416,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startSizeZ:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -469,7 +469,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startRotationX:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 0
       minScalar: 0
       maxCurve:
@@ -522,7 +522,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startRotationY:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 0
       minScalar: 0
       maxCurve:
@@ -4733,7 +4733,7 @@ GameObject:
   - component: {fileID: 470694}
   - component: {fileID: 19888222}
   - component: {fileID: 19941604}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: FX_Smoke_01 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5004,7 +5004,7 @@ ParticleSystem:
         m_RotationOrder: 0
     startSizeY:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -5057,7 +5057,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startSizeZ:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -5110,7 +5110,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startRotationX:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 0
       minScalar: 0
       maxCurve:
@@ -5163,7 +5163,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startRotationY:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 0
       minScalar: 0
       maxCurve:
@@ -9374,7 +9374,7 @@ GameObject:
   - component: {fileID: 483324}
   - component: {fileID: 19843374}
   - component: {fileID: 19931552}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: FX_Fire_01 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9645,7 +9645,7 @@ ParticleSystem:
         m_RotationOrder: 0
     startSizeY:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -9698,7 +9698,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startSizeZ:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -9751,7 +9751,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startRotationX:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 0
       minScalar: 0
       maxCurve:
@@ -9804,7 +9804,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startRotationY:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 0
       minScalar: 0
       maxCurve:
@@ -14033,7 +14033,7 @@ GameObject:
   - component: {fileID: 455614}
   - component: {fileID: 19873016}
   - component: {fileID: 19928194}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: FX_Fire_01 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14304,7 +14304,7 @@ ParticleSystem:
         m_RotationOrder: 0
     startSizeY:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -14357,7 +14357,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startSizeZ:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -14410,7 +14410,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startRotationX:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 0
       minScalar: 0
       maxCurve:
@@ -14463,7 +14463,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startRotationY:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 0
       minScalar: 0
       maxCurve:
@@ -18692,7 +18692,7 @@ GameObject:
   - component: {fileID: 432736}
   - component: {fileID: 19803446}
   - component: {fileID: 19929082}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: FX_Halo_01 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18999,7 +18999,7 @@ ParticleSystem:
         m_RotationOrder: 0
     startSizeY:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -19052,7 +19052,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startSizeZ:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -19105,7 +19105,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startRotationX:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 0
       minScalar: 0
       maxCurve:
@@ -19158,7 +19158,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startRotationY:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 0
       minScalar: 0
       maxCurve:
@@ -23468,7 +23468,7 @@ GameObject:
   - component: {fileID: 472186}
   - component: {fileID: 19826100}
   - component: {fileID: 19903432}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: FX_Halo_01 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28244,7 +28244,7 @@ GameObject:
   - component: {fileID: 448526}
   - component: {fileID: 10836408}
   - component: {fileID: 9511130}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Point light (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28356,7 +28356,7 @@ GameObject:
   - component: {fileID: 495732}
   - component: {fileID: 3327486}
   - component: {fileID: 2346120}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Teleporter_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28439,7 +28439,7 @@ GameObject:
   - component: {fileID: 2336866}
   - component: {fileID: 6475622}
   - component: {fileID: 9558494}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Teleporter_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28520,7 +28520,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: edf44eff352d180449d922696d11f08f, type: 3}
 --- !u!95 &9558494
@@ -28553,7 +28553,7 @@ GameObject:
   - component: {fileID: 436488}
   - component: {fileID: 10833668}
   - component: {fileID: 9528726}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Point light (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28665,7 +28665,7 @@ GameObject:
   - component: {fileID: 467432}
   - component: {fileID: 19848912}
   - component: {fileID: 19919180}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: FX_Fire_01 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33324,7 +33324,7 @@ GameObject:
   - component: {fileID: 476458}
   - component: {fileID: 19878750}
   - component: {fileID: 19925632}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: FX_Smoke_01 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33595,7 +33595,7 @@ ParticleSystem:
         m_RotationOrder: 0
     startSizeY:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -33648,7 +33648,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startSizeZ:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -33701,7 +33701,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startRotationX:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 0
       minScalar: 0
       maxCurve:
@@ -33754,7 +33754,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startRotationY:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 0
       minScalar: 0
       maxCurve:
@@ -37965,7 +37965,7 @@ GameObject:
   - component: {fileID: 437520}
   - component: {fileID: 10872184}
   - component: {fileID: 9556834}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Point light (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38076,7 +38076,7 @@ GameObject:
   m_Component:
   - component: {fileID: 402028}
   - component: {fileID: 20543108}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Teleporter_Incomplete
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38092,7 +38092,7 @@ Transform:
   m_GameObject: {fileID: 196538}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 320.4483, y: 7.927347, z: 255.89995}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 462524}
   - {fileID: 477744}
@@ -38150,7 +38150,7 @@ GameObject:
   - component: {fileID: 413312}
   - component: {fileID: 19855526}
   - component: {fileID: 19998842}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: FX_Halo_01 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38457,7 +38457,7 @@ ParticleSystem:
         m_RotationOrder: 0
     startSizeY:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -38510,7 +38510,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startSizeZ:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -38563,7 +38563,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startRotationX:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 0
       minScalar: 0
       maxCurve:
@@ -38616,7 +38616,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startRotationY:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 0
       minScalar: 0
       maxCurve:

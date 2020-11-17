@@ -10,9 +10,16 @@ public class PopUp_TC : TeleporterCheck
     protected TMP_Text teleporterCheckText;
 
     [SerializeField]
+    protected GameObject teleporterComplete;
+    [SerializeField]
+    protected GameObject teleporterIncomplete;
+
+    [SerializeField]
     private int stageNumber;
 
     protected Vector3 rotationFaceCamera;
+
+    public bool stageComplete;
 
     protected Vector3 RotateToFaceCamera()
     {
@@ -23,6 +30,16 @@ public class PopUp_TC : TeleporterCheck
 
     private void Start()
     {
+        if(GetStageStatus())
+        {
+            teleporterComplete.SetActive(true);
+            teleporterIncomplete.SetActive(false);
+        }
+        else
+        {
+            teleporterIncomplete.SetActive(true);
+            teleporterComplete.SetActive(false);
+        }
         teleporterCheckText.text = "Press X to Start Stage " + stageNumber;
         GetInstance().OnTeleporter += TeleporterCheck_OnTeleporter; //Removed TeleporterCheck as its already inherited from the "TeleporterCheck" class...
         GetInstance().OnGround += TeleporterCheck_OnGround;
@@ -35,20 +52,20 @@ public class PopUp_TC : TeleporterCheck
         teleporterCheckText.transform.rotation = Quaternion.LookRotation(rotationFaceCamera);
     }
 
-    public int GetStageNumber()
+    public bool GetStageStatus()
     {
         switch (stageNumber)
         {
             case 1:
-                return stageNumber;
+                return stageComplete;
             case 2:
-                return stageNumber;
+                return stageComplete;
             case 3:
-                return stageNumber;
+                return stageComplete;
             case 4:
-                return stageNumber;
+                return stageComplete;
             default:
-                return stageNumber;
+                return stageComplete;
         }
     }
 
