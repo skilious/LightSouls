@@ -21,4 +21,13 @@ public class SoulEssence : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, player.transform.position, Time.deltaTime * speed);
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("Player"))
+        {
+            Character_Status.soulEssence++;
+            Destroy(gameObject);
+        }
+    }
 }
