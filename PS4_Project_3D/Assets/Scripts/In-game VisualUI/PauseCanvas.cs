@@ -8,7 +8,7 @@ public class PauseCanvas : MonoBehaviour
 {
     [SerializeField]
     private Button quitBtn;
-
+    
     private void Start()
     {
         quitBtn.onClick.AddListener(QuitGame);

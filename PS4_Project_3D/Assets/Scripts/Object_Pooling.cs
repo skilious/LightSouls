@@ -30,6 +30,7 @@ public class Object_Pooling : MonoBehaviour
     //This function only starts at the beginning w/ for looping until it instantiates all the necessary GameObjects that are needed in the scene.
     private void Start()
     {
+        //DontDestroyOnLoad(gameObject);
         while(objCounter != objects.Length)
         {
             for (int i = 0; i < amountToInstantiate[objCounter]; i++)
@@ -37,7 +38,7 @@ public class Object_Pooling : MonoBehaviour
                 GameObject obj = Instantiate(objects[objCounter]);
                 obj.SetActive(false);
                 objectPooled.Add(obj);
-
+                //DontDestroyOnLoad(obj);
             }
             objCounter++;
         }

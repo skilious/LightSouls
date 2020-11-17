@@ -8,7 +8,7 @@ public class PressurePlate : MonoBehaviour
     [SerializeField]
     private LayerMask layer;
 
-    private new MeshRenderer renderer;
+    private MeshRenderer renderer;
 
     [SerializeField]
     private Color colour;
