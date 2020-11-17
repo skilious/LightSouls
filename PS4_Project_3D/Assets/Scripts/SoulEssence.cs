@@ -10,10 +10,9 @@ public class SoulEssence : MonoBehaviour
     private float speed = 0.0f;
     void Start()
     {
-        player = GameObject.Find("Player").GetComponent<Transform>();
+        player = GameObject.Find("Player").GetComponent<Transform>(); //Reference Player GameObject
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(Vector3.Distance(transform.position, player.transform.position) < 3.0f)
@@ -26,8 +25,8 @@ public class SoulEssence : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player"))
         {
-            Character_Status.soulEssence++;
-            Destroy(gameObject);
+            Character_Status.soulEssence++; //Increments soulEssence.
+            Destroy(gameObject); //Destroy this gameObject.
         }
     }
 }

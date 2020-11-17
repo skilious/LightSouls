@@ -18,7 +18,7 @@ public class cameraFollow : MonoBehaviour
 
     private void Start()
     {
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
         target = GameObject.Find("Player").GetComponent<Transform>();
     }
     private void LateUpdate()
