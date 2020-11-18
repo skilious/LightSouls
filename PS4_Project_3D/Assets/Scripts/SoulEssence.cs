@@ -4,27 +4,27 @@ using UnityEngine;
 
 public class SoulEssence : MonoBehaviour
 {
-    private Transform player;
+    public GameObject soulDoor;
     
     [SerializeField]
     private float speed = 0.0f;
-    void Start()
-    {
-        player = GameObject.Find("Player").GetComponent<Transform>(); //Reference Player GameObject
-    }
+
+
+    //void Start()
+    //{
+    //    soulDoor = GetComponent<SoulWallHandler>().transform;
+    //}
 
     void Update()
     {
-        if(Vector3.Distance(transform.position, player.transform.position) < 3.0f)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, Time.deltaTime * speed);
-        }
+        transform.position = Vector3.MoveTowards(current: transform.position, soulDoor.transform.position, Time.deltaTime * speed);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("Player"))
+        if(other.gameObject.CompareTag("SoulWall"))
         {
+            Debug.Log("Soul Absorbed");
             //Character_Status.soulEssence++; //Increments soulEssence.
             Destroy(gameObject); //Destroy this gameObject.
         }
