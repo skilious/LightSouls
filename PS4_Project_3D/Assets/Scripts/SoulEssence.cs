@@ -22,7 +22,7 @@ public class SoulEssence : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("SoulWall"))
+        if(other.GetComponent<BoxCollider>())
         {
             Debug.Log("Soul Absorbed");
             //Character_Status.soulEssence++; //Increments soulEssence.
