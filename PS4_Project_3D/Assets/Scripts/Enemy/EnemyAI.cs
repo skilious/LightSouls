@@ -111,7 +111,7 @@ public class EnemyAI : MonoBehaviour
         obj.transform.position = transform.position + transform.forward * 1.0f;
         obj.transform.LookAt(player.transform.position);
         Rigidbody cloneRB = obj.GetComponent<Rigidbody>();
-        cloneRB.AddForce(cloneRB.transform.forward * 500.0f, ForceMode.Acceleration);
+        cloneRB.AddForce(cloneRB.transform.forward * 350.0f, ForceMode.Acceleration);
     }
 
     private void BoombladeAttack()

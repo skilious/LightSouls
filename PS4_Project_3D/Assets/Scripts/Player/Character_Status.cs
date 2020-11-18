@@ -10,7 +10,7 @@ public class Character_Status : Popup_Text
     public float maxHealth = 100.0f;
 
     public int curCapacity, maxCapacity = 100, capacityClip = 999;
-    public static int soulEssence = 0;
+    //public static int soulEssence = 0;
     protected virtual void Start()
     {
         curHealth = 100.0f;
@@ -19,7 +19,7 @@ public class Character_Status : Popup_Text
 
     protected virtual void Update()
     {
-        print(soulEssence);
+        //print(soulEssence);
         if (healthHit < curHealth)
         {
             curHealth = Mathf.Lerp(curHealth, healthHit, 5.0f * Time.deltaTime); //Smooth transition which later used w/ slider UI.

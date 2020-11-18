@@ -25,7 +25,7 @@ public class SoulEssence : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player"))
         {
-            Character_Status.soulEssence++; //Increments soulEssence.
+            //Character_Status.soulEssence++; //Increments soulEssence.
             Destroy(gameObject); //Destroy this gameObject.
         }
     }

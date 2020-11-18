@@ -14,6 +14,7 @@ public class EnemyStatus : Popup_Text
     public float curHealth;
 
     private Vector3 spawnPos;
+
     void Start()
     {
         spawnPos = transform.position;
