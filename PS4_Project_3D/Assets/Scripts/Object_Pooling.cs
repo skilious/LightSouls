@@ -24,6 +24,7 @@ public class Object_Pooling : MonoBehaviour
     public int objCounter = 1;
     void Awake()
     {
+        DontDestroyOnLoad(gameObject);
         SharedInstance = this;
     }
 
@@ -38,7 +39,7 @@ public class Object_Pooling : MonoBehaviour
                 GameObject obj = Instantiate(objects[objCounter]);
                 obj.SetActive(false);
                 objectPooled.Add(obj);
-                //DontDestroyOnLoad(obj);
+                DontDestroyOnLoad(obj);
             }
             objCounter++;
         }

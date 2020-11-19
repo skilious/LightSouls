@@ -19,7 +19,7 @@ public class Character_Status : Popup_Text
 
     protected virtual void Update()
     {
-        print(soulEssence);
+        //print(soulEssence);
         if (healthHit < curHealth)
         {
             curHealth = Mathf.Lerp(curHealth, healthHit, 5.0f * Time.deltaTime); //Smooth transition which later used w/ slider UI.

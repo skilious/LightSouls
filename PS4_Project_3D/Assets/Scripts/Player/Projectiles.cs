@@ -24,7 +24,7 @@ public class Projectiles : Character_Status
     //Prevents miss selecting the right weapon (Prevents holding due to the way how dpad is set to axis).
     private bool selected = false;
     protected float dpadAxis; //dpad uses axis and goes between -1 (left) to 1 (right).
-
+    protected float shootAxis; //fucking uses r2 and it counts as an axis.
 
     //All the types of projectiles that we are going to use.
     public enum ShootTypes
@@ -46,6 +46,7 @@ public class Projectiles : Character_Status
     {
         if (SimplePause.notPaused)
         {
+            shootAxis = Input.GetAxis("Shoot");
             dpadAxis = Input.GetAxis("SwitchWeapon_Dpad");
         }
         base.Update();
@@ -146,7 +147,7 @@ public class Projectiles : Character_Status
 
         // Added 'OR' Conditional to make it work for both PS4 and PC while we are still in prototype phase. - Tarek
 
-        if ((Input.GetButton("Shoot") || Input.GetButton("Fire1")) && curCapacity > 0 && fireRate <= 0 && SimplePause.notPaused)
+        if ((shootAxis >= 1.0f || Input.GetButton("Fire1")) && curCapacity > 0 && fireRate <= 0 && SimplePause.notPaused)
         {
             CancelInvoke("ReloadCapacity"); //Cancels both reloading functions preventing them to continue on whilst shooting.
             CancelInvoke("ReloadLifesteal");

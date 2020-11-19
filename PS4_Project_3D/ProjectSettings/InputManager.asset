@@ -455,7 +455,7 @@ InputManager:
     joyNum: 0
   - serializedVersion: 3
     m_Name: Horizontal
-    descriptiveName: 
+    descriptiveName: Horizontal movement
     descriptiveNegativeName: 
     negativeButton: 
     positiveButton: 
@@ -471,7 +471,7 @@ InputManager:
     joyNum: 0
   - serializedVersion: 3
     m_Name: Vertical
-    descriptiveName: 
+    descriptiveName: Vertical movement
     descriptiveNegativeName: 
     negativeButton: 
     positiveButton: 
@@ -483,11 +483,11 @@ InputManager:
     snap: 0
     invert: 1
     type: 2
-    axis: 2
+    axis: 1
     joyNum: 0
   - serializedVersion: 3
     m_Name: R_Horizontal
-    descriptiveName: 
+    descriptiveName: R analog stick - Horizontal (Rotating character)
     descriptiveNegativeName: 
     negativeButton: 
     positiveButton: 
@@ -503,7 +503,7 @@ InputManager:
     joyNum: 0
   - serializedVersion: 3
     m_Name: R_Vertical
-    descriptiveName: 
+    descriptiveName: Right analog stick - Vertical (Rotating character)
     descriptiveNegativeName: 
     negativeButton: 
     positiveButton: 
@@ -515,14 +515,14 @@ InputManager:
     snap: 0
     invert: 1
     type: 2
-    axis: 6
+    axis: 4
     joyNum: 0
   - serializedVersion: 3
     m_Name: Shoot
-    descriptiveName: 
+    descriptiveName: R2 - Shoot out the projectile
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: joystick button 7
+    positiveButton: 
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000
@@ -530,12 +530,12 @@ InputManager:
     sensitivity: 1000
     snap: 0
     invert: 0
-    type: 0
-    axis: 0
+    type: 2
+    axis: 9
     joyNum: 0
   - serializedVersion: 3
     m_Name: SwitchWeapon_Dpad
-    descriptiveName: 
+    descriptiveName: Up and Down Dpad - Switches weapon
     descriptiveNegativeName: 
     negativeButton: 
     positiveButton: 
@@ -547,7 +547,7 @@ InputManager:
     snap: 0
     invert: 1
     type: 2
-    axis: 8
+    axis: 5
     joyNum: 0
   - serializedVersion: 3
     m_Name: NULL
@@ -567,7 +567,7 @@ InputManager:
     joyNum: 0
   - serializedVersion: 3
     m_Name: Rotate
-    descriptiveName: 
+    descriptiveName: Rotating the camera dpad
     descriptiveNegativeName: 
     negativeButton: 
     positiveButton: 
@@ -579,11 +579,11 @@ InputManager:
     snap: 0
     invert: 0
     type: 2
-    axis: 7
+    axis: 6
     joyNum: 0
   - serializedVersion: 3
     m_Name: Dash
-    descriptiveName: 
+    descriptiveName: R1 - Dash
     descriptiveNegativeName: 
     negativeButton: 
     positiveButton: joystick button 5
@@ -602,7 +602,7 @@ InputManager:
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: joystick button 6
+    positiveButton: joystick button 4
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000
@@ -618,7 +618,7 @@ InputManager:
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: joystick button 9
+    positiveButton: joystick button 7
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000

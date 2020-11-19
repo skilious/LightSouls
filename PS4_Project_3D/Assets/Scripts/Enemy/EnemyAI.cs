@@ -153,7 +153,7 @@ public class EnemyAI : MonoBehaviour
     {
         if(PercentageHealth() >= 75.0f)
         {
-            GameObject cloning = Object_Pooling.SharedInstance.GetPooledObject("EnemyProjectile");
+            GameObject cloning = Object_Pooling.SharedInstance.GetPooledObject("EnemyBasic");
             cloning.SetActive(true);
             cloning.transform.position = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z) - transform.forward * 0.1f;
             cloning.transform.rotation = transform.rotation;
@@ -166,7 +166,7 @@ public class EnemyAI : MonoBehaviour
             float spread = -120.0f;
             for (int i = 0; i < 2; i++)
             {
-                GameObject cloning = Object_Pooling.SharedInstance.GetPooledObject("EnemyProjectile");
+                GameObject cloning = Object_Pooling.SharedInstance.GetPooledObject("EnemyBasic");
                 cloning.SetActive(true);
                 cloning.transform.position = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z) - transform.forward * 0.1f;
                 cloning.transform.rotation = transform.rotation;
@@ -193,7 +193,7 @@ public class EnemyAI : MonoBehaviour
             float spread = -120.0f;
             for (int i = 0; i < 3; i++)
             {
-                GameObject cloning = Object_Pooling.SharedInstance.GetPooledObject("EnemyProjectile");
+                GameObject cloning = Object_Pooling.SharedInstance.GetPooledObject("EnemyBasic");
                 cloning.SetActive(true);
                 cloning.transform.position = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z) - transform.forward * 0.1f;
                 cloning.transform.rotation = transform.rotation;

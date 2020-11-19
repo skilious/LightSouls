@@ -4862,7 +4862,7 @@ MonoBehaviour:
   damage: 1
   maxTimer: 3
   timer: 0
-  laserRange: 5
+  laserRange: 30
 --- !u!1001 &5377863967910652306
 PrefabInstance:
   m_ObjectHideFlags: 0

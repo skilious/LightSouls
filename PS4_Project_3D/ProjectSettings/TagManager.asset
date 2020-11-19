@@ -21,6 +21,7 @@ TagManager:
   - AOEProjectile
   - Laser
   - EnemyLaser
+  - EnemyBasic
   layers:
   - Default
   - TransparentFX

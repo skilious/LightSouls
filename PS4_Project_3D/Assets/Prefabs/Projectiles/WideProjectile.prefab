@@ -65,7 +65,7 @@ MonoBehaviour:
   maxTimer: 3
   timer: 0
   damageModifier: 2
-  isAOEProjectile: 1
+  Walkthroughable: 1
 --- !u!54 &-5386076184413210595
 Rigidbody:
   m_ObjectHideFlags: 0

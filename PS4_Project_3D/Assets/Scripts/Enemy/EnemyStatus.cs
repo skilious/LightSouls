@@ -105,7 +105,6 @@ public class EnemyStatus : Popup_Text
         dissolve.SetTexture("_Texture", ogTexture);
         while (dissolveValue < 1.0f)
         {
-            print(dissolveValue);
             dissolveValue += Time.deltaTime / duration;
             dissolveValue = Mathf.Clamp01(dissolveValue);
             dissolve.SetFloat("_Timer", dissolveValue);
