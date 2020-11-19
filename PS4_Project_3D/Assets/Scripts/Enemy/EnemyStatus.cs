@@ -15,13 +15,16 @@ public class EnemyStatus : Popup_Text
     public float curHealth;
 
     private Vector3 spawnPos;
+    private Texture ogTexture;
 
     [SerializeField] private GameObject soulEssence;
 
     [SerializeField] private Material dissolve;
     [SerializeField] private MeshRenderer rend;
+    
     void Start()
     {
+        ogTexture = rend.material.mainTexture;
         spawnPos = transform.position;
     }
 
@@ -99,7 +102,8 @@ public class EnemyStatus : Popup_Text
     {
         float dissolveValue = 0.0f;
         rend.material = dissolve;
-        while(dissolveValue < 1.0f)
+        dissolve.SetTexture("_Texture", ogTexture);
+        while (dissolveValue < 1.0f)
         {
             print(dissolveValue);
             dissolveValue += Time.deltaTime / duration;
