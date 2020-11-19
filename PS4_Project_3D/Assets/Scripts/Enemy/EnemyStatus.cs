@@ -6,15 +6,20 @@ using UnityEngine;
 public class EnemyStatus : Popup_Text
 {
     [SerializeField]
-    private bool isAlive = true;
-    [SerializeField]
-    protected bool isInvincible = false;
+    private float duration = 0.0f;
+
+    [SerializeField] private bool isAlive = true;
+    [SerializeField] protected bool isInvincible = false;
 
     public float maxHealth;
     public float curHealth;
 
     private Vector3 spawnPos;
 
+    [SerializeField] private GameObject soulEssence;
+
+    [SerializeField] private Material dissolve;
+    [SerializeField] private MeshRenderer rend;
     void Start()
     {
         spawnPos = transform.position;
@@ -48,6 +53,8 @@ public class EnemyStatus : Popup_Text
             //it'll proceed death normally.
             if (curHealth < 0)
             {
+                Instantiate(soulEssence, transform.position, Quaternion.identity);
+                StartCoroutine(Dissolve());
                 isAlive = false;
             }
         }
@@ -69,11 +76,15 @@ public class EnemyStatus : Popup_Text
         //If its not alive anymore, destroy it.
         if (!isAlive)
         {
-            Wave_System.enemiesLeft--;
-            Destroy(gameObject);
+            OnDeath();
         }
     }
 
+    void OnDeath()
+    {
+        Wave_System.enemiesLeft--;
+        Destroy(gameObject, 1.0f);
+    }
     public void Invincibility()
     {
         isInvincible = true;
@@ -82,5 +93,19 @@ public class EnemyStatus : Popup_Text
     public void DisableInvincibility()
     {
         isInvincible = false;
+    }
+
+    IEnumerator Dissolve()
+    {
+        float dissolveValue = 0.0f;
+        rend.material = dissolve;
+        while(dissolveValue < 1.0f)
+        {
+            print(dissolveValue);
+            dissolveValue += Time.deltaTime / duration;
+            dissolveValue = Mathf.Clamp01(dissolveValue);
+            dissolve.SetFloat("_Timer", dissolveValue);
+            yield return null;
+        }
     }
 }

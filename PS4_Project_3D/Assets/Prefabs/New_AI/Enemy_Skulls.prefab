@@ -120,10 +120,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageObjPrefab: {fileID: 7693102096020922219, guid: aa303823bb635a347ab3bb373a0fc613, type: 3}
   color: {r: 1, g: 0, b: 0, a: 1}
+  duration: 0
   isAlive: 1
   isInvincible: 0
   maxHealth: 200
   curHealth: 200
+  soulEssence: {fileID: 6167122813878744309, guid: 80e779c1c9a426b4d80a4eb0beb1cc1e, type: 3}
+  dissolve: {fileID: 2100000, guid: 59ac27296807c15458e45924179a34a8, type: 2}
+  rend: {fileID: 6196440769917039396}
 --- !u!54 &3700884485267583088
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -200,5 +204,10 @@ PrefabInstance:
 --- !u!4 &3405419076863257304 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: edddb959ce49a134892d1b5b2383d6d3, type: 3}
+  m_PrefabInstance: {fileID: 2938814153453243699}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &6196440769917039396 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -200711543021650409, guid: edddb959ce49a134892d1b5b2383d6d3, type: 3}
   m_PrefabInstance: {fileID: 2938814153453243699}
   m_PrefabAsset: {fileID: 0}

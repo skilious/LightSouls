@@ -549,10 +549,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageObjPrefab: {fileID: 7693102096020922219, guid: aa303823bb635a347ab3bb373a0fc613, type: 3}
   color: {r: 0, g: 0.36430502, b: 1, a: 1}
+  duration: 0
   isAlive: 1
   isInvincible: 0
   maxHealth: 100
   curHealth: 100
+  soulEssence: {fileID: 6167122813878744309, guid: 80e779c1c9a426b4d80a4eb0beb1cc1e, type: 3}
+  dissolve: {fileID: 2100000, guid: 59ac27296807c15458e45924179a34a8, type: 2}
+  rend: {fileID: 7506842584104568185}
 --- !u!195 &919132148787139126
 NavMeshAgent:
   m_ObjectHideFlags: 0
