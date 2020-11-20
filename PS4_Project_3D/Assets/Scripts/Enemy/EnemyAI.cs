@@ -158,7 +158,7 @@ public class EnemyAI : MonoBehaviour
             cloning.transform.position = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z) - transform.forward * 0.1f;
             cloning.transform.rotation = transform.rotation;
             Rigidbody rb = cloning.gameObject.GetComponent<Rigidbody>();
-            rb.AddForce(cloning.transform.forward * 500.0f, ForceMode.Acceleration);
+            rb.AddForce(cloning.transform.forward * 350.0f, ForceMode.Acceleration);
             print("Start off easy."); //Testing purposes.
         }
         else if(PercentageHealth() >= 30.0f && PercentageHealth() < 75.0f)
@@ -212,7 +212,6 @@ public class EnemyAI : MonoBehaviour
         cloning.SetActive(true);
         cloning.transform.position = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z) + transform.forward * 0.5f;
         cloning.transform.rotation = transform.rotation;
-
     }
 
     void Update()
