@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Author: Tarek
 public class SoulWallHandler : MonoBehaviour
 {
     private int soulsAbsorbedCount;
@@ -18,7 +19,7 @@ public class SoulWallHandler : MonoBehaviour
         soulWallBoxCollider = GetComponentInParent<BoxCollider>();
         soulWallParticleSystem = GetComponentInParent<ParticleSystem>();
         soulsAbsorbedCount = 0;
-        SoulEssence.OnSoulAbsorbed += SoulWallHandler_OnSoulAbsorbed; //Removed TeleporterCheck as its already inherited from the "TeleporterCheck" class...
+        SoulEssence.OnSoulAbsorbed += SoulWallHandler_OnSoulAbsorbed;
     }
 
     private void SoulWallHandler_OnSoulAbsorbed(SoulEssence soulEssence)

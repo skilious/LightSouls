@@ -16,6 +16,7 @@ public class cameraFollow : MonoBehaviour
 
     private int directions = 0;
 
+    private float zoomDistance = 5.0f;
     private void Start()
     {
         //DontDestroyOnLoad(gameObject);
@@ -42,6 +43,23 @@ public class cameraFollow : MonoBehaviour
             {
                 directions++;
                 StartCoroutine(RotationChange());
+            }
+
+            if(Input.GetKey(KeyCode.I))
+            {
+                if(zoomDistance >= 2.0f)
+                {
+                    zoomDistance -= 0.1f;
+                    Camera.main.orthographicSize = zoomDistance;
+                }
+            }
+            else if(Input.GetKey(KeyCode.O))
+            {
+                if(zoomDistance <= 7.0f)
+                {
+                    zoomDistance += 0.1f;
+                    Camera.main.orthographicSize = zoomDistance;
+                }
             }
         }
     }

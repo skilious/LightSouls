@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Tai's script
 public class Wave_System : MonoBehaviour
 {
     public List<GameObject> enemies; //Types of enemies
