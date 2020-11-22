@@ -9,22 +9,18 @@ public class TeleporterCheck : RayToGround
     }
 
     // Event Shoutouts
-    public event System.EventHandler OnTeleporter;
-    public event System.EventHandler OnGround;
+    //public event System.EventHandler OnTeleporter;
+    //public event System.EventHandler OnGround;
     
     public LayerMask teleporterLayer;
     public LayerMask groundLayer;
 
-    [SerializeField]
-    protected bool playerOnTeleporter = false;
+    //[SerializeField]
+    //protected bool playerOnTeleporter = false;
 
-    // Serialized for testing purposes - to see them change in the editor
-    [SerializeField]
+    // Serialized for testing purposes. To see them change in the editor. Removed [SerializeField]
     protected MeshCollider meshCollider_OnTeleporter;
-    [SerializeField]
     protected MeshCollider meshCollider_OffTeleporter;
-
-    [SerializeField]
     protected Animator animator;
 
     private void Awake()
@@ -55,9 +51,9 @@ public class TeleporterCheck : RayToGround
                 {
                     meshCollider_OnTeleporter = raycastHit.collider.GetComponent<MeshCollider>();
                     animator = meshCollider_OnTeleporter.GetComponentInParent<Animator>();
-                    playerOnTeleporter = true;
-                    // animator.SetBool("onTeleporter" , true);
-                    Debug.Log(" if (raycastHit.collider.GetComponent<PopUp_TC>()) - bool playerOnTeleporter = " + playerOnTeleporter);
+
+                    // playerOnTeleporter = true;
+                    // Debug.Log(" if (raycastHit.collider.GetComponent<PopUp_TC>()) - bool playerOnTeleporter = " + playerOnTeleporter);
 
                     // Do Teleporter Stuff
                     // OnTeleporter.Invoke(this, System.EventArgs.Empty);
@@ -75,9 +71,10 @@ public class TeleporterCheck : RayToGround
                 {
                     meshCollider_OffTeleporter = raycastHit.collider.GetComponent<MeshCollider>();
                     animator = meshCollider_OffTeleporter.GetComponentInParent<Animator>();
-                    playerOnTeleporter = false;
-                    // animator.SetBool("onTeleporter", false);
-                    Debug.Log(" if (!raycastHit.collider.isTrigger) - bool playerOnTeleporter = " + playerOnTeleporter);
+
+                    // playerOnTeleporter = false;
+                    // Debug.Log(" if (!raycastHit.collider.isTrigger) - bool playerOnTeleporter = " + playerOnTeleporter);
+                    
                     Debug.Log(" meshCollider_OffTeleporter = " + meshCollider_OffTeleporter);
                     Debug.Log(" animator = " + animator);
                     animator.SetBool("onTeleporter", false);

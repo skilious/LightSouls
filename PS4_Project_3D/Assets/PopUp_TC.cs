@@ -41,8 +41,10 @@ public class PopUp_TC : TeleporterCheck
             teleporterComplete.SetActive(false);
         }
         teleporterCheckText.text = "Press X to Start Stage " + stageNumber;
-        GetInstance().OnTeleporter += TeleporterCheck_OnTeleporter; //Removed TeleporterCheck as its already inherited from the "TeleporterCheck" class...
-        GetInstance().OnGround += TeleporterCheck_OnGround;
+
+        // UNUSED CODE
+        //GetInstance().OnTeleporter += TeleporterCheck_OnTeleporter; //Removed TeleporterCheck as its already inherited from the "TeleporterCheck" class...
+        //GetInstance().OnGround += TeleporterCheck_OnGround;
         //Hide();
     }
 
@@ -87,6 +89,8 @@ public class PopUp_TC : TeleporterCheck
     }
 
 
+    // UNUSED CODE
+    /*
     private void TeleporterCheck_OnTeleporter(object sender, EventArgs e)
     {
         // Play OnTeleporter Sound
@@ -106,6 +110,8 @@ public class PopUp_TC : TeleporterCheck
         //if(!animator.isActiveAndEnabled)
         //    Hide();
     }
+    */
+
     //No longer in use - Animator replaced this code.
     //private void Hide()
     //{
