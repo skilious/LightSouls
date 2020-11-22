@@ -10,7 +10,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 3
     m_ConditionEvent: Distance
-    m_EventTreshold: 1
+    m_EventTreshold: 5
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 3311957746082359939}
   m_Solo: 0
@@ -73,7 +73,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: AI_Enemy_Grenade
+  m_Name: Basic_Enemy
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Distance
@@ -218,7 +218,7 @@ AnimatorState:
   m_Transitions:
   - {fileID: -8370614401177317653}
   m_StateMachineBehaviours:
-  - {fileID: 4609407744612612597}
+  - {fileID: 9072882530396429209}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -233,21 +233,6 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!114 &4609407744612612597
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79529bab2d0b9e84b90b06f59dcd2171, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NPC: {fileID: 0}
-  target: {fileID: 0}
-  agent: {fileID: 0}
 --- !u!1101 &5184919080584841903
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -283,6 +268,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cf6af6d96f2392c4bba77c20a82ef7db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NPC: {fileID: 0}
+  target: {fileID: 0}
+  agent: {fileID: 0}
+--- !u!114 &9072882530396429209
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c304fee12d257c49a409aee5766c0e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   NPC: {fileID: 0}

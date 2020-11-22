@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject player;
+    public static GameObject player;
 
     private void Start()
     {
+        player = GameObject.Find("Player");
         DontDestroyOnLoad(player);
+    }
+
+    public static GameObject GetPlayer()
+    {
+        return player;
     }
 }
