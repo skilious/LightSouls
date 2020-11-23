@@ -30,14 +30,14 @@ public class UI_Manager : MonoBehaviour
         //0 is red.
         healthSlider.value = characterStats.curHealth; //Grab curHealth and set it to the slider's value.
         healthSlider.maxValue = characterStats.maxHealth; //Same with maxHealth with slider's maxValue.
-        if (characterStats.curHealth <= 50.0f && characterStats.curHealth > 20.0f) //If its between 50 to 20, it'll change to yellow.
+        if (characterStats.curHealth <= 65.0f && characterStats.curHealth > 20.0f) //If its between 50 to 20, it'll change to yellow.
         {
             timer += 0.1f * Time.deltaTime;
             colourChanging = Mathf.Lerp(colourChanging, 16.0f, timer);
             float colourChanged = colourChanging / 100.0f;
             healthColour.GetComponent<Image>().material.color = Color.HSVToRGB(colourChanged, 1, 1);
         }
-        else if(characterStats.curHealth <= 20.0f) //Otherwise, change to red.
+        else if(characterStats.curHealth <= 30.0f) //Otherwise, change to red.
         {
             if(!resetTimer) //Resets the timer for lerping.
             {
@@ -52,7 +52,8 @@ public class UI_Manager : MonoBehaviour
                 healthColour.GetComponent<Image>().material.color = Color.HSVToRGB(colourChanged, 1, 1);
             }    
         }
-        WeaponList();        CapacityAmmo();
+        WeaponList();       
+        CapacityAmmo();
     }
 
     //References from character_status and assign to these texts.
