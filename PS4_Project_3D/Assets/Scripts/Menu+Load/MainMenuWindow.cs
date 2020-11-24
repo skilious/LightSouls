@@ -16,7 +16,7 @@ public class MainMenuWindow : MonoBehaviour
     {
         transform.Find("playBtn").GetComponent<CodeMonkey.Utils.Button_UI>().ClickFunc = () =>
         {
-            Wait(1.5f);
+            StartCoroutine(Wait(1.5f));
             Loader.Load(Loader.Scene.SoulGame);
         };
         // Call the AddButtonSounds extension method
@@ -24,7 +24,7 @@ public class MainMenuWindow : MonoBehaviour
 
         transform.Find("quitBtn").GetComponent<CodeMonkey.Utils.Button_UI>().ClickFunc = () =>
         {
-            Wait(1.5f);
+            StartCoroutine(Wait(1.5f));
             Application.Quit();
         };
         // Call the AddButtonSounds extension method
@@ -32,7 +32,7 @@ public class MainMenuWindow : MonoBehaviour
 
         transform.Find("controlsBtn").GetComponent<CodeMonkey.Utils.Button_UI>().ClickFunc = () =>
         {
-            Wait(1.5f);
+            StartCoroutine(Wait(1.5f));
             SceneManager.LoadScene(Loader.Scene.ControlsScene.ToString());
         };
         // Call the AddButtonSounds extension method
@@ -40,7 +40,7 @@ public class MainMenuWindow : MonoBehaviour
 
         transform.Find("creditsBtn").GetComponent<CodeMonkey.Utils.Button_UI>().ClickFunc = () =>
         {
-            Wait(1.5f);
+            StartCoroutine(Wait(1.5f));
             SceneManager.LoadScene(Loader.Scene.CreditsScene.ToString());
         };
         // Call the AddButtonSounds extension method

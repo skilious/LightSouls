@@ -35,9 +35,4 @@ public class SoulEssence : MonoBehaviour
             Destroy(gameObject); //Destroy this gameObject.
         }
     }
-
-    private void OnDestroy()
-    {
-        
-    }
 }

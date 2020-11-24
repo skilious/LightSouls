@@ -15,7 +15,7 @@ public class CreditsMenuWindow : MonoBehaviour
     {
         transform.Find("menuBtn").GetComponent<CodeMonkey.Utils.Button_UI>().ClickFunc = () =>
         {
-            Wait(1.5f);
+            StartCoroutine(Wait(1.5f));
             SceneManager.LoadScene(Loader.Scene.MainMenu.ToString());
         };
         // Call the AddButtonSounds extension method

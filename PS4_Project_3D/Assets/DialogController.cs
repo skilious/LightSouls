@@ -6,23 +6,26 @@ using TMPro;
 public class DialogController : MonoBehaviour
 {
     [SerializeField]
-    private Canvas dialogCanvas;
+    protected Canvas dialogCanvas;
 
     [SerializeField]
-    private Animator animator;
+    protected Animator animator;
 
     [SerializeField]
-    private TMP_Text text;
+    protected TMP_Text textMeshProText;
+
+    //[SerializeField]
+    //private string dialogText;
 
     // Start is called before the first frame update
-    void Awake()
+    protected virtual void Awake()
     {
         animator = dialogCanvas.GetComponentInChildren<Animator>();
-        text = dialogCanvas.GetComponentInChildren<TMP_Text>();
+        textMeshProText = dialogCanvas.GetComponentInChildren<TMP_Text>();
         animator.SetBool("showDialog", false);
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         if(animator.GetBool("showDialog"))
         {
@@ -33,8 +36,9 @@ public class DialogController : MonoBehaviour
         }
     }
 
-    protected void OnTriggerEnter(Collider collision)
+    protected virtual void OnTriggerEnter(Collider collision)
     {
+        SetDialogText();
         if (collision.gameObject.CompareTag("Player"))
         {
             animator.SetBool("showDialog", true);
@@ -42,11 +46,18 @@ public class DialogController : MonoBehaviour
     }
     protected void OnTriggerExit(Collider collision)
     {
-        animator.SetBool("showDialog", false);
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            animator.SetBool("showDialog", false);
+        }
     }
 
+    // UNUSED - Not Sure if this is more efficient but at least the other way I only have on 
+    //script and edit the text I want in the editor... Feedback Appreciated though...
     protected virtual void SetDialogText()
     {
-
+        textMeshProText.text = "Welcome to the Game. Are You Looking To Save Someone? " +
+            "Better to save your Own soul If you ask me... But you didn't ask, I Just " +
+            "popped Up... So, I Guess, you do you, Champ!";
     }
 }

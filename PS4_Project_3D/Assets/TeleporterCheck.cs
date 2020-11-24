@@ -2,11 +2,11 @@
 
 public class TeleporterCheck : RayToGround
 {
-    private static TeleporterCheck instance;
-    public static TeleporterCheck GetInstance()
-    {
-        return instance;
-    }
+    //private static TeleporterCheck instance;
+    //public static TeleporterCheck GetInstance()
+    //{
+    //    return instance;
+    //}
 
     // Event Shoutouts
     //public event System.EventHandler OnTeleporter;
@@ -25,7 +25,7 @@ public class TeleporterCheck : RayToGround
 
     private void Awake()
     {
-        instance = this;
+        // instance = this;
         rayDirection = -transform.up;
     }
     private void FixedUpdate()
