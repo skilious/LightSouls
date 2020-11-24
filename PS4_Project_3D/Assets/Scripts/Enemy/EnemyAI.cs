@@ -16,14 +16,14 @@ public class EnemyAI : MonoBehaviour
 
     [SerializeField] protected float attackTimer = 0.0f, repeatTimer = 0.0f;
 
-    void Start()
+    protected virtual void Start()
     {
         status = GetComponent<EnemyStatus>();
         player = GameObject.Find("Player");
         anim = GetComponent<Animator>();
     }
 
-    void Update()
+    protected virtual void Update()
     {
         getDistance = Vector3.Distance(transform.position, player.transform.position);
         anim.SetFloat("Distance", getDistance);
