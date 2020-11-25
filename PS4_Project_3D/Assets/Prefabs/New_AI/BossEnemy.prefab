@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8377728791470086357}
   - component: {fileID: 5689069962731122246}
   - component: {fileID: 4881786672557490644}
+  - component: {fileID: 7986881072581367252}
   m_Layer: 0
   m_Name: BossEnemy
   m_TagString: Untagged
@@ -128,6 +129,28 @@ MonoBehaviour:
   - {fileID: 706275227463909373}
   - {fileID: 8796052295046997745}
   - {fileID: 4815300150989253730}
+--- !u!114 &7986881072581367252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8546476555934103542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db8e6754e89e5a349b18c566e9388850, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageObjPrefab: {fileID: 7693102096020922219, guid: aa303823bb635a347ab3bb373a0fc613, type: 3}
+  color: {r: 1, g: 0, b: 0, a: 1}
+  duration: 0.25
+  isAlive: 1
+  isInvincible: 0
+  maxHealth: 100
+  curHealth: 100
+  soulEssence: {fileID: 6167122813878744309, guid: 80e779c1c9a426b4d80a4eb0beb1cc1e, type: 3}
+  dissolve: {fileID: 2100000, guid: 59ac27296807c15458e45924179a34a8, type: 2}
+  rend: {fileID: 4296259807330072052}
 --- !u!1001 &1555707629788097325
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -200,6 +223,11 @@ PrefabInstance:
 --- !u!4 &1304991271577652422 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a9d100d53c3fa1c4cb675defed9cadb4, type: 3}
+  m_PrefabInstance: {fileID: 1555707629788097325}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &4296259807330072052 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 3317352273105919705, guid: a9d100d53c3fa1c4cb675defed9cadb4, type: 3}
   m_PrefabInstance: {fileID: 1555707629788097325}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &706275227463909373 stripped
