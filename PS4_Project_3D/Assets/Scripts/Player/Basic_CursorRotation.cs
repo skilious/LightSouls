@@ -6,7 +6,7 @@ using UnityEngine;
 public class Basic_CursorRotation : MonoBehaviour
 {
     Ray cameraRay;
-    private float adjustments = 3.0f;
+    [SerializeField] private float adjustments = 3.0f;
 
     [SerializeField]
     private bool PCMode = false;
