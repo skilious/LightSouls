@@ -6,6 +6,12 @@ using UnityEngine;
 //Author: Tarek
 public class SoulWallHandler : MonoBehaviour
 {
+    //private static SoulWallHandler instance;
+    //public static SoulWallHandler GetInstance()
+    //{
+    //    return instance;
+    //}
+
     private int soulsAbsorbedCount;
 
     [SerializeField]
@@ -42,7 +48,6 @@ public class SoulWallHandler : MonoBehaviour
             psMain.loop = false;
         }
     }
-
     // Do Teleporter Stuff
     // OnTeleporter.Invoke(this, System.EventArgs.Empty);
 }

@@ -31,7 +31,7 @@ public class EnemyStatus : Popup_Text
     void Update()
     {
         //print("Object:  " + gameObject.name + "'s health: " + curHealth);
-        aliveStatus();
+        AliveStatus();
     }
 
     public float ReceiveDamage(float dmg)
@@ -48,7 +48,7 @@ public class EnemyStatus : Popup_Text
         return curHealth;
     }
 
-    void aliveStatus()
+    void AliveStatus()
     {
         //Check if its alive and is not invincible.
         if (isAlive && !isInvincible)

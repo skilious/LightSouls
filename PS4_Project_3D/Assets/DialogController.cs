@@ -38,9 +38,9 @@ public class DialogController : MonoBehaviour
 
     protected virtual void OnTriggerEnter(Collider collision)
     {
-        SetDialogText();
         if (collision.gameObject.CompareTag("Player"))
         {
+            SetDialogText();
             animator.SetBool("showDialog", true);
         }
     }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TrapHandler : MonoBehaviour
 {
-    private float _damage = 20f;
+    private readonly float _trapDamage = 20f;
 
     [SerializeField] private float _countdownTime = 1f;
 
@@ -29,12 +29,12 @@ public class TrapHandler : MonoBehaviour
         _playerTakesDamage = true;
         if (other.name == "Player")
         {
-            var vfx = Instantiate(effectToSpawn, transform.position, Quaternion.identity) as GameObject;
+            var vfx = Instantiate(effectToSpawn, transform.position, Quaternion.identity);
             Destroy(vfx, 5);
             Debug.Log(Time.deltaTime);
             yield return new WaitForSeconds(_countdownTime);
             if (_playerTakesDamage)
-                other.gameObject.SendMessage("ReceiveDamage", _damage);
+                other.gameObject.SendMessage("ReceiveDamage", _trapDamage);
         }
     }
 
