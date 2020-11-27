@@ -9,6 +9,7 @@ public class Tackling_Attack : NPCBase
     {
         base.OnStateEnter(animator, stateInfo, layerIndex);
         NPC.GetComponent<TacklingObj>().StartAttack();
+        agent.isStopped = true;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -16,7 +17,7 @@ public class Tackling_Attack : NPCBase
     {
         //NPC.transform.LookAt(new Vector3(target.transform.position.x, NPC.transform.position.y, target.transform.position.z)); 
         Quaternion lookTarget = Quaternion.LookRotation(target.transform.position - NPC.transform.position);
-        NPC.transform.rotation = Quaternion.Slerp(NPC.transform.rotation, lookTarget, rotSpeed * Time.deltaTime);
+        NPC.transform.rotation = Quaternion.Slerp(NPC.transform.rotation, lookTarget, 20.0f * Time.deltaTime);
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

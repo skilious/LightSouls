@@ -4,46 +4,85 @@ using UnityEngine;
 
 public class TacklingObj : EnemyAI
 {
+    private enum Abilities
+    {
+        basic_tackle,
+        consecutive_tackle
+    };
+
+    private Abilities ability;
+
     private CapsuleCollider col;
-    private float time = 0.0f;
-    private Vector3 getPlayerPos;
+    private Rigidbody rb;
+
+    [SerializeField] private float dashSpeed = 0.0f;
 
     protected override void Start()
     {
         base.Start();
+        rb = GetComponent<Rigidbody>();
         col = GetComponent<CapsuleCollider>();
     }
     public void StartAttack()
     {
-        InvokeRepeating("TacklingAttack", attackTimer, repeatTimer);
+        InvokeRepeating("Attack", attackTimer, repeatTimer);
     }
     public void StopAttack()
     {
         //Cancel attack once it reaches a certain distance.
-        CancelInvoke("TacklingAttack");
+        CancelInvoke("Attack");
     }
-    private void TacklingAttack()
+
+    void Attack()
     {
-        float maxDistance = 0.55f;
+        StartCoroutine(TacklingAttack());
+    }
+    private IEnumerator TacklingAttack()
+    {
         GameObject obj = gameObject.transform.GetChild(0).gameObject;
-        time += Time.deltaTime * 1.2f;
-        if (time < 3.0f)
+        print("Its currently targeting");
+        float abilityTarget = Random.Range(0, 2);
+        ability = (Abilities)abilityTarget;
+        yield return new WaitForSeconds(0.5f);
+        switch (ability)
         {
-            getPlayerPos = player.transform.position + transform.forward * 2.5f;
-        }
-        else if (time >= 3.0f)
-        {
-            obj.SetActive(true);
-            col.isTrigger = true;
-            transform.position = Vector3.MoveTowards(transform.position, getPlayerPos, 7.0f * Time.fixedDeltaTime);
-            //I hate this part the most of this whole script.
-            //Calling two Raycasts in one if statement for both back and forth of the GameObject.
-            if (Vector3.Distance(transform.position, getPlayerPos) < 1.5f || Physics.Raycast(transform.position, transform.forward, maxDistance) || Physics.Raycast(transform.position, -transform.forward, maxDistance))
-            {
-                obj.SetActive(false);
-                col.isTrigger = false;
-                time = 0.0f;
-            }
+            case Abilities.basic_tackle:
+                {
+                    print("Go for it");
+                    obj.SetActive(true);
+                    col.isTrigger = true;
+                    // transform.position = Vector3.MoveTowards(transform.position, getPlayerPos, 7.5f * Time.fixedDeltaTime);
+                    rb.AddForce(transform.forward * dashSpeed, ForceMode.Acceleration);
+                    //I hate this part the most of this whole script.
+                    //Calling two Raycasts in one if statement for both back and forth of the GameObject.
+                    yield return new WaitForSeconds(0.5f);
+                    print("Conditions have met and have stopped tackling");
+                    rb.velocity = Vector3.zero;
+                    obj.SetActive(false);
+                    col.isTrigger = false;
+                    break;
+                }
+            case Abilities.consecutive_tackle:
+                {
+                    for (int i = 0; i < 3; i++)
+                    {
+                        print("Go for it");
+                        obj.SetActive(true);
+                        col.isTrigger = true;
+                        // transform.position = Vector3.MoveTowards(transform.position, getPlayerPos, 7.5f * Time.fixedDeltaTime);
+                        rb.AddForce(transform.forward * dashSpeed, ForceMode.Acceleration);
+                        //I hate this part the most of this whole script.
+                        //Calling two Raycasts in one if statement for both back and forth of the GameObject.
+                        yield return new WaitForSeconds(0.3f);
+                        print("Conditions have met and have stopped tackling");
+                        rb.velocity = Vector3.zero;
+                        obj.SetActive(false);
+                        col.isTrigger = false;
+                    }
+                    break;
+                }
         }
     }
+
 }
+
