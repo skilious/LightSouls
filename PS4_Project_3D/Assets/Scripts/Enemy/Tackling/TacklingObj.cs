@@ -8,8 +8,9 @@ public class TacklingObj : EnemyAI
     private float time = 0.0f;
     private Vector3 getPlayerPos;
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         col = GetComponent<CapsuleCollider>();
     }
     public void StartAttack()
