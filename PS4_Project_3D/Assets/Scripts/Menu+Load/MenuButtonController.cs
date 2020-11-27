@@ -8,19 +8,26 @@ public class MenuButtonController : MonoBehaviour
 	[SerializeField] bool keyDown;
 	[SerializeField] int maxIndex;
 	public AudioSource audioSource;
+	private float inputValue;
 
-	void Start () 
+	void Start ()
 	{
 		audioSource = GetComponent<AudioSource>();
 	}
 	
-	void Update () 
+	void FixedUpdate()
+    {
+		inputValue = Input.GetAxis("Vertical");
+	}
+
+	void Update ()
 	{
-		if(Input.GetAxis ("Vertical") != 0)
+		Debug.Log(inputValue);
+		if(inputValue != 0)
 		{
 			if(!keyDown)
 			{
-				if (Input.GetAxis ("Vertical") < 0) 
+				if (inputValue < 0) 
 				{
 					if(index < maxIndex)
 					{
@@ -31,7 +38,7 @@ public class MenuButtonController : MonoBehaviour
 						index = 0;
 					}
 				} 
-				else if(Input.GetAxis ("Vertical") > 0)
+				else if(inputValue > 0)
 				{
 					if(index > 0)
 					{
