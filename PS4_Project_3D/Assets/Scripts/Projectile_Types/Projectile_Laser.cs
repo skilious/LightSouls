@@ -37,19 +37,24 @@ public class Projectile_Laser : ProjectileBase
 
     protected override void OnTriggerEnter(Collider collision)
     {
-        //Compares tagName if its correct.
-        if (collision.gameObject.CompareTag(tagName))
-        {
-            //If its an enemy and AOE projectile, use this statement.
-            if (tagName == "Enemy")
-            {
-                collision.gameObject.SendMessage("ReceiveDamage", damage);
-            }
-        }
-        else if (collision.CompareTag("Wall"))
-        {
-            gameObject.SetActive(false);
-        }
+        base.OnTriggerEnter(collision);
+        ////Compares tagName if its correct.
+        //if (collision.gameObject.CompareTag(tagName))
+        //{
+        //    //If its an enemy and AOE projectile, use this statement.
+        //    if (tagName == "Enemy")
+        //    {
+        //        GameObject onHit = Instantiate(onHitPrefab, transform.position, transform.rotation);
+        //        Destroy(onHit, 0.25f);
+        //        collision.gameObject.SendMessage("ReceiveDamage", damage);
+        //    }
+        //}
+        //else if (collision.CompareTag("Wall"))
+        //{
+        //    GameObject onHit = Instantiate(onHitPrefab, transform.position, transform.rotation);
+        //    Destroy(onHit, 0.25f);
+        //    gameObject.SetActive(false);
+        //}
     }
     protected override void OnDisable()
     {

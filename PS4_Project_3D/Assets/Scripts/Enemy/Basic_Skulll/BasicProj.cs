@@ -16,9 +16,10 @@ public class BasicProj : EnemyAI
 
     private void BasicAttack()
     {
-        GameObject obj = Object_Pooling.SharedInstance.GetPooledObject("EnemyProjectile");
+        GameObject obj = Object_Pooling.SharedInstance.GetPooledObject("EnemyBasic");
         obj.SetActive(true);
         obj.transform.position = transform.position + transform.forward * 1.0f;
+        obj.transform.rotation = transform.rotation;
         //obj.transform.LookAt(player.transform.position);
         Rigidbody cloneRB = obj.GetComponent<Rigidbody>();
         cloneRB.AddForce(transform.forward * 350.0f, ForceMode.Acceleration);

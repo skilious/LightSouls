@@ -8,22 +8,19 @@ using UnityEngine;
 public class ProjectileBase : MonoBehaviour
 {
 
+    [SerializeField] protected GameObject onHitPrefab;
     //Grab rigidbody from Projectile themselves.
     protected Rigidbody rb;
-    [SerializeField]
-    protected string tagName;
+    [SerializeField] protected string tagName;
 
     protected Vector3 curPos = Vector3.zero;
 
     //Handles sending damage to opposing opponent.
-    [SerializeField]
-    protected float damage = 0.0f;
+    [SerializeField] protected float damage = 0.0f;
 
-    [SerializeField]
-    protected float maxTimer = 0.0f;
+    [SerializeField] protected float maxTimer = 0.0f;
 
-    [SerializeField]
-    protected float timer = 0.0f;
+    [SerializeField] protected float timer = 0.0f;
 
     protected void Awake()
     {
@@ -52,13 +49,16 @@ public class ProjectileBase : MonoBehaviour
             }
             else if (tagName == "Enemy")
             {
-                print(collision.gameObject.name);
                 collision.gameObject.SendMessage("ReceiveDamage", damage);
             }
+            GameObject onHit = Instantiate(onHitPrefab, transform.position, transform.rotation);
+            Destroy(onHit, 0.25f);
             gameObject.SetActive(false);
         }
         else if (collision.gameObject.CompareTag("Wall"))
         {
+            GameObject onHit = Instantiate(onHitPrefab, transform.position, transform.rotation);
+            Destroy(onHit, 0.25f);
             gameObject.SetActive(false);
         }
     }

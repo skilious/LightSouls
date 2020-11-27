@@ -10,6 +10,7 @@ public class Projectile_Basic : ProjectileBase
     private float damageModifier = 2;
     [SerializeField]
     protected bool Walkthroughable; //Checks if its the other projectile that shoots a wider version of the original one.
+
     protected float damageModify()
     {
         damage = damageModifier;
@@ -39,9 +40,13 @@ public class Projectile_Basic : ProjectileBase
                 collision.gameObject.SendMessage("ReceiveDamage", damage);
                 gameObject.SetActive(false);
             }
+            GameObject onHit = Instantiate(onHitPrefab, transform.position, transform.rotation);
+            Destroy(onHit, 0.25f);
         }
-        else if(collision.CompareTag("Wall"))
+        else if (collision.gameObject.CompareTag("Wall"))
         {
+            GameObject onHit = Instantiate(onHitPrefab, transform.position, transform.rotation);
+            Destroy(onHit, 0.25f);
             gameObject.SetActive(false);
         }
     }
