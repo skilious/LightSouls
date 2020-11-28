@@ -1602,7 +1602,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &6557608167687715826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1908,7 +1908,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.7216981, g: 1, b: 0.7535632, a: 0}
+  m_BackGroundColor: {r: 0.12917897, g: 0, b: 0.5660378, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -2744,7 +2744,7 @@ PrefabInstance:
       objectReference: {fileID: 6557608169486607809}
     - target: {fileID: 1088965559617320634, guid: 507f943b6f433fa409f80d35c9cc96c3, type: 3}
       propertyPath: disableOnce
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4369065082735945914, guid: 507f943b6f433fa409f80d35c9cc96c3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2792,7 +2792,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4369065082735945914, guid: 507f943b6f433fa409f80d35c9cc96c3, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 399.68155
+      value: 399.68152
       objectReference: {fileID: 0}
     - target: {fileID: 4369065082735945914, guid: 507f943b6f433fa409f80d35c9cc96c3, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2829,6 +2829,10 @@ PrefabInstance:
     - target: {fileID: 4369065082735945914, guid: 507f943b6f433fa409f80d35c9cc96c3, type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4369065082735945914, guid: 507f943b6f433fa409f80d35c9cc96c3, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4369065082735945917, guid: 507f943b6f433fa409f80d35c9cc96c3, type: 3}
       propertyPath: m_Name

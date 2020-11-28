@@ -10,7 +10,7 @@ public static class SoundManager
         CreditsMusic,
         ThemeMusic,
 
-        // UNIMPLEMENTED... FOR NOW.
+        TrapBeam,
         OnTeleporter,
         ButtonOver,
         ButtonClick,

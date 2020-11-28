@@ -7,6 +7,7 @@ public class TrapHandler : MonoBehaviour
     private readonly float _trapDamage = 20f;
 
     [SerializeField] private float _countdownTime = 1f;
+    // [SerializeField] private float _soundDelayTime = 0.5f;
 
     [SerializeField]
     private List<GameObject> visualFX;
@@ -29,10 +30,12 @@ public class TrapHandler : MonoBehaviour
         _playerTakesDamage = true;
         if (other.name == "Player")
         {
-            var vfx = Instantiate(effectToSpawn, transform.position, Quaternion.identity);
+            GameObject vfx = Instantiate(effectToSpawn, transform.position, Quaternion.Euler(0, 180, 0));
+            SoundManager.PlaySound(SoundManager.Sound.TrapBeam);
+            SoundManager.PlaySound(SoundManager.Sound.ButtonOver);
             Destroy(vfx, 5);
-            Debug.Log(Time.deltaTime);
             yield return new WaitForSeconds(_countdownTime);
+            Debug.Log(Time.deltaTime);
             if (_playerTakesDamage)
                 other.gameObject.SendMessage("ReceiveDamage", _trapDamage);
         }
