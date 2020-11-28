@@ -12,10 +12,11 @@ GameObject:
   - component: {fileID: 6133825600151692066}
   - component: {fileID: 6133825600151692077}
   - component: {fileID: 6133825600151692064}
-  - component: {fileID: 6133825600151692079}
   - component: {fileID: 1779515120352955794}
   - component: {fileID: 6123202462688506876}
   - component: {fileID: 1336838865666516961}
+  - component: {fileID: 1329263702}
+  - component: {fileID: 1329263705}
   m_Layer: 2
   m_Name: Enemy_Tackling
   m_TagString: Enemy
@@ -106,20 +107,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &6133825600151692079
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6133825600151692078}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64467bbca65166f459fc669feaf2a786, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackTimer: 0.01
-  repeatTimer: 0.01
 --- !u!195 &1779515120352955794
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -159,8 +146,8 @@ MonoBehaviour:
   duration: 1
   isAlive: 1
   isInvincible: 0
-  maxHealth: 100
-  curHealth: 100
+  maxHealth: 1000
+  curHealth: 1000
   soulEssence: {fileID: 6167122813878744309, guid: 80e779c1c9a426b4d80a4eb0beb1cc1e, type: 3}
   dissolve: {fileID: 2100000, guid: 59ac27296807c15458e45924179a34a8, type: 2}
   rend: {fileID: 6133825600151692077}
@@ -178,6 +165,37 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &1329263702
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6133825600151692078}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &1329263705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6133825600151692078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73de7333c77026a4d80fb5efc69e169a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackTimer: 1
+  repeatTimer: 2
+  dashSpeed: 500
 --- !u!1 &7158931003889595575
 GameObject:
   m_ObjectHideFlags: 0
@@ -233,7 +251,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7158931003889595575}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 100
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
@@ -253,6 +271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1f14480a54e2e941855da0e38c3b06a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onHitPrefab: {fileID: 3751037622548553407, guid: 388eeb27325101f499a7424249b2beb1, type: 3}
   tagName: Player
   damage: 15
   maxTimer: 3

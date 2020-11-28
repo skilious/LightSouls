@@ -19,6 +19,8 @@ public class Projectile_Laser1 : ProjectileBase
     {
         if(other.gameObject.CompareTag("Player"))
         {
+            GameObject onHit = Instantiate(onHitPrefab, transform.position, transform.rotation);
+            Destroy(onHit, 0.25f);
             other.gameObject.SendMessage("ReceiveDamage", damage);
         }
     }
@@ -26,6 +28,8 @@ public class Projectile_Laser1 : ProjectileBase
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            GameObject onHit = Instantiate(onHitPrefab, transform.position, transform.rotation);
+            Destroy(onHit, 0.25f);
             other.gameObject.SendMessage("ReceiveDamage", damage);
             print("Painful as feck");
         }

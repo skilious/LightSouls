@@ -13,6 +13,8 @@ public class Projectile_Boomblade : ProjectileBase
         {
             if (tagName == "Player")
             {
+                GameObject onHit = Instantiate(onHitPrefab, transform.position, transform.rotation);
+                Destroy(onHit, 0.25f);
                 collision.gameObject.SendMessage("ReceiveDamage", damage);
             }
         }

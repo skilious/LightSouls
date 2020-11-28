@@ -13,6 +13,8 @@ public class Tackling : ProjectileBase
             //This only gets called out if the enemy is shooting towards the player.
             if (tagName == "Player")
             {
+                GameObject onHit = Instantiate(onHitPrefab, transform.position, transform.rotation);
+                Destroy(onHit, 0.25f);
                 collision.gameObject.SendMessage("ReceiveDamage", damage);
             }
         }

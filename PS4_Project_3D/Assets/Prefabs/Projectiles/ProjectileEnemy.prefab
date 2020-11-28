@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae2642ed5a021c04383e4ba9f3fde107, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onHitPrefab: {fileID: 3751037622548553407, guid: 388eeb27325101f499a7424249b2beb1, type: 3}
   tagName: Player
   damage: 10
   maxTimer: 3
