@@ -532,7 +532,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64467bbca65166f459fc669feaf2a786, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack_types: 5
   attackTimer: 1
   repeatTimer: 2
 --- !u!114 &8046327527509514863
@@ -556,7 +555,8 @@ MonoBehaviour:
   curHealth: 100
   soulEssence: {fileID: 6167122813878744309, guid: 80e779c1c9a426b4d80a4eb0beb1cc1e, type: 3}
   dissolve: {fileID: 2100000, guid: 59ac27296807c15458e45924179a34a8, type: 2}
-  rend: {fileID: 7506842584104568185}
+  rend:
+  - {fileID: 7506842584104568185}
 --- !u!195 &919132148787139126
 NavMeshAgent:
   m_ObjectHideFlags: 0

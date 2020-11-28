@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 11490836}
   m_Layer: 0
   m_Name: Broken_Wall_Top_05_LOD0
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 89
@@ -2276,7 +2276,7 @@ GameObject:
   - component: {fileID: 11474068}
   m_Layer: 0
   m_Name: Broken_Wall_Top_04_LOD0
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 89
@@ -3307,7 +3307,7 @@ GameObject:
   - component: {fileID: 11455788}
   m_Layer: 0
   m_Name: Wall_Decorated_Top_01_LOD0
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 89
@@ -4416,7 +4416,7 @@ GameObject:
   - component: {fileID: 11441166}
   m_Layer: 0
   m_Name: Broken_Wall_Top_01_LOD0
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 89
@@ -4779,7 +4779,7 @@ GameObject:
   - component: {fileID: 6430544}
   m_Layer: 0
   m_Name: Broken_Entrance_01_LOD0
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 89

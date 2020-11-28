@@ -20,11 +20,14 @@ public class EnemyStatus : Popup_Text
     [SerializeField] private GameObject soulEssence;
 
     [SerializeField] private Material dissolve;
-    [SerializeField] private MeshRenderer rend;
+    [SerializeField] private MeshRenderer[] rend;
     
     void Start()
     {
-        ogTexture = rend.material.mainTexture;
+        for(int i = 0; i < rend.Length; i++)
+        {
+            ogTexture = rend[i].material.mainTexture;
+        }
         spawnPos = transform.position;
     }
 
@@ -100,8 +103,11 @@ public class EnemyStatus : Popup_Text
 
     IEnumerator Dissolve()
     {
-        float dissolveValue = 0.0f;
-        rend.material = dissolve;
+        float dissolveValue = 0.0f; 
+        for (int i = 0; i < rend.Length; i++)
+        {
+            rend[i].material = dissolve;
+        }
         dissolve.SetTexture("_Texture", ogTexture);
         while (dissolveValue < 1.0f)
         {
@@ -110,5 +116,6 @@ public class EnemyStatus : Popup_Text
             dissolve.SetFloat("_Timer", dissolveValue);
             yield return null;
         }
+
     }
 }

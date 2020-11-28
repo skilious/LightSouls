@@ -7,11 +7,17 @@ public class Wave_System : MonoBehaviour
 {
     public List<GameObject> enemies; //Types of enemies
 
-    public List<GameObject> enemySpawn; //Waypoints
+    [SerializeField] private GameObject[] enemySpawn; //Waypoints
     public static int enemiesLeft;
 
     public bool beginWave = false;
     public bool enableInvincibility = false; //Enables invincibility for each enemy thats being spawned in.
+
+    private void Awake()
+    {
+        enemySpawn = GameObject.FindGameObjectsWithTag("Waypoint");
+    }
+
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.T)) //Simple, Press T on keyboard. It starts the wave.

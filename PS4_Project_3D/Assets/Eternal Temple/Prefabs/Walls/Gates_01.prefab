@@ -16,7 +16,7 @@ GameObject:
   m_Name: Gates_01_Ivy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 91
   m_IsActive: 1
 --- !u!4 &494430
@@ -112,7 +112,7 @@ GameObject:
   m_Name: Gates_01_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 91
   m_IsActive: 1
 --- !u!4 &481638
@@ -195,7 +195,7 @@ GameObject:
   m_Name: Gates_01_Shadow_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 91
   m_IsActive: 1
 --- !u!4 &418006
@@ -276,7 +276,7 @@ GameObject:
   m_Name: Gates_01_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 91
   m_IsActive: 1
 --- !u!4 &461218
@@ -358,9 +358,9 @@ GameObject:
   - component: {fileID: 11418106}
   m_Layer: 0
   m_Name: Gates_01_TOP_LOD0
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 91
   m_IsActive: 1
 --- !u!4 &447488
@@ -457,7 +457,7 @@ GameObject:
   m_Name: Gates_Arch_01_TOP_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 91
   m_IsActive: 1
 --- !u!4 &496644
@@ -649,9 +649,9 @@ GameObject:
   - component: {fileID: 2324886}
   m_Layer: 0
   m_Name: Gates_01_Bottom_LOD0
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 91
   m_IsActive: 1
 --- !u!4 &431436
