@@ -5,37 +5,37 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MainMenu.unity
     guid: 0cb3e86fa7bd71e41858c1b503c512bb
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/CreditsScene.unity
     guid: 1ba85444cebc53642957249b488e98d6
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/ControlsScene.unity
     guid: 4d291225627235d4aa8b5a0a519fa3b3
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LoadingScene.unity
     guid: e556007576abac84fa5adbd8d4010a6f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SoulGame.unity
     guid: 5a1ed6b6ed506b04189450646e1c625a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/2. Level Select.unity
     guid: 67327199f1cf8c045b9876a504d4a93a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Level_Skull.unity
     guid: 6512cc7c326aa2a4e8986bb827da4cfb
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Stages_Complete/Stage_01.unity
     guid: 9c406dc29fae9244da129212c9c1bb06
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Stages_Complete/Stage_02.unity
     guid: 802af4106acabcd4480b1c47d1064b17
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Stages_Complete/Stage_03.unity
     guid: 0e77431d09c53cb4fae17eb8c802aacb
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Stages_Complete/Stage_04.unity
     guid: f0471dad2cab8d64592f43204d60c97d
   - enabled: 1
