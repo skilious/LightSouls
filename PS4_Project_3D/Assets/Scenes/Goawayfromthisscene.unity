@@ -76211,7 +76211,7 @@ GameObject:
   - component: {fileID: 1855404058}
   - component: {fileID: 1855404059}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: LvSelectPassage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76242,6 +76242,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc87711f65773844ab877b8226d285c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  setSpawnPosition: {x: 33, y: 1, z: 32}
+  sceneName: 2. Level Select
 --- !u!4 &1855404061
 Transform:
   m_ObjectHideFlags: 0
@@ -82453,7 +82455,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4822922785633884040, guid: 3d98d34b41e96b5429d4041fc52fb4f2, type: 3}
       propertyPath: PCMode
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4822922785633884040, guid: 3d98d34b41e96b5429d4041fc52fb4f2, type: 3}
       propertyPath: adjustments
