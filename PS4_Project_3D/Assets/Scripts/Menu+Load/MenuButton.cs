@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuButton : MonoBehaviour
 {
@@ -19,10 +20,11 @@ public class MenuButton : MonoBehaviour
     {
 		if(menuButtonController.index == thisIndex)
 		{
-			animator.SetBool ("selected", true);
+			animator.SetBool("selected", true);
 			if (Input.GetAxis("Submit") == 1)
 			{
 				animator.SetBool("pressed", true);
+                _ = StartCoroutine(WaitThenLoad(0.5f));
 			}
 			else if (animator.GetBool("pressed"))
 			{
@@ -36,18 +38,26 @@ public class MenuButton : MonoBehaviour
 		}
     }
 
+	IEnumerator WaitThenLoad(float seconds)
+	{
+		yield return new WaitForSeconds(seconds);
+        Loader.Load(GetScene());
+	}
+	
 	public Loader.Scene GetScene()
 	{
 		switch (thisIndex)
 		{
 			case 0:
-				return Loader.Scene.SoulGame;
+                return Loader.Scene.MainMenu;
 			case 1:
 				return Loader.Scene.ControlsScene;
 			case 2:
 				return Loader.Scene.CreditsScene;
+			case 3:
+				return Loader.Scene.SoulGame;
 			default:
-				return Loader.Scene.MainMenu;
+				return default;
 		}
 	}
 }

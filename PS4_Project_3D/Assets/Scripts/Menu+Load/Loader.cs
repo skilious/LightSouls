@@ -10,13 +10,14 @@ public static class Loader
         MainMenu,
         LoadingScene,
         ControlsScene,
-        SoulGame,
         CreditsScene,
-        Level_Skull,
+        Tutorial,
         Stage_01,
         Stage_02,
         Stage_03,
         Stage_04,
+        Level_Skull,
+        SoulGame,
         // UNUSED
         // Add Level Scenes Here
     }
