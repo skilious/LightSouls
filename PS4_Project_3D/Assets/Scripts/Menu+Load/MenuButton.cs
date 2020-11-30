@@ -5,9 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class MenuButton : MonoBehaviour
 {
-	[SerializeField] MenuButtonController menuButtonController;
+    const Loader.Scene DEFAULT_SCENE = default;
+    [SerializeField] MenuButtonController menuButtonController;
 	[SerializeField] Animator animator;
-	[SerializeField] AnimatorFunctions animatorFunctions;
+    [SerializeField] AnimatorFunctions animatorFunctions;
     [SerializeField] int thisIndex;
 	public Loader.Scene thisScene;
 
@@ -29,7 +30,7 @@ public class MenuButton : MonoBehaviour
 			else if (animator.GetBool("pressed"))
 			{
 				animator.SetBool("pressed", false);
-                //animatorFunctions.disableOnce = true;
+                animatorFunctions.disableOnce = true;
             }
 		}
 		else
@@ -51,13 +52,15 @@ public class MenuButton : MonoBehaviour
 			case 0:
                 return Loader.Scene.MainMenu;
 			case 1:
-				return Loader.Scene.ControlsScene;
+                return Loader.Scene.SoulGame;
 			case 2:
-				return Loader.Scene.CreditsScene;
+                return Loader.Scene.ControlsScene;
 			case 3:
-				return Loader.Scene.SoulGame;
+                return Loader.Scene.CreditsScene;
+			case 4:
+				return DEFAULT_SCENE;
 			default:
-				return default;
+				return DEFAULT_SCENE;
 		}
 	}
 }

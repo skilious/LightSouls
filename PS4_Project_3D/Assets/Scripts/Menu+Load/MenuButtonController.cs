@@ -8,7 +8,8 @@ public class MenuButtonController : MonoBehaviour
 	[SerializeField] bool keyDown;
 	[SerializeField] int maxIndex;
 	public AudioSource audioSource;
-	private float inputValue;
+	private float inputValueVertical;
+	private float inputValueHorizontal;
 
 	void Start ()
 	{
@@ -17,44 +18,71 @@ public class MenuButtonController : MonoBehaviour
 	
 	void FixedUpdate()
     {
-		inputValue = Input.GetAxis("Vertical");
+		inputValueVertical = Input.GetAxis("Vertical");
+		inputValueHorizontal = Input.GetAxis("Horizontal");
 	}
 
 	void Update ()
 	{
-		Debug.Log(inputValue);
-		if(inputValue != 0)
+		if (maxIndex == 3)
 		{
-			if(!keyDown)
+			Debug.Log(inputValueVertical);
+			if (inputValueVertical != 0)
 			{
-				if (inputValue < 0) 
+				if (!keyDown)
 				{
-					if(index < maxIndex)
+					if (inputValueVertical < 0)
 					{
-						index++;
+						if (index < maxIndex)
+						{
+							index++;
+						}
+						else
+						{
+							index = 1;
+						}
 					}
-					else
+					else if (inputValueVertical > 0)
+					{
+						if (index > 1)
+						{
+							index--;
+						}
+						else
+						{
+							index = maxIndex;
+						}
+					}
+					keyDown = true;
+				}
+			}
+			else
+			{
+				keyDown = false;
+			}
+		}
+        else if (maxIndex == 1)
+		{
+			Debug.Log(inputValueHorizontal);
+			if (inputValueHorizontal != 0)
+			{
+				if (!keyDown)
+				{
+					if (index == 0)
+					{
+						index = 1;
+					}
+					else if (index == 1)
 					{
 						index = 0;
 					}
-				} 
-				else if(inputValue > 0)
-				{
-					if(index > 0)
-					{
-						index --; 
-					}
-					else
-					{
-						index = maxIndex;
-					}
+					keyDown = true;
 				}
-				keyDown = true;
 			}
-		}
-		else
-		{
-			keyDown = false;
+			else
+			{
+				keyDown = false;
+			}
 		}
 	}
 }
