@@ -43,6 +43,15 @@ public class TripleBossProj : EnemyAI
 
     protected override void Update()
     {
+        if(Vector3.Distance(player.transform.position, transform.position) <= 15.0f)
+        {
+            UI_Manager.instance.SetupBossHP(status.maxHealth, "Testing boss. This is a string from the code.");
+            UI_Manager.instance.BossAccessHP(status);
+        }
+        else if(Vector3.Distance(player.transform.position, transform.position) >= 20.0f)
+        {
+            UI_Manager.instance.HideBossUI();
+        }
         base.Update();
         timer += Time.deltaTime;
     }

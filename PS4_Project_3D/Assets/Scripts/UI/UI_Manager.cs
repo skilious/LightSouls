@@ -4,8 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 public class UI_Manager : MonoBehaviour
 {
-    [SerializeField]
-    private Text curCapacity, capacityClips, weapon;
+    public static UI_Manager instance;
+
+    [SerializeField] private Text curCapacity, capacityClips, weapon;
 
     private Slider healthSlider;
     public GameObject healthColour;
@@ -13,14 +14,35 @@ public class UI_Manager : MonoBehaviour
     private float timer = 0;
     private bool resetTimer = false;
 
+    [SerializeField] private Text boss_Name;
+    [SerializeField] private Slider boss_HP;
+    private static float maxBossHealth = 0.0f;
+    private float curBossHealth = 0.0f;
+    private static bool bossTrigger = false;
+    private bool stopLerp = false;
     public Character_Status characterStats;
+
+    [SerializeField] private EnemyStatus targetBoss;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
     private void Start()
     {
+        boss_Name.enabled = false;
+        boss_HP.gameObject.SetActive(false);
         DontDestroyOnLoad(gameObject);
         characterStats = GameObject.Find("Player").GetComponent<Character_Status>();
         healthSlider = GameObject.FindGameObjectWithTag("healthSlider").GetComponent<Slider>();
         float startingColour = 30.0f / 100.0f;
         healthColour.GetComponent<Image>().material.color = Color.HSVToRGB(startingColour, 1, 1);
+
+        if(targetBoss == null)
+        {
+            return;
+        }
     }
     void Update()
     {
@@ -54,6 +76,7 @@ public class UI_Manager : MonoBehaviour
         }
         WeaponList();       
         CapacityAmmo();
+        BossFight();
     }
 
     //References from character_status and assign to these texts.
@@ -66,5 +89,45 @@ public class UI_Manager : MonoBehaviour
     void WeaponList()
     {
         weapon.text = Projectiles.shootTypes.ToString();
+    }
+
+    void BossFight()
+    {
+        if(bossTrigger)
+        {
+            boss_HP.maxValue = maxBossHealth;
+            curBossHealth = Mathf.Lerp(curBossHealth, targetBoss.curHealth, 2.5f * Time.deltaTime);
+            boss_HP.value = curBossHealth;
+            if(curBossHealth >= targetBoss.curHealth - 10.0f)
+            {
+                bossTrigger = false;
+                stopLerp = true;
+            }
+        }
+
+        if(!bossTrigger && stopLerp)
+        {
+            float bossHPValue = Mathf.Lerp(curBossHealth, targetBoss.curHealth, 1.0f * Time.deltaTime);
+            boss_HP.value = bossHPValue;
+        }
+    }
+    public float SetupBossHP(float starting_health, string bossName)
+    {
+        boss_Name.enabled = true;
+        boss_Name.text = bossName;
+        boss_HP.gameObject.SetActive(true);
+        bossTrigger = true;
+        return maxBossHealth = starting_health;
+    }
+
+    public void HideBossUI()
+    {
+        boss_Name.enabled = false;
+        boss_HP.gameObject.SetActive(false);
+    }
+
+    public EnemyStatus BossAccessHP(EnemyStatus boss)
+    {
+        return targetBoss = boss;
     }
 }
