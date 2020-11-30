@@ -34384,7 +34384,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -34882,7 +34882,9 @@ MonoBehaviour:
   - {fileID: 6781844042477102944, guid: e74fcf724a731cb4c8a25e8a8280d4b2, type: 3}
   - {fileID: 1174936045057838272, guid: a80e903a474be014fa6e1f747a083834, type: 3}
   - {fileID: 8924443175435004896, guid: 0cc2999ad78845b45b2a321db368f5b8, type: 3}
-  amountToInstantiate: 64000000960000000a000000320000000a0000000a0000000a000000050000003200000064000000
+  - {fileID: 6470556874983045771, guid: 9e486339cd2c4cb4c9d038dce20a7a37, type: 3}
+  - {fileID: 434213467406373869, guid: 4336d1183971da8419183efa0fefe750, type: 3}
+  amountToInstantiate: 64000000960000000a000000320000000a0000000a0000000a0000000500000032000000640000003200000032000000
   objectPooled: []
   objCounter: 0
 --- !u!114 &752008931
@@ -39662,6 +39664,7 @@ GameObject:
   - component: {fileID: 763425063}
   - component: {fileID: 763425062}
   - component: {fileID: 729057512}
+  - component: {fileID: 763425064}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -39734,6 +39737,23 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &763425064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763425060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: fff660ec8e202ca408212bb10a48c29e, type: 2}
 --- !u!1001 &766795752
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -83,7 +83,7 @@ public class TripleBossProj : EnemyAI
                                 }
                             case 1:
                                 {
-                                    GameObject obj = Object_Pooling.SharedInstance.GetPooledObject("EnemyProjectile");
+                                    GameObject obj = Object_Pooling.SharedInstance.GetPooledObject("Waterball");
                                     obj.SetActive(true);
                                     obj.transform.position = projectilePosition[i];
                                     obj.transform.LookAt(player.transform.position);
@@ -112,7 +112,7 @@ public class TripleBossProj : EnemyAI
                     float spread = -90.0f;
                     for (int i = 0; i < 10; i++)
                     {
-                        GameObject obj = Object_Pooling.SharedInstance.GetPooledObject("EnemyProjectile");
+                        GameObject obj = Object_Pooling.SharedInstance.GetPooledObject("WideLaser");
                         obj.SetActive(true);
                         obj.transform.position = transform.position + transform.up * 0.5f;
                         obj.transform.rotation = transform.rotation;

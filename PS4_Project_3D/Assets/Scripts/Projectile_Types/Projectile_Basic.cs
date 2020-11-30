@@ -34,12 +34,18 @@ public class Projectile_Basic : ProjectileBase
                 collision.gameObject.SendMessage("ReceiveDamage", damage);
                 gameObject.SetActive(false);
             }
+
             //This only gets called out if the enemy is shooting towards the player.
             if (tagName == "Player" && !Walkthroughable)
             {
                 collision.gameObject.SendMessage("ReceiveDamage", damage);
                 gameObject.SetActive(false);
             }
+            else if (tagName == "Player" && Walkthroughable)
+            {
+                collision.gameObject.SendMessage("ReceiveDamage", damage);
+            }
+
             GameObject onHit = Instantiate(onHitPrefab, transform.position, transform.rotation);
             Destroy(onHit, 0.25f);
         }
