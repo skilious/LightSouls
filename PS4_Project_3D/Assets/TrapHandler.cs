@@ -32,7 +32,7 @@ public class TrapHandler : MonoBehaviour
         {
             GameObject vfx = Instantiate(effectToSpawn, transform.position, Quaternion.Euler(0, 180, 0));
             SoundManager.PlaySound(SoundManager.Sound.TrapBeam);
-            SoundManager.PlaySound(SoundManager.Sound.ButtonOver);
+            SoundManager.PlaySound(SoundManager.Sound.TrapFuse);
             Destroy(vfx, 5);
             yield return new WaitForSeconds(_countdownTime);
             Debug.Log(Time.deltaTime);

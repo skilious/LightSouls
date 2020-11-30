@@ -27,7 +27,9 @@ public class SoulEssence : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.GetComponent<BoxCollider>().name == "SoulWall")
+        //Changed to Compare tag because if the soulessence hits anything without a BoxCollider it returns an error.
+        //if (other.GetComponent<BoxCollider>().name == "SoulWall")
+        if (other.CompareTag("SoulWall"))
         {
             Debug.Log("Soul Absorbed");
 

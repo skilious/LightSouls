@@ -10,6 +10,7 @@ public static class SoundManager
         CreditsMusic,
         ThemeMusic,
 
+        TrapFuse,
         TrapBeam,
         OnTeleporter,
         ButtonOver,

@@ -25,6 +25,7 @@ TagManager:
   - Bullet
   - WideLaser
   - Waterball
+  - SoulWall
   layers:
   - Default
   - TransparentFX

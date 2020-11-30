@@ -81623,10 +81623,10 @@ MonoBehaviour:
   soundAudioClipArray:
   - sound: 3
     audioClip: {fileID: 8300000, guid: 56a286b2bd6a619429ef82e1f2d95840, type: 3}
-  - sound: 1
-    audioClip: {fileID: 8300000, guid: ba5e104decc3c4b4a8d116cf70cb8b9b, type: 3}
-  - sound: 2
-    audioClip: {fileID: 8300000, guid: 68c68ce2d1bb5f040a52e3e08295747b, type: 3}
+  - sound: 6
+    audioClip: {fileID: 8300000, guid: 6b0e13089564e894489e5bfd50a9cb91, type: 3}
+  - sound: 4
+    audioClip: {fileID: 8300000, guid: a671ea8f55289a145871ef9a6b44a1c9, type: 3}
 --- !u!1001 &2106560966
 PrefabInstance:
   m_ObjectHideFlags: 0
