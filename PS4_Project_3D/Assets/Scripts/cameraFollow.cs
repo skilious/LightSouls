@@ -17,9 +17,14 @@ public class cameraFollow : MonoBehaviour
     private int directions = 0;
 
     private float zoomDistance = 5.0f;
-    private void Start()
+
+    void Awake()
     {
         DontDestroyOnLoad(gameObject);
+    }
+
+    private void Start()
+    {
         target = GameObject.Find("Player").GetComponent<Transform>();
     }
     private void LateUpdate()

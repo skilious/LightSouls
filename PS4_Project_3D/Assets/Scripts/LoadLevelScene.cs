@@ -15,6 +15,7 @@ public class LoadLevelScene : MonoBehaviour
         {
             SceneManager.LoadScene(sceneName);
             GameManager.GMInstance.SetPosition(setSpawnPosition);
+            GameManager.GMInstance.SavePosition(sceneName);
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class Checkpoint_Save : MonoBehaviour
 {
     [SerializeField] private ParticleSystem[] healEffects;
@@ -10,6 +10,9 @@ public class Checkpoint_Save : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            string sceneName = SceneManager.GetActiveScene().name;
+            print(sceneName);
+            GameManager.GMInstance.SavePosition(sceneName);
             healing = true;
             for (int i = 0; i < healEffects.Length; i++)
             {
@@ -31,7 +34,7 @@ public class Checkpoint_Save : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if(other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
             healing = false;
             Character_Status.instance.curHealth = Mathf.RoundToInt(Character_Status.instance.healthHit);
