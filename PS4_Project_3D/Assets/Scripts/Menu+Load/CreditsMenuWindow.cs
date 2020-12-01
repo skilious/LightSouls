@@ -13,13 +13,13 @@ public class CreditsMenuWindow : MonoBehaviour
 
     private void Awake()
     {
-        transform.Find("menuBtn").GetComponent<CodeMonkey.Utils.Button_UI>().ClickFunc = () =>
-        {
-            StartCoroutine(Wait(1.5f));
-            SceneManager.LoadScene(Loader.Scene.MainMenu.ToString());
-        };
-        // Call the AddButtonSounds extension method
-        transform.Find("menuBtn").GetComponent<CodeMonkey.Utils.Button_UI>().AddButtonSounds();
+        //transform.Find("menuBtn").GetComponent<CodeMonkey.Utils.Button_UI>().ClickFunc = () =>
+        //{
+        //    StartCoroutine(Wait(1.5f));
+        //    SceneManager.LoadScene(Loader.Scene.MainMenu.ToString());
+        //};
+        //// Call the AddButtonSounds extension method
+        //transform.Find("menuBtn").GetComponent<CodeMonkey.Utils.Button_UI>().AddButtonSounds();
     }
 
     // UNUSED BUT MAY BE HANDY LATER.

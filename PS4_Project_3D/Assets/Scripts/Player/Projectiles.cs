@@ -39,6 +39,7 @@ public class Projectiles : Character_Status
 
     private void Awake()
     {
+        DontDestroyOnLoad(gameObject);
         curCapacity = maxCapacity;
     }
 
@@ -48,6 +49,19 @@ public class Projectiles : Character_Status
         {
             shootAxis = Input.GetAxis("Shoot");
             dpadAxis = Input.GetAxis("SwitchWeapon_Dpad");
+            if(Input.GetKeyDown(KeyCode.T))
+            {
+                if(isLifestealing)
+                {
+                    print("Lifestealing is disabled");
+                    isLifestealing = false;
+                }
+                else if(!isLifestealing)
+                {
+                    print("Lifestealing is enabled");
+                    isLifestealing = true;
+                }
+            }
         }
         base.Update();
         //Ran out of ammo
@@ -116,12 +130,12 @@ public class Projectiles : Character_Status
             if (curCapacity <= maxCapacity - 1 && !isLifestealing && capacityClip > 0)
             {
                 isReloading = true;
-                InvokeRepeating("ReloadCapacity", 0.1f, 0.15f);
+                InvokeRepeating("ReloadCapacity", 0.1f, 0.12f);
             }
 
             else if (isLifestealing && curCapacity <= maxCapacity - 1)
             {
-                InvokeRepeating("ReloadLifesteal", 0.15f, 0.20f);
+                InvokeRepeating("ReloadLifesteal", 0.15f, 0.2f);
             }
         }
 
@@ -129,13 +143,10 @@ public class Projectiles : Character_Status
         {
             selected = true;
             selection++;
-
-            print(shootTypes);
         }
         else if (dpadAxis <= -1 && !selected || Input.GetKeyDown(KeyCode.DownArrow)) // Same with the down arrow
         {
             selected = true;
-            print(shootTypes);
             selection--;
         }
         else if (selected && dpadAxis == 0)

@@ -43,12 +43,13 @@ public class TripleBossProj : EnemyAI
 
     protected override void Update()
     {
-        if(Vector3.Distance(player.transform.position, transform.position) <= 15.0f)
+        //This if statement and else if statement is involvement only on Boss Phase. Copy and paste this in other enemy scripts that wants to become a boss.
+        if(Vector3.Distance(player.transform.position, transform.position) <= 15.0f && status.isAlive)
         {
-            UI_Manager.instance.SetupBossHP(status.maxHealth, "Testing boss. This is a string from the code.");
+            UI_Manager.instance.SetupBossHP(status.maxHealth, "Big boi with three projectiles pew pew pew");
             UI_Manager.instance.BossAccessHP(status);
         }
-        else if(Vector3.Distance(player.transform.position, transform.position) >= 20.0f)
+        else if(Vector3.Distance(player.transform.position, transform.position) >= 20.0f || !status.isAlive)
         {
             UI_Manager.instance.HideBossUI();
         }

@@ -56,9 +56,9 @@ public static class SoundManager
     // Extension Method of the Button_UI Class - The 'this' keyword means that this is an
     // extension method. AddButtonSounds() to the Button_UI class without affecting the 
     // Button_UI class.
-    public static void AddButtonSounds(this CodeMonkey.Utils.Button_UI buttonUI)
-    {
-        buttonUI.MouseOverOnceFunc += () => PlaySound(Sound.ButtonOver);
-        buttonUI.ClickFunc += () => PlaySound(Sound.ButtonClick);
-    }
+    //public static void AddButtonSounds(this CodeMonkey.Utils.Button_UI buttonUI)
+    //{
+    //    buttonUI.MouseOverOnceFunc += () => PlaySound(Sound.ButtonOver);
+    //    buttonUI.ClickFunc += () => PlaySound(Sound.ButtonClick);
+    //}
 }

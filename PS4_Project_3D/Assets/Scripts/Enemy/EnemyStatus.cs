@@ -8,7 +8,7 @@ public class EnemyStatus : Popup_Text
     [SerializeField]
     private float duration = 0.0f;
 
-    [SerializeField] private bool isAlive = true;
+    public bool isAlive = true;
     [SerializeField] protected bool isInvincible = false;
 
     public float maxHealth;

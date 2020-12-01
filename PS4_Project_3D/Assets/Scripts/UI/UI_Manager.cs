@@ -26,6 +26,7 @@ public class UI_Manager : MonoBehaviour
 
     private void Awake()
     {
+        DontDestroyOnLoad(gameObject);
         instance = this;
     }
 
@@ -33,7 +34,6 @@ public class UI_Manager : MonoBehaviour
     {
         boss_Name.enabled = false;
         boss_HP.gameObject.SetActive(false);
-        DontDestroyOnLoad(gameObject);
         characterStats = GameObject.Find("Player").GetComponent<Character_Status>();
         healthSlider = GameObject.FindGameObjectWithTag("healthSlider").GetComponent<Slider>();
         float startingColour = 30.0f / 100.0f;
@@ -41,7 +41,7 @@ public class UI_Manager : MonoBehaviour
 
         if(targetBoss == null)
         {
-            return;
+            HideBossUI();
         }
     }
     void Update()
@@ -52,12 +52,36 @@ public class UI_Manager : MonoBehaviour
         //0 is red.
         healthSlider.value = characterStats.curHealth; //Grab curHealth and set it to the slider's value.
         healthSlider.maxValue = characterStats.maxHealth; //Same with maxHealth with slider's maxValue.
+
+        if(characterStats.curHealth > 65.0f)
+        {
+            if (!resetTimer) //Resets the timer for lerping.
+            {
+                timer = 0.0f;
+                resetTimer = true;
+            }
+            else if (resetTimer)
+            {
+                timer += 0.1f * Time.deltaTime;
+                colourChanging = Mathf.Lerp(colourChanging, 30.0f, timer);
+                float colourChanged = colourChanging / 100.0f;
+                healthColour.GetComponent<Image>().material.color = Color.HSVToRGB(colourChanged, 1, 1);
+            }
+        }
         if (characterStats.curHealth <= 65.0f && characterStats.curHealth > 20.0f) //If its between 50 to 20, it'll change to yellow.
         {
-            timer += 0.1f * Time.deltaTime;
-            colourChanging = Mathf.Lerp(colourChanging, 16.0f, timer);
-            float colourChanged = colourChanging / 100.0f;
-            healthColour.GetComponent<Image>().material.color = Color.HSVToRGB(colourChanged, 1, 1);
+            if (!resetTimer) //Resets the timer for lerping.
+            {
+                timer = 0.0f;
+                resetTimer = true;
+            }
+            else if (resetTimer)
+            {
+                timer += 0.1f * Time.deltaTime;
+                colourChanging = Mathf.Lerp(colourChanging, 16.0f, timer);
+                float colourChanged = colourChanging / 100.0f;
+                healthColour.GetComponent<Image>().material.color = Color.HSVToRGB(colourChanged, 1, 1);
+            }
         }
         else if(characterStats.curHealth <= 30.0f) //Otherwise, change to red.
         {
@@ -93,7 +117,7 @@ public class UI_Manager : MonoBehaviour
 
     void BossFight()
     {
-        if(bossTrigger)
+        if(bossTrigger && targetBoss != null)
         {
             boss_HP.maxValue = maxBossHealth;
             curBossHealth = Mathf.Lerp(curBossHealth, targetBoss.curHealth, 2.5f * Time.deltaTime);
@@ -105,10 +129,14 @@ public class UI_Manager : MonoBehaviour
             }
         }
 
-        if(!bossTrigger && stopLerp)
+        if(!bossTrigger && stopLerp && targetBoss != null)
         {
             float bossHPValue = Mathf.Lerp(curBossHealth, targetBoss.curHealth, 1.0f * Time.deltaTime);
             boss_HP.value = bossHPValue;
+        }
+        else if(targetBoss == null)
+        {
+            HideBossUI();
         }
     }
     public float SetupBossHP(float starting_health, string bossName)

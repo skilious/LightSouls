@@ -426,6 +426,7 @@ MonoBehaviour:
   boss_Name: {fileID: 1058584249}
   boss_HP: {fileID: 1237948842}
   characterStats: {fileID: 0}
+  targetBoss: {fileID: 0}
 --- !u!114 &210904843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1374,7 +1375,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 64, y: 89}
+  m_AnchoredPosition: {x: 64, y: 152.61}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1745294795
@@ -1410,9 +1411,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Press T to spawn
+  m_Text: 'Press L to delete
 
-    enemies'
+    playerpref keys
+
+    (Restart required)'
 --- !u!222 &1745294796
 CanvasRenderer:
   m_ObjectHideFlags: 0

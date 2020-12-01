@@ -420,7 +420,7 @@ MonoBehaviour:
   isInvincible: 0
   maxHealth: 100
   curHealth: 100
-  soulEssence: {fileID: 6167122813878744309, guid: 80e779c1c9a426b4d80a4eb0beb1cc1e, type: 3}
+  soulEssence: {fileID: 4854077304164736575, guid: 6e73adad9e73ba545b359ab4094e09f7, type: 3}
   dissolve: {fileID: 2100000, guid: 59ac27296807c15458e45924179a34a8, type: 2}
   rend:
   - {fileID: 4858882269466477342}

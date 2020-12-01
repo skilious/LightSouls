@@ -5,14 +5,19 @@ using UnityEngine;
 //Tai's script
 public class Character_Status : Popup_Text
 {
+    public static Character_Status instance;
+
     public float curHealth = 0f;
     public float healthHit;
     public float maxHealth = 100.0f;
 
     public int curCapacity, maxCapacity = 100, capacityClip = 999;
     public static int soulEssence = 0;
+
     protected virtual void Start()
     {
+        //DontDestroyOnLoad(gameObject);
+        instance = this;
         curHealth = 100.0f;
         healthHit = curHealth;
     }
