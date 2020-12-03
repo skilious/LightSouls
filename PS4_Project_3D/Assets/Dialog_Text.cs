@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Tai's version.
 public class Dialog_Text : DialogController
 {
     [SerializeField] private string textDialogue;
@@ -17,11 +18,7 @@ public class Dialog_Text : DialogController
 
     protected override void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            SetDialogText();
-            animator.SetBool("showDialog", true);
-        }
+        base.OnTriggerEnter(collision);
     }
 
     protected override void SetDialogText()

@@ -55,7 +55,7 @@ public class Basic_CursorRotation : MonoBehaviour
                 }
             }
             //Angle - Rotating character - Right analog stick focuses on rotating the character.
-            if (hAxis != 0 || vAxis != 0 && !PCMode) //This piece of shit checks if hAxis/vAxis are not equal to 0. (This takes priority over the "else if" statement)
+            if (hAxis != 0 && !PCMode || vAxis != 0 && !PCMode) //This piece of shit checks if hAxis/vAxis are not equal to 0. (This takes priority over the "else if" statement)
             {
                 //Supports rotation and relative to the camera.
                 Quaternion rotSmooth = Quaternion.LookRotation(rightRotation + upRotation);

@@ -10,9 +10,9 @@ public class UI_Manager : MonoBehaviour
 
     private Slider healthSlider;
     public GameObject healthColour;
-    private float colourChanging = 30.0f;
-    private float timer = 0;
-    private bool resetTimer = false;
+    //private float colourChanging = 30.0f;
+    //private float timer = 0;
+    //private bool resetTimer = false;
 
     [SerializeField] private Text boss_Name;
     [SerializeField] private Slider boss_HP;
@@ -36,8 +36,8 @@ public class UI_Manager : MonoBehaviour
         boss_HP.gameObject.SetActive(false);
         characterStats = GameObject.Find("Player").GetComponent<Character_Status>();
         healthSlider = GameObject.FindGameObjectWithTag("healthSlider").GetComponent<Slider>();
-        float startingColour = 30.0f / 100.0f;
-        healthColour.GetComponent<Image>().material.color = Color.HSVToRGB(startingColour, 1, 1);
+        //float startingColour = 30.0f / 100.0f;
+        //healthColour.GetComponent<Image>().material.color = Color.HSVToRGB(startingColour, 1, 1);
 
         if(targetBoss == null)
         {
@@ -53,51 +53,51 @@ public class UI_Manager : MonoBehaviour
         healthSlider.value = characterStats.curHealth; //Grab curHealth and set it to the slider's value.
         healthSlider.maxValue = characterStats.maxHealth; //Same with maxHealth with slider's maxValue.
 
-        if(characterStats.curHealth > 65.0f)
-        {
-            if (!resetTimer) //Resets the timer for lerping.
-            {
-                timer = 0.0f;
-                resetTimer = true;
-            }
-            else if (resetTimer)
-            {
-                timer += 0.1f * Time.deltaTime;
-                colourChanging = Mathf.Lerp(colourChanging, 30.0f, timer);
-                float colourChanged = colourChanging / 100.0f;
-                healthColour.GetComponent<Image>().material.color = Color.HSVToRGB(colourChanged, 1, 1);
-            }
-        }
-        if (characterStats.curHealth <= 65.0f && characterStats.curHealth > 20.0f) //If its between 50 to 20, it'll change to yellow.
-        {
-            if (!resetTimer) //Resets the timer for lerping.
-            {
-                timer = 0.0f;
-                resetTimer = true;
-            }
-            else if (resetTimer)
-            {
-                timer += 0.1f * Time.deltaTime;
-                colourChanging = Mathf.Lerp(colourChanging, 16.0f, timer);
-                float colourChanged = colourChanging / 100.0f;
-                healthColour.GetComponent<Image>().material.color = Color.HSVToRGB(colourChanged, 1, 1);
-            }
-        }
-        else if(characterStats.curHealth <= 30.0f) //Otherwise, change to red.
-        {
-            if(!resetTimer) //Resets the timer for lerping.
-            {
-                timer = 0.0f;
-                resetTimer = true;
-            }
-            else if(resetTimer)
-            {
-                timer += 0.1f * Time.deltaTime;
-                colourChanging = Mathf.Lerp(colourChanging, 0.0f, timer);
-                float colourChanged = colourChanging / 100.0f;
-                healthColour.GetComponent<Image>().material.color = Color.HSVToRGB(colourChanged, 1, 1);
-            }    
-        }
+        //if(characterStats.curHealth > 65.0f)
+        //{
+        //    if (!resetTimer) //Resets the timer for lerping.
+        //    {
+        //        timer = 0.0f;
+        //        resetTimer = true;
+        //    }
+        //    else if (resetTimer)
+        //    {
+        //        timer += 0.1f * Time.deltaTime;
+        //        colourChanging = Mathf.Lerp(colourChanging, 30.0f, timer);
+        //        float colourChanged = colourChanging / 100.0f;
+        //        healthColour.GetComponent<Image>().material.color = Color.HSVToRGB(colourChanged, 1, 1);
+        //    }
+        //}
+        //if (characterStats.curHealth <= 65.0f && characterStats.curHealth > 20.0f) //If its between 50 to 20, it'll change to yellow.
+        //{
+        //    if (!resetTimer) //Resets the timer for lerping.
+        //    {
+        //        timer = 0.0f;
+        //        resetTimer = true;
+        //    }
+        //    else if (resetTimer)
+        //    {
+        //        timer += 0.1f * Time.deltaTime;
+        //        colourChanging = Mathf.Lerp(colourChanging, 16.0f, timer);
+        //        float colourChanged = colourChanging / 100.0f;
+        //        healthColour.GetComponent<Image>().material.color = Color.HSVToRGB(colourChanged, 1, 1);
+        //    }
+        //}
+        //else if(characterStats.curHealth <= 30.0f) //Otherwise, change to red.
+        //{
+        //    if(!resetTimer) //Resets the timer for lerping.
+        //    {
+        //        timer = 0.0f;
+        //        resetTimer = true;
+        //    }
+        //    else if(resetTimer)
+        //    {
+        //        timer += 0.1f * Time.deltaTime;
+        //        colourChanging = Mathf.Lerp(colourChanging, 0.0f, timer);
+        //        float colourChanged = colourChanging / 100.0f;
+        //        healthColour.GetComponent<Image>().material.color = Color.HSVToRGB(colourChanged, 1, 1);
+        //    }    
+        //}
         WeaponList();       
         CapacityAmmo();
         BossFight();

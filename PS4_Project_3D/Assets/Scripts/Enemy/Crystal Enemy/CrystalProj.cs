@@ -38,7 +38,6 @@ public class CrystalProj : EnemyAI
             {
                 case Ability.Ability01:
                     {
-                        print("Ability 01");
                         GameObject cloning = Object_Pooling.SharedInstance.GetPooledObject("EnemyLaser");
                         cloning.SetActive(true);
                         cloning.transform.position = new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z) + transform.forward * 0.5f;
@@ -57,12 +56,10 @@ public class CrystalProj : EnemyAI
                             cloning.transform.Rotate(0, spread, 0);
                             spread += 120.0f;
                         }
-                        print("Ability 02");
                         break;
                     }
                 case Ability.Ability03:
                     {
-                        print("Ability 03! Mother fucker!");
                         float spread = -360.0f;
                         for (int i = 0; i < 6; i++)
                         {

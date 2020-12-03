@@ -13,7 +13,6 @@ public class Checkpoint_Save : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             string sceneName = SceneManager.GetActiveScene().name;
-            print(sceneName);
             if(allowSave)
             {
                 GameManager.GMInstance.SavePosition(sceneName);

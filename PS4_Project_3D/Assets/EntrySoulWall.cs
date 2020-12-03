@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Tai's script for EntrySoulWall inheriting the Wave System.
 public class EntrySoulWall : Wave_System
 {
     private ParticleSystem ps;

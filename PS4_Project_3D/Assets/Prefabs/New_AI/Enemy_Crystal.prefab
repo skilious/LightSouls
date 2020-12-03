@@ -441,9 +441,9 @@ GameObject:
   - component: {fileID: 8046327527509514850}
   - component: {fileID: 8046327527509514849}
   - component: {fileID: 7111796407169376253}
-  - component: {fileID: 8046327527509514848}
   - component: {fileID: 8046327527509514863}
   - component: {fileID: 919132148787139126}
+  - component: {fileID: 2292252271998473222}
   m_Layer: 0
   m_Name: Enemy_Crystal
   m_TagString: Enemy
@@ -520,20 +520,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &8046327527509514848
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7163860935414376252}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64467bbca65166f459fc669feaf2a786, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackTimer: 1
-  repeatTimer: 2
 --- !u!114 &8046327527509514863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -579,6 +565,20 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &2292252271998473222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7163860935414376252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fff77ea8f45c0f44db76df0d123f2192, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackTimer: 1
+  repeatTimer: 2
 --- !u!1 &7241877090031481999
 GameObject:
   m_ObjectHideFlags: 0
