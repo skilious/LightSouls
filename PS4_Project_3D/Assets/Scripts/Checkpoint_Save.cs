@@ -12,12 +12,6 @@ public class Checkpoint_Save : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            string sceneName = SceneManager.GetActiveScene().name;
-            if(allowSave)
-            {
-                GameManager.GMInstance.SavePosition(sceneName);
-            }
-
             healing = true;
             for (int i = 0; i < healEffects.Length; i++)
             {
@@ -41,6 +35,12 @@ public class Checkpoint_Save : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            string sceneName = SceneManager.GetActiveScene().name;
+            if (allowSave)
+            {
+                GameManager.GMInstance.SavePosition(sceneName);
+            }
+
             healing = false;
             other.GetComponent<Character_Status>().curHealth = Mathf.RoundToInt(other.GetComponent<Character_Status>().healthHit);
         }

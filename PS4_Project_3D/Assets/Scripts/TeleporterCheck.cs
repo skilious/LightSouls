@@ -61,7 +61,7 @@ public class TeleporterCheck : RayToGround
                     animator.SetBool("onTeleporter", true);
                     // Text Popup: "Press X to Enter Stage"
 
-                    if (Input.GetKeyDown(KeyCode.X))
+                    if (Input.GetButtonDown("Submit"))
                     {
                         Debug.Log(" SceneToLoad = " + raycastHit.collider.GetComponentInParent<PopUp_TC>().GetScene());
                         if(raycastHit.collider.GetComponentInParent<PopUp_TC>().GetStageStatus())

@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private GameObject canvasKeep;
     public static GameObject player;
     public static GameManager GMInstance;
     private static bool sceneChanged = false;
@@ -16,6 +17,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         GMInstance = this;
+        DontDestroyOnLoad(canvasKeep);
         player = GameObject.Find("Player");
     }
 
@@ -26,10 +28,10 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetFloat("PlayerCheckpointX", player.transform.position.x); //Saves X and Y axis from the player's starting position.
             PlayerPrefs.SetFloat("PlayerCheckpointY", player.transform.position.y);
             PlayerPrefs.SetFloat("PlayerCheckpointZ", player.transform.position.z);
-            print("Saved!");
-            print("Saved: " + PlayerPrefs.GetFloat("PlayerCheckpointX") + " X axis");
-            print("Saved: " + PlayerPrefs.GetFloat("PlayerCheckpointY") + " Y axis");
-            print("Saved: " + PlayerPrefs.GetFloat("PlayerCheckpointZ") + " Z axis");
+            //print("Saved!");
+            //print("Saved: " + PlayerPrefs.GetFloat("PlayerCheckpointX") + " X axis");
+            //print("Saved: " + PlayerPrefs.GetFloat("PlayerCheckpointY") + " Y axis");
+            //print("Saved: " + PlayerPrefs.GetFloat("PlayerCheckpointZ") + " Z axis");
         }
         if (teleporters == null)
         {
@@ -41,13 +43,13 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.L))
         {
-            print("Resetting playerprefs. Restart for changes");
+            //print("Resetting playerprefs. Restart for changes");
             PlayerPrefs.DeleteAll();
         }
         if(Input.GetKeyDown(KeyCode.V))
         {
             SaveLevelCompletion(2);
-            print("Set two level completions. You will no longer partake in those first two levels anymore."); 
+            //print("Set two level completions. You will no longer partake in those first two levels anymore."); 
         }
     }
     private Vector3 LoadPosition()
@@ -92,7 +94,7 @@ public class GameManager : MonoBehaviour
 
     void OnEnable()
     {
-        print("On enable! - Enable the OnSceneLoaded script and save position");
+        //print("On enable! - Enable the OnSceneLoaded script and save position");
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
@@ -126,7 +128,7 @@ public class GameManager : MonoBehaviour
 
     void OnDisable()
     {
-        print("Disable the script and terminate.");
+        //print("Disable the script and terminate.");
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 }
