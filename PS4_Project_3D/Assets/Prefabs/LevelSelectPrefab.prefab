@@ -436,6 +436,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PopUp_TC
       objectReference: {fileID: 0}
+    - target: {fileID: 1986963128551709180, guid: dc328ae3bdcb5414baa0423041bb40ca, type: 3}
+      propertyPath: m_TagString
+      value: Teleporter
+      objectReference: {fileID: 0}
     - target: {fileID: 1986963128834933104, guid: dc328ae3bdcb5414baa0423041bb40ca, type: 3}
       propertyPath: m_LocalPosition.x
       value: 20.546783
@@ -608,6 +612,10 @@ PrefabInstance:
     - target: {fileID: 1986963128551709180, guid: dc328ae3bdcb5414baa0423041bb40ca, type: 3}
       propertyPath: m_Name
       value: PopUp_TC
+      objectReference: {fileID: 0}
+    - target: {fileID: 1986963128551709180, guid: dc328ae3bdcb5414baa0423041bb40ca, type: 3}
+      propertyPath: m_TagString
+      value: Teleporter
       objectReference: {fileID: 0}
     - target: {fileID: 1986963128834933104, guid: dc328ae3bdcb5414baa0423041bb40ca, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2648,6 +2656,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PopUp_TC
       objectReference: {fileID: 0}
+    - target: {fileID: 1986963128551709180, guid: dc328ae3bdcb5414baa0423041bb40ca, type: 3}
+      propertyPath: m_TagString
+      value: Teleporter
+      objectReference: {fileID: 0}
     - target: {fileID: 1986963128834933104, guid: dc328ae3bdcb5414baa0423041bb40ca, type: 3}
       propertyPath: m_LocalPosition.x
       value: 20.546776
@@ -3195,6 +3207,10 @@ PrefabInstance:
       propertyPath: teleporterIncomplete
       value: 
       objectReference: {fileID: 7834945441466197888}
+    - target: {fileID: 1986963128551709180, guid: dc328ae3bdcb5414baa0423041bb40ca, type: 3}
+      propertyPath: m_TagString
+      value: Teleporter
+      objectReference: {fileID: 0}
     - target: {fileID: 1986963128834933104, guid: dc328ae3bdcb5414baa0423041bb40ca, type: 3}
       propertyPath: m_LocalPosition.x
       value: 21.053497

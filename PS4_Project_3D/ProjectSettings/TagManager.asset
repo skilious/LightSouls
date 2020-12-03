@@ -26,6 +26,7 @@ TagManager:
   - WideLaser
   - Waterball
   - SoulWall
+  - Teleporter
   layers:
   - Default
   - TransparentFX

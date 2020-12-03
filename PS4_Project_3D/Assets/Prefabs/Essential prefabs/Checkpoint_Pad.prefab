@@ -33908,6 +33908,7 @@ MonoBehaviour:
   - {fileID: 1512920923330106997}
   - {fileID: 1512920923680381833}
   - {fileID: 1512920923659280874}
+  allowSave: 1
 --- !u!1 &1512920923680381846
 GameObject:
   m_ObjectHideFlags: 0

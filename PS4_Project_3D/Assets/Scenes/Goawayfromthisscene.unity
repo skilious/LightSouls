@@ -32008,10 +32008,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4881786672557490644, guid: 32925b62cccb28743896120864724ca0, type: 3}
-      propertyPath: repeatTimer
-      value: 0.7
-      objectReference: {fileID: 0}
     - target: {fileID: 6867298530602657894, guid: 32925b62cccb28743896120864724ca0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 38.64
@@ -32054,18 +32050,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6867298530602657894, guid: 32925b62cccb28743896120864724ca0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7986881072581367252, guid: 32925b62cccb28743896120864724ca0, type: 3}
-      propertyPath: maxHealth
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 7986881072581367252, guid: 32925b62cccb28743896120864724ca0, type: 3}
-      propertyPath: curHealth
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 7986881072581367252, guid: 32925b62cccb28743896120864724ca0, type: 3}
-      propertyPath: isInvincible
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8546476555934103542, guid: 32925b62cccb28743896120864724ca0, type: 3}

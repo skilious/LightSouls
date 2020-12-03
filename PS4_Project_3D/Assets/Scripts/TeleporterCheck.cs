@@ -28,7 +28,7 @@ public class TeleporterCheck : RayToGround
         // instance = this;
         rayDirection = -transform.up;
     }
-    private void FixedUpdate()
+    private void Update()
     {
         rayOrigin = transform.position;
         ray = new Ray(rayOrigin, rayDirection * distance);
@@ -64,7 +64,19 @@ public class TeleporterCheck : RayToGround
                     if (Input.GetKeyDown(KeyCode.X))
                     {
                         Debug.Log(" SceneToLoad = " + raycastHit.collider.GetComponentInParent<PopUp_TC>().GetScene());
-                        Loader.Load(raycastHit.collider.GetComponentInParent<PopUp_TC>().GetScene());
+                        if(raycastHit.collider.GetComponentInParent<PopUp_TC>().GetStageStatus())
+                        {
+                            print("Its completed already!");
+                        }
+                        else if(raycastHit.collider.GetComponentInParent<PopUp_TC>().stageNumber < PopUp_TC.completedStages + 2)
+                        {
+                            Loader.Load(raycastHit.collider.GetComponentInParent<PopUp_TC>().GetScene());
+                        }
+                        else
+                        {
+                            print("you don't have access yet!");
+                        }
+
                     }
                 }
                 else if (!raycastHit.collider.isTrigger)

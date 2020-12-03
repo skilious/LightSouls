@@ -20,6 +20,7 @@ public class SoulWallHandler : MonoBehaviour
     private BoxCollider soulWallBoxCollider;
     private ParticleSystem soulWallParticleSystem;
 
+    [SerializeField] private GameObject[] EntrySoulWalls;
     private void Start()
     {
         soulWallBoxCollider = GetComponentInParent<BoxCollider>();
@@ -46,8 +47,15 @@ public class SoulWallHandler : MonoBehaviour
             soulWallBoxCollider.enabled = false;
             var psMain = soulWallParticleSystem.main;
             psMain.loop = false;
+            for(int i = 0; i < EntrySoulWalls.Length; i++)
+            {
+                var soulParticles = EntrySoulWalls[i].GetComponent<ParticleSystem>().main;
+                soulParticles.loop = false;
+                EntrySoulWalls[i].GetComponent<BoxCollider>().enabled = false;
+            }
         }
     }
+
     // Do Teleporter Stuff
     // OnTeleporter.Invoke(this, System.EventArgs.Empty);
 }
