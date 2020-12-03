@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2453539255764014836}
   m_Layer: 0
   m_Name: SoulWall_Entry
-  m_TagString: SoulWall
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
