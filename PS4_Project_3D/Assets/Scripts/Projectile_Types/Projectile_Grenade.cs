@@ -14,7 +14,7 @@ public class Projectile_Grenade : ProjectileBase
             for (int i = 0; i < 10; i++) //This spits out projectiles around the GameObject randomly.
             {
                 Quaternion rot = Quaternion.AngleAxis(rand, Vector3.up);
-                GameObject explosionClone = Object_Pooling.SharedInstance.GetPooledObject("EnemyProjectile");
+                GameObject explosionClone = Object_Pooling.SharedInstance.GetPooledObject("EnemyBasic");
                 if(explosionClone == null)
                 {
                     print("Yeet not gonna exist mate");

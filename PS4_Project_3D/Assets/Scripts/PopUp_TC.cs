@@ -1,6 +1,7 @@
 ﻿using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 public class PopUp_TC : TeleporterCheck
 {
     //[SerializeField]
@@ -14,6 +15,7 @@ public class PopUp_TC : TeleporterCheck
     [SerializeField]
     protected GameObject teleporterIncomplete;
 
+    [SerializeField] private Vector3 nextSpawnPosition;
     public int stageNumber;
 
     protected Vector3 rotationFaceCamera;
@@ -81,6 +83,7 @@ public class PopUp_TC : TeleporterCheck
     {
         if (stageNumber > completedStages && stageNumber < completedStages + 2)
         {
+            GameManager.GMInstance.SetPosition(nextSpawnPosition);
             SaveLocation();
             print("You have access!");
             switch (stageNumber)
@@ -101,7 +104,7 @@ public class PopUp_TC : TeleporterCheck
         {
             GameManager.GMInstance.SavePosition("Stage_0" + stageNumber);
         }
-
+        
         // UNUSED CODE
         /*
         private void TeleporterCheck_OnTeleporter(object sender, EventArgs e)

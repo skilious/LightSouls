@@ -25,15 +25,15 @@ public class Checkpoint_Save : MonoBehaviour
                 healEffects[i].Play();
             }
 
-            if (Character_Status.instance.curHealth >= Character_Status.instance.maxHealth)
+            if (other.GetComponent<Character_Status>().curHealth >= other.GetComponent<Character_Status>().maxHealth)
             {
                 healing = false;
-                Character_Status.instance.curHealth = Mathf.RoundToInt(Character_Status.instance.healthHit);
+                other.GetComponent<Character_Status>().curHealth = Mathf.RoundToInt(other.GetComponent<Character_Status>().healthHit);
             }
             else if (healing)
             {
-                float healthRegenerate = Mathf.Lerp(Character_Status.instance.healthHit, Character_Status.instance.maxHealth, 2.5f * Time.deltaTime);
-                Character_Status.instance.healthHit = healthRegenerate;
+                float healthRegenerate = Mathf.Lerp(other.GetComponent<Character_Status>().healthHit, other.GetComponent<Character_Status>().maxHealth, 2.5f * Time.deltaTime);
+                other.GetComponent<Character_Status>().healthHit = healthRegenerate;
             }
         }
     }
@@ -43,7 +43,7 @@ public class Checkpoint_Save : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             healing = false;
-            Character_Status.instance.curHealth = Mathf.RoundToInt(Character_Status.instance.healthHit);
+            other.GetComponent<Character_Status>().curHealth = Mathf.RoundToInt(other.GetComponent<Character_Status>().healthHit);
         }
     }
 }

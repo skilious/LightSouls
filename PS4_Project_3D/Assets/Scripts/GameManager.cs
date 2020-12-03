@@ -24,10 +24,12 @@ public class GameManager : MonoBehaviour
         if (!PlayerPrefs.HasKey("PlayerCheckpointX") && !PlayerPrefs.HasKey("PlayerCheckpointY")) //If it doesn't exist, setup one.
         {
             PlayerPrefs.SetFloat("PlayerCheckpointX", player.transform.position.x); //Saves X and Y axis from the player's starting position.
-            PlayerPrefs.SetFloat("PlayerCheckpointY", player.transform.position.z);
+            PlayerPrefs.SetFloat("PlayerCheckpointY", player.transform.position.y);
+            PlayerPrefs.SetFloat("PlayerCheckpointZ", player.transform.position.z);
             print("Saved!");
             print("Saved: " + PlayerPrefs.GetFloat("PlayerCheckpointX") + " X axis");
-            print("Saved: " + PlayerPrefs.GetFloat("PlayerCheckpointY") + " Z axis");
+            print("Saved: " + PlayerPrefs.GetFloat("PlayerCheckpointY") + " Y axis");
+            print("Saved: " + PlayerPrefs.GetFloat("PlayerCheckpointZ") + " Z axis");
         }
         if (teleporters == null)
         {
@@ -52,7 +54,8 @@ public class GameManager : MonoBehaviour
     {
         float playerPosX = PlayerPrefs.GetFloat("PlayerCheckpointX");
         float playerPosY = PlayerPrefs.GetFloat("PlayerCheckpointY");
-        Vector3 playerPosition = new Vector3(playerPosX, player.transform.position.y, playerPosY);
+        float playerPosZ = PlayerPrefs.GetFloat("PlayerCheckpointZ");
+        Vector3 playerPosition = new Vector3(playerPosX, playerPosY, playerPosZ);
 
         if (PlayerPrefs.HasKey("PlayerCheckpointX"))
         {
@@ -71,7 +74,8 @@ public class GameManager : MonoBehaviour
     {
         print(PlayerPrefs.GetInt("LevelScene"));
         PlayerPrefs.SetFloat("PlayerCheckpointX", player.transform.position.x);
-        PlayerPrefs.SetFloat("PlayerCheckpointY", player.transform.position.z);
+        PlayerPrefs.SetFloat("PlayerCheckpointY", player.transform.position.y);
+        PlayerPrefs.SetFloat("PlayerCheckpointZ", player.transform.position.z);
         PlayerPrefs.SetFloat("Health", player.GetComponent<Character_Status>().healthHit);
         PlayerPrefs.SetInt("Capacity", player.GetComponent<Character_Status>().curCapacity);
         PlayerPrefs.SetString("LevelScene", sceneName);

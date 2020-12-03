@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 2453539255764014835}
   - component: {fileID: 2453539255764014834}
   - component: {fileID: 2453539255764014836}
+  - component: {fileID: 753061036}
+  - component: {fileID: 753061035}
   m_Layer: 0
   m_Name: SoulWall_Entry
   m_TagString: Untagged
@@ -102,7 +104,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -4883,6 +4885,36 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &753061036
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2453539255764014845}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 3, z: 0.4}
+  m_Center: {x: 0, y: -1.5, z: 0}
+--- !u!114 &753061035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2453539255764014845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b5f2ccf2b5f01349848111500ae99e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemies:
+  - {fileID: 2511364851234310712, guid: bebfc90d8537c4144b9122fd14a4c5bd, type: 3}
+  - {fileID: 2511364851234310712, guid: bebfc90d8537c4144b9122fd14a4c5bd, type: 3}
+  - {fileID: 2511364851234310712, guid: bebfc90d8537c4144b9122fd14a4c5bd, type: 3}
+  enemySpawn: []
 --- !u!1 &2453539255967650286
 GameObject:
   m_ObjectHideFlags: 0
@@ -4892,7 +4924,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2453539255967650287}
-  - component: {fileID: 3980044818710411481}
   m_Layer: 0
   m_Name: SoulWallHandler
   m_TagString: Untagged
@@ -4914,19 +4945,6 @@ Transform:
   m_Father: {fileID: 2453539255764014833}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &3980044818710411481
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2453539255967650286}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2, y: 3, z: 0.4}
-  m_Center: {x: 0, y: -1.5, z: 0}
 --- !u!1001 &2453539256967367065
 PrefabInstance:
   m_ObjectHideFlags: 0

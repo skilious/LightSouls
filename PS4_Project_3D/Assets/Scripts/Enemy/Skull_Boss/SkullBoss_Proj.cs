@@ -15,6 +15,20 @@ public class SkullBoss_Proj : EnemyAI
         CancelInvoke("SkullAttack");
     }
 
+    protected override void Update()
+    {
+        if (Vector3.Distance(player.transform.position, transform.position) <= 15.0f && status.isAlive)
+        {
+            UI_Manager.instance.SetupBossHP(status.maxHealth, "Skully the spinner");
+            UI_Manager.instance.BossAccessHP(status);
+        }
+        else if (Vector3.Distance(player.transform.position, transform.position) >= 20.0f || !status.isAlive)
+        {
+            UI_Manager.instance.HideBossUI();
+        }
+        base.Update();
+
+    }
     private void SkullAttack()
     {
         if (PercentageHealth() >= 75.0f)
