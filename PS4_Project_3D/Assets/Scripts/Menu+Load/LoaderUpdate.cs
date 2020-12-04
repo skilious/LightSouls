@@ -5,7 +5,7 @@ using UnityEngine;
 public class LoaderUpdate : MonoBehaviour
 {
     private const float DELAY_BEFORE_LOAD = 1f;
-
+    [SerializeField] private Camera change; 
     private float timeElapsed;
 
     private void Update()

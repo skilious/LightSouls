@@ -21,7 +21,7 @@ EditorBuildSettings:
     path: Assets/Scenes/SoulGame.unity
     guid: 5a1ed6b6ed506b04189450646e1c625a
   - enabled: 1
-    path: Assets/Scenes/2. Level Select.unity
+    path: Assets/Scenes/Level_Select.unity
     guid: 67327199f1cf8c045b9876a504d4a93a
   - enabled: 1
     path: Assets/Scenes/Stage_01.unity

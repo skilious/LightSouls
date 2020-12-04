@@ -32974,7 +32974,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   setSpawnPosition: {x: 34.5, y: 0.5, z: 60.5}
-  sceneName: 2. Level Select
+  sceneName: Level_Select
   levelComplete: 0
 --- !u!4 &1855404061
 Transform:
@@ -34241,6 +34241,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &1930058687 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9179396313818291054, guid: bfa4540c1bd53694988f18834ba56b68, type: 3}
+  m_PrefabInstance: {fileID: 137738803}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1930058690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1930058687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae1cb06884e44064cb1d3ef0c9dd9719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1930424508
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -75805,7 +75822,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4822922785633884040, guid: 3d98d34b41e96b5429d4041fc52fb4f2, type: 3}
       propertyPath: PCMode
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4822922785633884041, guid: 3d98d34b41e96b5429d4041fc52fb4f2, type: 3}
       propertyPath: m_Name

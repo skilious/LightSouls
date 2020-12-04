@@ -9,10 +9,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject canvasKeep;
     public static GameObject player;
     public static GameManager GMInstance;
-    private static bool sceneChanged = false;
 
     private GameObject[] teleporters;
-
+    private string getLevelScene;
     public static int stageCompleted = 0;
     private void Awake()
     {
@@ -33,6 +32,13 @@ public class GameManager : MonoBehaviour
             //print("Saved: " + PlayerPrefs.GetFloat("PlayerCheckpointY") + " Y axis");
             //print("Saved: " + PlayerPrefs.GetFloat("PlayerCheckpointZ") + " Z axis");
         }
+        getLevelScene = PlayerPrefs.GetString("LevelScene");
+        Loader.Scene getLevel = (Loader.Scene)Enum.Parse(typeof(Loader.Scene), getLevelScene);
+        if (getLevelScene != SceneManager.GetActiveScene().name)
+        {
+            print("It works");
+            Loader.Load(getLevel);
+        }
         if (teleporters == null)
         {
             return;
@@ -46,7 +52,7 @@ public class GameManager : MonoBehaviour
             //print("Resetting playerprefs. Restart for changes");
             PlayerPrefs.DeleteAll();
         }
-        if(Input.GetKeyDown(KeyCode.V))
+        if (Input.GetKeyDown(KeyCode.V))
         {
             SaveLevelCompletion(2);
             //print("Set two level completions. You will no longer partake in those first two levels anymore."); 
@@ -108,14 +114,6 @@ public class GameManager : MonoBehaviour
             player.GetComponent<Character_Status>().healthHit = loadHealth;
         }
 
-        string getLevelScene = PlayerPrefs.GetString("LevelScene");
-        if (getLevelScene != SceneManager.GetActiveScene().name && !sceneChanged)
-        {
-            sceneChanged = true;
-            SceneManager.LoadScene(getLevelScene);
-        }
-
-        sceneChanged = false; //This allows changing scenes again.
         LoadPosition(); //Load the save keys from playerprefs.
 
         if (PlayerPrefs.HasKey("Stage")) //If it has an existing key called Stage.

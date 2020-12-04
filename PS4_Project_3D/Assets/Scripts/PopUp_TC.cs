@@ -100,41 +100,42 @@ public class PopUp_TC : TeleporterCheck
         }
         return Loader.Scene.MainMenu;
     }
-        private void SaveLocation()
-        {
-            GameManager.GMInstance.SavePosition("Stage_0" + stageNumber);
-        }
-        
-        // UNUSED CODE
-        /*
-        private void TeleporterCheck_OnTeleporter(object sender, EventArgs e)
-        {
-            // Play OnTeleporter Sound
-            // SoundManager.PlaySound(SoundManager.Sound.ButtonOver);
-            Debug.Log(" TeleporterCheck_OnTeleporter event function - Do Things for for when ON Teleporter");
-            animator.SetBool("onTeleporter" , true);
 
-            //Show();
-        }
-        private void TeleporterCheck_OnGround(object sender, EventArgs e)
-        {
-            Debug.Log(" TeleporterCheck_OnGround event function - Do Things for when OFF Teleporter");
-
-            // Play OffTeleporter Sound
-            // SoundManager.PlaySound(SoundManager.Sound.ButtonClick);
-            animator.SetBool("onTeleporter", false);
-            //if(!animator.isActiveAndEnabled)
-            //    Hide();
-        }
-        */
-
-        //No longer in use - Animator replaced this code.
-        //private void Hide()
-        //{
-        //    gameObject.SetActive(false);
-        //}
-        //private void Show()
-        //{
-        //    gameObject.SetActive(true);
-        //}
+    private void SaveLocation()
+    {
+        GameManager.GMInstance.SavePosition("Stage_0" + stageNumber);
     }
+
+    // UNUSED CODE
+    /*
+    private void TeleporterCheck_OnTeleporter(object sender, EventArgs e)
+    {
+        // Play OnTeleporter Sound
+        // SoundManager.PlaySound(SoundManager.Sound.ButtonOver);
+        Debug.Log(" TeleporterCheck_OnTeleporter event function - Do Things for for when ON Teleporter");
+        animator.SetBool("onTeleporter" , true);
+
+        //Show();
+    }
+    private void TeleporterCheck_OnGround(object sender, EventArgs e)
+    {
+        Debug.Log(" TeleporterCheck_OnGround event function - Do Things for when OFF Teleporter");
+
+        // Play OffTeleporter Sound
+        // SoundManager.PlaySound(SoundManager.Sound.ButtonClick);
+        animator.SetBool("onTeleporter", false);
+        //if(!animator.isActiveAndEnabled)
+        //    Hide();
+    }
+    */
+
+    //No longer in use - Animator replaced this code.
+    //private void Hide()
+    //{
+    //    gameObject.SetActive(false);
+    //}
+    //private void Show()
+    //{
+    //    gameObject.SetActive(true);
+    //}
+}
