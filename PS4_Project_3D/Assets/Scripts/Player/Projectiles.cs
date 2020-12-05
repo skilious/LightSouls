@@ -63,6 +63,7 @@ public class Projectiles : Character_Status
                 }
             }
         }
+
         base.Update();
         //Ran out of ammo
         if (curCapacity < 0)

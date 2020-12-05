@@ -5,13 +5,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class LoadLevelScene : MonoBehaviour
 {
-    [SerializeField] private Vector3 setSpawnPosition;
+    [SerializeField] protected Vector3 setSpawnPosition;
 
-    [SerializeField] private string sceneName;
+    [SerializeField] protected string sceneName;
 
-    [SerializeField] private bool levelComplete = false;
     //Simple load to scene
-    private void OnTriggerEnter(Collider other)
+    protected virtual void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name == "Player")
         {
@@ -19,10 +18,6 @@ public class LoadLevelScene : MonoBehaviour
             Loader.Load(scene);
             GameManager.GMInstance.SetPosition(setSpawnPosition);
             GameManager.GMInstance.SavePosition(sceneName);
-            if(levelComplete)
-            {
-                GameManager.GMInstance.SaveLevelCompletion(1);
-            }
         }
     }
 }

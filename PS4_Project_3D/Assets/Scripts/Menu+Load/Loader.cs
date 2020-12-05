@@ -18,7 +18,9 @@ public static class Loader
         Stage_04,
         Level_Skull,
         SoulGame,
-        Level_Select
+        Level_Select,
+        L1_Boss,
+        L2_Boss
         // UNUSED
         // Add Level Scenes Here
     }

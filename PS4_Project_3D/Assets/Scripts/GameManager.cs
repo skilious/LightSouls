@@ -9,9 +9,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject canvasKeep;
     public static GameObject player;
     public static GameManager GMInstance;
-
+    private Loader.Scene getLevel;
     private string getLevelScene;
     public static int stageCompleted = 0;
+
     private void Awake()
     {
         GMInstance = this;
@@ -32,7 +33,7 @@ public class GameManager : MonoBehaviour
             //print("Saved: " + PlayerPrefs.GetFloat("PlayerCheckpointZ") + " Z axis");
         }
         getLevelScene = PlayerPrefs.GetString("LevelScene");
-        Loader.Scene getLevel = (Loader.Scene)Enum.Parse(typeof(Loader.Scene), getLevelScene);
+        getLevel = (Loader.Scene)Enum.Parse(typeof(Loader.Scene), getLevelScene);
         if (getLevelScene != SceneManager.GetActiveScene().name)
         {
             print("It works");
@@ -52,6 +53,19 @@ public class GameManager : MonoBehaviour
             SaveLevelCompletion(2);
             //print("Set two level completions. You will no longer partake in those first two levels anymore."); 
         }
+
+        if (player.GetComponent<Character_Status>().curHealth <= 0.0f)
+        {
+            Invoke("RevivePlayer", 0.1f);
+        }
+    }
+
+    void RevivePlayer()
+    {
+        player.GetComponent<Character_Status>().healthHit = 100.0f;
+        SaveHealth();
+        LoadPosition();
+        Loader.Load(getLevel);
     }
     private Vector3 LoadPosition()
     {
@@ -84,6 +98,10 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetString("LevelScene", sceneName);
     }
 
+    void SaveHealth()
+    {
+        PlayerPrefs.SetFloat("Health", player.GetComponent<Character_Status>().healthHit);
+    }
     public Vector3 SetPosition(Vector3 playerPos)
     {
         return player.transform.position = playerPos;
@@ -109,8 +127,8 @@ public class GameManager : MonoBehaviour
             player.GetComponent<Character_Status>().healthHit = loadHealth;
         }
 
-        if(scene.name != "Pause_Scene") //Just incase you pause and it loads the position again.
-        LoadPosition(); //Load the save keys from playerprefs.
+        if (scene.name != "Pause_Scene") //Just incase you pause and it loads the position again.
+            LoadPosition(); //Load the save keys from playerprefs.
 
         if (PlayerPrefs.HasKey("Stage")) //If it has an existing key called Stage.
         {
@@ -125,4 +143,5 @@ public class GameManager : MonoBehaviour
         print("Disable the script and terminate.");
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
+    
 }

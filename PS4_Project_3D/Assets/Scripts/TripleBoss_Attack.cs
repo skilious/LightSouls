@@ -9,6 +9,7 @@ public class TripleBoss_Attack : NPCBase
     {
         base.OnStateEnter(animator, stateInfo, layerIndex);
         NPC.GetComponent<TripleBossProj>().StartAttack();
+        NPC.transform.LookAt(target.transform.position);
         agent.isStopped = true;
     }
 

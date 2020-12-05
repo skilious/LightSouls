@@ -32975,7 +32975,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   setSpawnPosition: {x: 34.5, y: 0.5, z: 60.5}
   sceneName: Level_Select
-  levelComplete: 0
 --- !u!4 &1855404061
 Transform:
   m_ObjectHideFlags: 0
@@ -75956,6 +75955,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7016298423481314669, guid: 10f3d6134de5b304da9aa5c0b791d128, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7899190530465087250, guid: 10f3d6134de5b304da9aa5c0b791d128, type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7899190530465087250, guid: 10f3d6134de5b304da9aa5c0b791d128, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a876e0b0038612c45b7ad2375bf1a7b0, type: 2}
+    - target: {fileID: 7899190530465087251, guid: 10f3d6134de5b304da9aa5c0b791d128, type: 3}
+      propertyPath: InitialModule.startSize.scalar
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7899190531222025798, guid: 10f3d6134de5b304da9aa5c0b791d128, type: 3}

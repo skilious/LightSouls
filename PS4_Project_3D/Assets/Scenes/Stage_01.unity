@@ -10422,7 +10422,7 @@ GameObject:
   - component: {fileID: 851584532}
   - component: {fileID: 851584531}
   m_Layer: 0
-  m_Name: PassageBackToLevelSelect
+  m_Name: Passage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10440,9 +10440,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc87711f65773844ab877b8226d285c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  setSpawnPosition: {x: 34.5, y: 0.5, z: 60.5}
-  sceneName: Level_Select
-  levelComplete: 1
+  setSpawnPosition: {x: 14, y: 0.5, z: 27.25}
+  sceneName: L1_Boss
+  levelComplete: 0
 --- !u!65 &851584532
 BoxCollider:
   m_ObjectHideFlags: 0
