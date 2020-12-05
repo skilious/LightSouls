@@ -114,6 +114,7 @@ public class GameManager : MonoBehaviour
             player.GetComponent<Character_Status>().healthHit = loadHealth;
         }
 
+        if(scene.name != "Pause_Scene") //Just incase you pause and it loads the position again.
         LoadPosition(); //Load the save keys from playerprefs.
 
         if (PlayerPrefs.HasKey("Stage")) //If it has an existing key called Stage.
