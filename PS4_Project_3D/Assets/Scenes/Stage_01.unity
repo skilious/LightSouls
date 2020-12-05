@@ -6507,6 +6507,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07f66b6d7bfc0dd4b8495008c3afb0c2, type: 3}
+--- !u!1 &520192311 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2453539255764014845, guid: 07f66b6d7bfc0dd4b8495008c3afb0c2, type: 3}
+  m_PrefabInstance: {fileID: 520192310}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &521536108
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9469,6 +9474,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 258999530588575827, guid: 7eaa4bc86d1f2bf498fb753ce3524ea8, type: 3}
+      propertyPath: EntrySoulWalls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 258999530588575827, guid: 7eaa4bc86d1f2bf498fb753ce3524ea8, type: 3}
+      propertyPath: EntrySoulWalls.Array.data[0]
+      value: 
+      objectReference: {fileID: 520192311}
     - target: {fileID: 258999530922336066, guid: 7eaa4bc86d1f2bf498fb753ce3524ea8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 13

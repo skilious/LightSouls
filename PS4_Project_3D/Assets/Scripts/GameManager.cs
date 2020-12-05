@@ -10,7 +10,6 @@ public class GameManager : MonoBehaviour
     public static GameObject player;
     public static GameManager GMInstance;
 
-    private GameObject[] teleporters;
     private string getLevelScene;
     public static int stageCompleted = 0;
     private void Awake()
@@ -38,10 +37,6 @@ public class GameManager : MonoBehaviour
         {
             print("It works");
             Loader.Load(getLevel);
-        }
-        if (teleporters == null)
-        {
-            return;
         }
     }
 
@@ -100,7 +95,7 @@ public class GameManager : MonoBehaviour
 
     void OnEnable()
     {
-        //print("On enable! - Enable the OnSceneLoaded script and save position");
+        print("On enable! - Enable the OnSceneLoaded script and save position");
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
@@ -127,7 +122,7 @@ public class GameManager : MonoBehaviour
 
     void OnDisable()
     {
-        //print("Disable the script and terminate.");
+        print("Disable the script and terminate.");
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 }

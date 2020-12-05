@@ -6,15 +6,8 @@ using UnityEngine;
 public class SoulEssence : MonoBehaviour
 {
     // Event Shoutouts
-    public static event Action<SoulEssence> OnSoulAbsorbed = delegate { };
+    //public static event Action<SoulEssence> OnSoulAbsorbed = delegate { };
 
-    [SerializeField]
-    private BoxCollider boxColliderSoulWall;
-
-    private void Update()
-    {
-        transform.position = Vector3.MoveTowards(transform.position, soulDoor.transform.position, Time.deltaTime * speed);
-    }
     private GameObject soulDoor;
     
     [SerializeField]
@@ -24,20 +17,23 @@ public class SoulEssence : MonoBehaviour
     {
         soulDoor = GameObject.Find("SoulAbsorbPoint");
     }
-
-    private void OnTriggerEnter(Collider other)
+    private void Update()
     {
-        //Changed to Compare tag because if the soulessence hits anything without a BoxCollider it returns an error.
-        //if (other.GetComponent<BoxCollider>().name == "SoulWall")
-        if (other.CompareTag("SoulWall"))
-        {
-            Debug.Log("Soul Absorbed");
-
-            // Invoke OnSoulAbsorbed Event
-            OnSoulAbsorbed(this);
-
-            Character_Status.soulEssence++; //Increments soulEssence.
-            Destroy(gameObject); //Destroy this gameObject.
-        }
+        transform.position = Vector3.MoveTowards(transform.position, soulDoor.transform.position, Time.deltaTime * speed);
     }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    //Changed to Compare tag because if the soulessence hits anything without a BoxCollider it returns an error.
+    //    //if (other.GetComponent<BoxCollider>().name == "SoulWall")
+    //    if (other.gameObject.CompareTag("SoulWall"))
+    //    {
+    //        Debug.Log("Soul Absorbed");
+
+    //        // Invoke OnSoulAbsorbed Event
+    //        //OnSoulAbsorbed(this);
+
+    //        //Character_Status.soulEssence++; //Increments soulEssence.
+    //       // Destroy(gameObject); //Destroy this gameObject.
+    //    }
+    //}
 }

@@ -12,8 +12,9 @@ public class SoulWallHandler : MonoBehaviour
     //    return instance;
     //}
 
-    private int soulsAbsorbedCount;
+    public int soulsAbsorbedCount;
 
+    public int testing;
     [SerializeField]
     private List<GameObject> SoulFire;
 
@@ -23,15 +24,14 @@ public class SoulWallHandler : MonoBehaviour
     [SerializeField] private GameObject[] EntrySoulWalls;
     private void Start()
     {
-        soulWallBoxCollider = GetComponentInParent<BoxCollider>();
-        soulWallParticleSystem = GetComponentInParent<ParticleSystem>();
         soulsAbsorbedCount = 0;
-        SoulEssence.OnSoulAbsorbed += SoulWallHandler_OnSoulAbsorbed;
+        soulWallBoxCollider = GetComponentInParent<BoxCollider>();
+        soulWallParticleSystem = GetComponentInParent<ParticleSystem>(); 
+        //SoulEssence.OnSoulAbsorbed += SoulWallHandler_OnSoulAbsorbed;
     }
 
-    private void SoulWallHandler_OnSoulAbsorbed(SoulEssence soulEssence)
+    protected void SoulWallHandler_OnSoulAbsorbed(SoulEssence soulEssence)
     {
-        soulsAbsorbedCount++;
         Debug.Log(soulsAbsorbedCount);
         if (soulsAbsorbedCount == 1)
         {
@@ -47,12 +47,22 @@ public class SoulWallHandler : MonoBehaviour
             soulWallBoxCollider.enabled = false;
             var psMain = soulWallParticleSystem.main;
             psMain.loop = false;
-            for(int i = 0; i < EntrySoulWalls.Length; i++)
+            for (int i = 0; i < EntrySoulWalls.Length; i++)
             {
                 var soulParticles = EntrySoulWalls[i].GetComponent<ParticleSystem>().main;
                 soulParticles.loop = false;
                 EntrySoulWalls[i].GetComponent<BoxCollider>().enabled = false;
             }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Soul"))
+        {
+            soulsAbsorbedCount++;
+            SoulWallHandler_OnSoulAbsorbed(other.GetComponent<SoulEssence>());
+            Destroy(other.gameObject);
         }
     }
 
