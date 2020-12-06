@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 6677310533535563065}
   - component: {fileID: -6442533590944612745}
   - component: {fileID: 7644179872831894588}
+  - component: {fileID: 899783455313994188}
   m_Layer: 2
   m_Name: Enemy_Boomblade
   m_TagString: Enemy
@@ -178,3 +179,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackTimer: 1
   repeatTimer: 1
+--- !u!54 &899783455313994188
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 486994582090207932}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
