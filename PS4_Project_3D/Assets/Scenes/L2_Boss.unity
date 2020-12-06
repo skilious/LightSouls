@@ -8375,6 +8375,73 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 463332, guid: a65d892ddf6b61440ac95a9284593af4, type: 3}
   m_PrefabInstance: {fileID: 492968295}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &493037599
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 493037602}
+  - component: {fileID: 493037601}
+  - component: {fileID: 493037600}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &493037600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 493037599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f15c973d29d0f8843b3f64240fbabf84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _prefabsListTeleporters: []
+  meshCollider_TeleportStage01: {fileID: 0}
+  meshCollider_TeleportStage02: {fileID: 0}
+  meshCollider_TeleportStage03: {fileID: 0}
+  meshCollider_TeleportStage04: {fileID: 0}
+  pfTeleporterRed: {fileID: 0}
+  pfTeleporterGreen: {fileID: 0}
+  pfTeleporterBlank: {fileID: 0}
+  soundAudioClipArray:
+  - sound: 3
+    audioClip: {fileID: 8300000, guid: af3ff5f7b11fc3b4ab372377558e17c1, type: 3}
+--- !u!114 &493037601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 493037599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae1cb06884e44064cb1d3ef0c9dd9719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &493037602
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 493037599}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 56.367756, y: 31.702892, z: 53.619724}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 92
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &498364120
 PrefabInstance:
   m_ObjectHideFlags: 0
