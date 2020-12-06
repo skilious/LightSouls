@@ -16,7 +16,7 @@ public class Dialog_Trap : DialogController
 
     protected override void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Temp"))
         {
             SetDialogText();
             animator.SetBool("showDialog", true);

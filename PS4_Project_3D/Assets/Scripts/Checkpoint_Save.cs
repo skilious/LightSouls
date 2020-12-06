@@ -6,11 +6,11 @@ public class Checkpoint_Save : MonoBehaviour
 {
     [SerializeField] private ParticleSystem[] healEffects;
     private bool healing = false;
-
+    [SerializeField] private bool healOnlyOnce = false;
     [SerializeField] private bool allowSave = false;
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") && healOnlyOnce)
         {
             healing = true;
             for (int i = 0; i < healEffects.Length; i++)
@@ -40,7 +40,7 @@ public class Checkpoint_Save : MonoBehaviour
             {
                 GameManager.GMInstance.SavePosition(sceneName);
             }
-
+            healOnlyOnce = true;
             healing = false;
             other.GetComponent<Character_Status>().curHealth = Mathf.RoundToInt(other.GetComponent<Character_Status>().healthHit);
         }

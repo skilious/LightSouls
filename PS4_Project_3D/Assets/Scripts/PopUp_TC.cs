@@ -35,6 +35,7 @@ public class PopUp_TC : TeleporterCheck
     {
         if (stageNumber <= completedStages)
         {
+            teleporterCheckText.text = "You have already completed this stage";
             stageComplete = true;
         }
 
@@ -45,11 +46,10 @@ public class PopUp_TC : TeleporterCheck
         }
         else
         {
+            teleporterCheckText.text = "Press X to Start Stage " + stageNumber;
             teleporterIncomplete.SetActive(true);
             teleporterComplete.SetActive(false);
         }
-        teleporterCheckText.text = "Press X to Start Stage " + stageNumber;
-
         // UNUSED CODE
         //GetInstance().OnTeleporter += TeleporterCheck_OnTeleporter; //Removed TeleporterCheck as its already inherited from the "TeleporterCheck" class...
         //GetInstance().OnGround += TeleporterCheck_OnGround;
@@ -97,6 +97,10 @@ public class PopUp_TC : TeleporterCheck
                 case 4:
                     return Loader.Scene.Stage_04;
             }
+        }
+        else
+        {
+            teleporterCheckText.text = "You need to finish stage " + (completedStages + 1) + " first to enter this stage";
         }
         return Loader.Scene.MainMenu;
     }

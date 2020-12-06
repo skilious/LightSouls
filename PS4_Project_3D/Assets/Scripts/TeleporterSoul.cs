@@ -5,10 +5,11 @@ using System;
 public class TeleporterSoul : LoadLevelScene
 {
     private bool allowTeleport = false; 
-    public int soulsAbsorbed = 0;
-
+    private int soulsAbsorbed = 0;
+    [SerializeField] private int soulsRequired = 0;
     [SerializeField] private int levelCompleteN = 0;
     [SerializeField] private GameObject bonfireLit;
+    [SerializeField] private bool isBossStage = false;
 
     private void Awake()
     {
@@ -20,7 +21,7 @@ public class TeleporterSoul : LoadLevelScene
         {
             Destroy(other.gameObject);
             soulsAbsorbed++;
-            if (soulsAbsorbed >= 3)
+            if (soulsAbsorbed >= soulsRequired)
             {
                 bonfireLit.SetActive(true);
                 allowTeleport = true;
@@ -33,6 +34,8 @@ public class TeleporterSoul : LoadLevelScene
             Loader.Load(scene);
             GameManager.GMInstance.SetPosition(setSpawnPosition);
             GameManager.GMInstance.SavePosition(sceneName);
+
+            if(isBossStage)
             GameManager.GMInstance.SaveLevelCompletion(levelCompleteN);
         }
     }

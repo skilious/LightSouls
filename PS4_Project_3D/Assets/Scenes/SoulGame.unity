@@ -21069,7 +21069,8 @@ MonoBehaviour:
   dialogCanvas: {fileID: 1838851149}
   animator: {fileID: 0}
   textMeshProText: {fileID: 0}
-  textDialogue: Defeat all three dummies around you!
+  textDialogue: Defeat all three dummies around you! There is a nearby healing pad
+    before the gate!
 --- !u!1001 &1019089753
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -75575,6 +75576,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 753061035, guid: 07f66b6d7bfc0dd4b8495008c3afb0c2, type: 3}
+      propertyPath: enemies.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 753061035, guid: 07f66b6d7bfc0dd4b8495008c3afb0c2, type: 3}
+      propertyPath: enemies.Array.data[0]
+      value: 
+      objectReference: {fileID: 7802243513370804613, guid: e21c61cf094575449b9e2e20f8b3859c, type: 3}
+    - target: {fileID: 753061035, guid: 07f66b6d7bfc0dd4b8495008c3afb0c2, type: 3}
+      propertyPath: enemies.Array.data[1]
+      value: 
+      objectReference: {fileID: 7802243513370804613, guid: e21c61cf094575449b9e2e20f8b3859c, type: 3}
+    - target: {fileID: 753061035, guid: 07f66b6d7bfc0dd4b8495008c3afb0c2, type: 3}
+      propertyPath: enemies.Array.data[2]
+      value: 
+      objectReference: {fileID: 7802243513370804613, guid: e21c61cf094575449b9e2e20f8b3859c, type: 3}
     - target: {fileID: 2453539255764014833, guid: 07f66b6d7bfc0dd4b8495008c3afb0c2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 49.5

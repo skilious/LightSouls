@@ -103,7 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a704ccdb95e4554a9703fab3ced3d77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackTimer: 0.5
+  attackTimer: 2
   repeatTimer: 0.5
 --- !u!114 &6481770343162729110
 MonoBehaviour:
@@ -122,8 +122,8 @@ MonoBehaviour:
   duration: 0.25
   isAlive: 1
   isInvincible: 0
-  maxHealth: 150
-  curHealth: 150
+  maxHealth: 100
+  curHealth: 100
   soulEssence: {fileID: 4854077304164736575, guid: 6e73adad9e73ba545b359ab4094e09f7, type: 3}
   dissolve: {fileID: 2100000, guid: 59ac27296807c15458e45924179a34a8, type: 2}
   rend:

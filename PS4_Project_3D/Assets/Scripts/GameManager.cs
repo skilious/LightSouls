@@ -33,11 +33,14 @@ public class GameManager : MonoBehaviour
             //print("Saved: " + PlayerPrefs.GetFloat("PlayerCheckpointZ") + " Z axis");
         }
         getLevelScene = PlayerPrefs.GetString("LevelScene");
-        getLevel = (Loader.Scene)Enum.Parse(typeof(Loader.Scene), getLevelScene);
-        if (getLevelScene != SceneManager.GetActiveScene().name)
+        if (getLevelScene != "")
         {
-            print("It works");
-            Loader.Load(getLevel);
+            getLevel = (Loader.Scene)Enum.Parse(typeof(Loader.Scene), getLevelScene);
+            if (getLevelScene != SceneManager.GetActiveScene().name)
+            {
+                print("It works");
+                Loader.Load(getLevel);
+            }
         }
     }
 
@@ -62,6 +65,8 @@ public class GameManager : MonoBehaviour
 
     void RevivePlayer()
     {
+        getLevelScene = PlayerPrefs.GetString("LevelScene");
+        getLevel = (Loader.Scene)Enum.Parse(typeof(Loader.Scene), getLevelScene);
         player.GetComponent<Character_Status>().healthHit = 100.0f;
         SaveHealth();
         LoadPosition();
