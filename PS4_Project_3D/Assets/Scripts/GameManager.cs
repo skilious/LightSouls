@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     private string getLevelScene;
     public static int stageCompleted = 0;
 
+    public static int enableEZmode = 0; // 0 as false and 1 as true.
     private void Awake()
     {
         GMInstance = this;
@@ -38,7 +39,7 @@ public class GameManager : MonoBehaviour
             getLevel = (Loader.Scene)Enum.Parse(typeof(Loader.Scene), getLevelScene);
             if (getLevelScene != SceneManager.GetActiveScene().name)
             {
-                print("It works");
+                //print("It works");
                 Loader.Load(getLevel);
             }
         }
@@ -74,6 +75,7 @@ public class GameManager : MonoBehaviour
     }
     private Vector3 LoadPosition()
     {
+        enableEZmode = PlayerPrefs.GetInt("EZMode");
         float playerPosX = PlayerPrefs.GetFloat("PlayerCheckpointX");
         float playerPosY = PlayerPrefs.GetFloat("PlayerCheckpointY");
         float playerPosZ = PlayerPrefs.GetFloat("PlayerCheckpointZ");
@@ -94,7 +96,7 @@ public class GameManager : MonoBehaviour
 
     public void SavePosition(String sceneName)
     {
-        print(PlayerPrefs.GetInt("LevelScene"));
+        PlayerPrefs.SetInt("EZMode", enableEZmode);
         PlayerPrefs.SetFloat("PlayerCheckpointX", player.transform.position.x);
         PlayerPrefs.SetFloat("PlayerCheckpointY", player.transform.position.y);
         PlayerPrefs.SetFloat("PlayerCheckpointZ", player.transform.position.z);
@@ -118,7 +120,7 @@ public class GameManager : MonoBehaviour
 
     void OnEnable()
     {
-        print("On enable! - Enable the OnSceneLoaded script and save position");
+        //print("On enable! - Enable the OnSceneLoaded script and save position");
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
@@ -139,13 +141,13 @@ public class GameManager : MonoBehaviour
         {
             stageCompleted = PlayerPrefs.GetInt("Stage"); //Grab the value from stage loaded from previous gameplay.
             PopUp_TC.completedStages = stageCompleted;
-            print("it works? " + " Levels completed: " + PopUp_TC.completedStages);
+            //print("it works? " + " Levels completed: " + PopUp_TC.completedStages);
         }
     }
 
     void OnDisable()
     {
-        print("Disable the script and terminate.");
+        //print("Disable the script and terminate.");
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
     

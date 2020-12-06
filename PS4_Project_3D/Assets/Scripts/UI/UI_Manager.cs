@@ -106,8 +106,16 @@ public class UI_Manager : MonoBehaviour
     //References from character_status and assign to these texts.
     void CapacityAmmo()
     {
-        curCapacity.text = characterStats.curCapacity.ToString();
-        capacityClips.text = characterStats.capacityClip.ToString();
+        if(GameManager.enableEZmode == 1)
+        {
+            curCapacity.text = "EZ Mode enabled!";
+            capacityClips.text = "Infinite capacity";
+        }
+        else
+        {
+            curCapacity.text = characterStats.curCapacity.ToString();
+            capacityClips.text = characterStats.capacityClip.ToString();
+        }
     }
 
     void WeaponList()

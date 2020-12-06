@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using System;
 public class MenuButton : MonoBehaviour
 {
     const Loader.Scene DEFAULT_SCENE = default;
@@ -42,7 +42,7 @@ public class MenuButton : MonoBehaviour
 	IEnumerator WaitThenLoad(float seconds)
 	{
 		yield return new WaitForSeconds(seconds);
-        Loader.Load(GetScene());
+		Loader.Load(GetScene());
 	}
 	
 	public Loader.Scene GetScene()

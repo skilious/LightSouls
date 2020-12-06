@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageObjPrefab: {fileID: 7693102096020922219, guid: aa303823bb635a347ab3bb373a0fc613, type: 3}
-  color: {r: 0.122641504, g: 0.07115521, b: 0.07115521, a: 1}
+  color: {r: 0.9150943, g: 0.366901, b: 0.366901, a: 1}
   duration: 1
   isAlive: 1
   isInvincible: 0

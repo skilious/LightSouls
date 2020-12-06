@@ -170,7 +170,10 @@ public class Projectiles : Character_Status
                 //Basic projectile that shoots wherever the player is facing.
                 case ShootTypes.Basic_Shots:
                     {
-                        curCapacity--;
+                        if(GameManager.enableEZmode == 0)
+                        {
+                            curCapacity--;
+                        }
                         GameObject cloning = Object_Pooling.SharedInstance.GetPooledObject("Projectile");
                         cloning.SetActive(true);
                         cloning.transform.position = getPos;
@@ -188,7 +191,10 @@ public class Projectiles : Character_Status
                             //Calculating the angle
                             for (int i = 0; i < 3; i++)
                             {
-                                curCapacity--;
+                                if (GameManager.enableEZmode == 0)
+                                {
+                                    curCapacity--;
+                                }
                                 GameObject cloning = Object_Pooling.SharedInstance.GetPooledObject("Projectile");
                                 cloning.SetActive(true);
                                 cloning.transform.position = getPos;
@@ -204,7 +210,10 @@ public class Projectiles : Character_Status
                     }
                 case ShootTypes.Orb_Shots: //This one summons a portal above and behind the player. Shoots fire orbs and automatically aims nearest enemy.
                     {
-                        curCapacity--;
+                        if (GameManager.enableEZmode == 0)
+                        {
+                            curCapacity--;
+                        }
                         GameObject cloning = Object_Pooling.SharedInstance.GetPooledObject("OrbPortal");
                         cloning.SetActive(true);
                         cloning.transform.position = transform.position + -transform.forward * 1.0f + transform.up * 2.5f;
@@ -214,7 +223,10 @@ public class Projectiles : Character_Status
                     }
                 case ShootTypes.AOEShot: //This is wider comparing to the original and does the same except it goes through enemies.
                     {
-                        curCapacity--;
+                        if (GameManager.enableEZmode == 0)
+                        {
+                            curCapacity--;
+                        }
                         GameObject cloning = Object_Pooling.SharedInstance.GetPooledObject("AOEProjectile");
                         cloning.SetActive(true);
                         cloning.transform.position = getPos;

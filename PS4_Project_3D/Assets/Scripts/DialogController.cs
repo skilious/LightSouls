@@ -29,7 +29,7 @@ public class DialogController : MonoBehaviour
     {
         if(animator.GetBool("showDialog"))
         {
-            if (Input.GetKeyDown(KeyCode.X))
+            if (Input.GetButtonDown("Submit"))
             {
                 animator.SetBool("showDialog", false);
             }

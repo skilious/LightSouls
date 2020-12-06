@@ -35,7 +35,7 @@ public class TrapHandler : MonoBehaviour
             SoundManager.PlaySound(SoundManager.Sound.TrapFuse);
             Destroy(vfx, 5);
             yield return new WaitForSeconds(_countdownTime);
-            Debug.Log(Time.deltaTime);
+            //Debug.Log(Time.deltaTime);
             if (_playerTakesDamage)
                 other.gameObject.SendMessage("ReceiveDamage", _trapDamage);
         }

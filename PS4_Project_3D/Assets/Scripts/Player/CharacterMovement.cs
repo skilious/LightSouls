@@ -55,22 +55,19 @@ public class CharacterMovement : MonoBehaviour
             Movement();
         }
         //This creates a hover effect.
-        RaycastHit hit;
+        //RaycastHit hit;
         //Ray uses transform.position and direction negative transform.up to detect floor.
-        Ray ray = new Ray(transform.position, -transform.up);
+        //Ray ray = new Ray(transform.position, -transform.up);
         //2.0f is the height between the ray(floor) and the player's Y axis.
-        if (Physics.Raycast(ray, out hit, hoverHeight))
-        {
-            float height = (hoverHeight - hit.distance) / hoverHeight;
-            //This uses Vector3.up (1.0f) * height * hoverForce.
-            Vector3 appliedHoverForce = Vector3.up * height * hoverForce;
-            //AddForce rigidbody with "Acceleration" to continuously acceleration while ignoring its mass.
-            rb.AddForce(appliedHoverForce, ForceMode.Acceleration);
-        }
-        else
-        {
-            rb.velocity = new Vector3(0, Physics.gravity.y, 0);
-        }
+        //if (Physics.Raycast(ray, out hit, hoverHeight))
+        //{
+        //    float height = (hoverHeight - hit.distance) / hoverHeight;
+        //    //This uses Vector3.up (1.0f) * height * hoverForce.
+        //    Vector3 appliedHoverForce = Vector3.up * height * hoverForce;
+        //    //AddForce rigidbody with "Acceleration" to continuously acceleration while ignoring its mass.
+        //    rb.AddForce(appliedHoverForce, ForceMode.Acceleration);
+        //} //Animation replaced this.
+        //rb.velocity = new Vector3(0, Physics.gravity.y, 0);
     }
 
     private void Update()

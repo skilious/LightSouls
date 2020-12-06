@@ -1945,8 +1945,7 @@ MonoBehaviour:
   dialogCanvas: {fileID: 1838851149}
   animator: {fileID: 0}
   textMeshProText: {fileID: 0}
-  textDialogue: This is the checkpoint that heals and saves. Just for this tutorial,
-    it won't save.
+  textDialogue: You found the healing pad!
 --- !u!1001 &159691679
 PrefabInstance:
   m_ObjectHideFlags: 0

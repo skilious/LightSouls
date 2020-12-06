@@ -31,7 +31,7 @@ public static class SoundManager
     {
         GameObject gameObject = new GameObject("Sound", typeof(AudioSource));
         AudioSource audioSource = gameObject.GetComponent<AudioSource>();
-        audioSource.PlayOneShot(GetAudioClip(sound), volumeScale: 0.1f);
+        audioSource.PlayOneShot(GetAudioClip(sound), volumeScale: 0.05f);
     }
 
     private static AudioClip GetAudioClip(Sound sound)

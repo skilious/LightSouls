@@ -9105,6 +9105,10 @@ MonoBehaviour:
   soundAudioClipArray:
   - sound: 3
     audioClip: {fileID: 8300000, guid: 92ab308720094cc49b1b7c2bec678064, type: 3}
+  - sound: 4
+    audioClip: {fileID: 8300000, guid: 33358bf57d4535840a0e37aebe6ef61a, type: 3}
+  - sound: 5
+    audioClip: {fileID: 8300000, guid: 0dcbc982e5a4b74479156a6ae06071a4, type: 3}
 --- !u!4 &709085330
 Transform:
   m_ObjectHideFlags: 0

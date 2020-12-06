@@ -31,7 +31,6 @@ public class Projectile_Laser1 : ProjectileBase
             GameObject onHit = Instantiate(onHitPrefab, transform.position, transform.rotation);
             Destroy(onHit, 0.25f);
             other.gameObject.SendMessage("ReceiveDamage", damage);
-            print("Painful as feck");
         }
     }
     protected new void OnEnable()
